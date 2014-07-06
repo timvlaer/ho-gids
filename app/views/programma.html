@@ -1,0 +1,15 @@
+<div ng-repeat="dag in programma" class="programma">
+	<h2>{{dag.dag}}</h2>
+
+	<div class="row programmaItem" ng-repeat="item in dag.items">
+		<div class="col-md-12">
+			<h4>
+				<small>{{item.start}} <span ng-show="item.stop">- {{item.stop}}</span></small> 
+				{{item.titel}}
+				<span class="label label-default">{{item.plaats}}</span>
+			</h4>
+			<p ng-show="item.beschrijving">{{item.beschrijving}}</p>
+		</div>
+	</div>
+
+</div>
