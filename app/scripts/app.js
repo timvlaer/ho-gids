@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngCordova'
+    'ngCordova',
+    'wu.masonry'
   ])
   .config(function ($routeProvider) {
     $routeProvider

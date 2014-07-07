@@ -3,12 +3,24 @@
 
 	<div class="row programmaItem" ng-repeat="item in dag.items">
 		<div class="col-md-12">
+			<div class="pull-right" ng-show="item.subitems">
+				<button type="button" class="btn btn-link" ng-click="openSubitems = !openSubitems">
+					<span class="glyphicon glyphicon-chevron-down"></span>
+				</button>
+			</div>
 			<h4>
 				<small>{{item.start}} <span ng-show="item.stop">- {{item.stop}}</span></small> 
 				{{item.titel}}
 				<span class="label label-default">{{item.plaats}}</span>
 			</h4>
 			<p ng-show="item.beschrijving">{{item.beschrijving}}</p>
+
+			<div class="subitems-container" masonry="{gutter:5}">
+				<div class="programmaSubitem masonry-brick" ng-repeat="subitem in item.subitems">
+					{{subitem.titel}} {{subitem.plaats}}
+				</div>
+			</div>	
+
 		</div>
 	</div>
 
