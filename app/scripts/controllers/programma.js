@@ -8,10 +8,6 @@
  * Controller of the hoGidsApp
  */
 angular.module('hoGidsApp')
-  .controller('ProgrammaCtrl', function ($scope, Programma) {
-    
-    console.log(Programma);
+  .controller('ProgrammaCtrl', function ($scope, Programma) {    
   	$scope.programma = Programma.programma;
-
-
   });

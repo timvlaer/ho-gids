@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/programma.css">
     <!-- endbuild -->
+
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="hoGidsApp">
     <!--[if lt IE 7]>
@@ -29,11 +31,10 @@
         <h3 class="text-muted">HO 2014</h3>
       </div>  
     </nav>
-
+    
+    <div ng-view=""></div>
 
     <div class="container">
-      <div ng-view=""></div>
-
       <div class="footer">
         <p>Scouting, da's durven! &mdash; Scouts en Gidsen Vlaanderen</p>
       </div>
@@ -88,7 +89,6 @@
     <script src="bower_components/matches-selector/matches-selector.js"></script>
     <script src="bower_components/outlayer/item.js"></script>
     <script src="bower_components/outlayer/outlayer.js"></script>
-    <script src="bower_components/ngCordova/dist/ng-cordova.min.js"></script>
     <script src="bower_components/masonry/masonry.js"></script>
     <script src="bower_components/imagesloaded/imagesloaded.js"></script>
     <script src="bower_components/angular-masonry/angular-masonry.js"></script>
