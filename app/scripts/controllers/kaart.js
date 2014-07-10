@@ -9,9 +9,13 @@
  */
 angular.module('hoGidsApp')
   .controller('KaartCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
+	angular.extend($scope, {
+	    center: {
+	        lat: 51.242406,
+	        lng: 4.937968,
+	        zoom: 14
+	    }
+	});
+
   });

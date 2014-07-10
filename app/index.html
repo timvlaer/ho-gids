@@ -8,6 +8,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="bower_components/leaflet-dist/leaflet.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -32,13 +34,14 @@
       </div>  
     </nav>
     
+    
     <div ng-view=""></div>
 
-    <div class="container">
-      <div class="footer">
-        <p>Scouting, da's durven! &mdash; Scouts en Gidsen Vlaanderen</p>
-      </div>
+    
+    <div class="footer">
+      <p>Herfstontmoeting 2014 &mdash; Scouts en Gidsen Vlaanderen</p>
     </div>
+    
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -92,6 +95,10 @@
     <script src="bower_components/masonry/masonry.js"></script>
     <script src="bower_components/imagesloaded/imagesloaded.js"></script>
     <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+    <script src="bower_components/leaflet/dist/leaflet.js"></script>
+    <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
+    <script src="bower_components/leaflet-dist/leaflet.js"></script>
+    <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
