@@ -15,7 +15,13 @@ angular.module('hoGidsApp')
 	        lat: 51.242406,
 	        lng: 4.937968,
 	        zoom: 14
-	    }
+	    },
+	    events: {
+            map: {
+                enable: ['locationfound', 'locationerror'],
+                logic: 'emit'
+            }
+        }
 	});
 
 	var styles = {
@@ -75,5 +81,33 @@ angular.module('hoGidsApp')
 				}
 			});
 		});
+
+	function onLocationFound(e) {
+		/*var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(map)
+			.bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+		L.circle(e.latlng, radius).addTo(map);*/
+		
+		angular.extend($scope, {
+				markers: {
+					yourlocation: {
+						lat: e.lat,
+						lng: e.lng,
+						focus: true,
+						draggable: false
+					}
+				}
+			});
+	}
+
+	function onLocationError(e) {
+		alert(e.message);
+	}
+
+	$scope.$on('leafletDirectiveMap.locationfound', onLocationFound);
+    $scope.$on('leafletDirectiveMap.locationerror', onLocationError);
+	
 
   });
