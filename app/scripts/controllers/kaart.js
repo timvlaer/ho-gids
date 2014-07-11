@@ -72,12 +72,27 @@ angular.module('hoGidsApp')
 		return style || styles.default;
     };
 
+    function pointToLayer(feature, latlng) {
+        return L.circleMarker(latlng, {
+			    radius: 4,
+			    fillColor: '#00547b',
+			    weight: 0,
+			    fillOpacity: 1
+			});
+    };
+
+    function filter(feature, layer) {
+        return true; //feature.properties.show_on_map;
+    };				
+
 	$http.get("data/map.geojson")
 		.success(function(data, status) {
 			angular.extend($scope, {
 				geojson: {
 					data: data,
-					style: style
+					style: style,
+					pointToLayer: pointToLayer,
+					filter: filter
 				}
 			});
 		});
