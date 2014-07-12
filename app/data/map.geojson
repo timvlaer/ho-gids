@@ -3014,7 +3014,10 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "style": "faciliteit",
+        "name": "sanitair"
+      },
       "geometry": {
         "type": "Point",
         "coordinates": [

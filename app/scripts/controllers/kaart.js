@@ -26,19 +26,19 @@ angular.module('hoGidsApp')
 
 	var styles = {
 		'pavilioen': {
-			fillColor: 'yellow',
+			fillColor: '#A64E1B',
 			fillOpacity: 0.7,
-            weight: 0          
+            stroke: false         
 		},
 		'loods': {
-			fillColor: 'yellow',
+			fillColor: '#733613',
 			fillOpacity: 0.7,
-            weight: 0          
+            stroke: false        
 		},
 		'kampeergrond': {
-			fillColor: '#c40000',
+			fillColor: '#D9A443',
 			fillOpacity: 0.7,
-            weight: 0          
+            stroke: false        
 		},
 		'weg-hard': {
             weight: 4,
@@ -57,6 +57,12 @@ angular.module('hoGidsApp')
             color: 'white',
             dashArray: '3'
         },
+        'faciliteit': {
+        	stroke: false,
+		    radius: 4,
+		    fillColor: '#04C4D9',
+		    fillOpacity: 1
+        },
         'default': {
 			fillColor: 'black',
             weight: 1,
@@ -72,17 +78,42 @@ angular.module('hoGidsApp')
 		return style || styles.default;
     };
 
+    var icons = {
+    	'ehboIcon': L.icon({
+			iconUrl: 'images/kaart/ehbo.png',
+			iconSize: [16, 16],
+			iconAnchor: [8, 8],
+			popupAnchor: [0, -16]
+		}),
+		'infoIcon': L.icon({
+			iconUrl: 'images/kaart/info.png',
+			iconSize: [16, 16],
+			iconAnchor: [8, 8],
+			popupAnchor: [0, -16]
+		}),
+		'sisIcon': L.icon({
+			iconUrl: 'images/kaart/sis.png',
+			iconSize: [16, 16],
+			iconAnchor: [8, 8],
+			popupAnchor: [0, -16]
+		})
+    };
+
+
     function pointToLayer(feature, latlng) {
-        return L.circleMarker(latlng, {
-			    radius: 4,
-			    fillColor: '#00547b',
-			    weight: 0,
-			    fillOpacity: 1
-			});
+    	if(feature.properties.name) {
+    		switch (feature.properties.name.toLowerCase()) {
+			    case "ehbo": return L.marker(latlng, {icon: icons.ehboIcon});			        
+			    case "infopunt": return L.marker(latlng, {icon: icons.infoIcon});
+			    case 'sis': return L.marker(latlng, {icon: icons.sisIcon});
+			    //case 'onthaal': return L.marker(latlng, {icon: icons.onthaalIcon});
+			}
+    	}
+        return L.circleMarker(latlng, {});
     };
 
     function filter(feature, layer) {
-        return true; //feature.properties.show_on_map;
+        return !(feature.properties.show_on_map === false);
     };				
 
 	$http.get("data/map.geojson")
@@ -96,33 +127,6 @@ angular.module('hoGidsApp')
 				}
 			});
 		});
-
-	function onLocationFound(e) {
-		/*var radius = e.accuracy / 2;
-
-		L.marker(e.latlng).addTo(map)
-			.bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-		L.circle(e.latlng, radius).addTo(map);*/
-		
-		angular.extend($scope, {
-				markers: {
-					yourlocation: {
-						lat: e.lat,
-						lng: e.lng,
-						focus: true,
-						draggable: false
-					}
-				}
-			});
-	}
-
-	function onLocationError(e) {
-		alert(e.message);
-	}
-
-	$scope.$on('leafletDirectiveMap.locationfound', onLocationFound);
-    $scope.$on('leafletDirectiveMap.locationerror', onLocationError);
 	
 
   });
