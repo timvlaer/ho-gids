@@ -37,6 +37,15 @@ body {
       text-decoration: none;
     }
   }
+
+  a {
+    color: #7c901f;
+  }
+
+  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #7c901f;
+  } 
+
 }
 
 /* Custom page footer */

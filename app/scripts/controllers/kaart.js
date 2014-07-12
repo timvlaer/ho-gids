@@ -5,7 +5,7 @@ var labelClassName = 'map-label';
 var hogeRielenCenter = {
     lat: 51.24230669704754,
     lng: 4.936895370483398,
-    zoom: 13
+    zoom: 14
 }
 var hogeRielenBounds = {
     northEast: {
@@ -29,6 +29,9 @@ angular.module('hoGidsApp')
   .controller('KaartCtrl', function ($scope, $http, leafletData) {
 
 	angular.extend($scope, {
+		defaults: {
+			'minZoom': 14
+		},
 	    center: hogeRielenCenter,
 	    maxbounds: hogeRielenBounds,
 	    events: {
@@ -170,6 +173,36 @@ angular.module('hoGidsApp')
     		var newIconSize = (zoomLevel <= 15) ? (16-((18-zoomLevel)*2)) : 16;
     		angular.element('.leaflet-marker-icon').css('width', newIconSize + 'px').css('height', newIconSize + 'px');        	
         });
+    };
+
+    function initGetUserLocation() {
+	    leafletData.getMap().then(function(map) {
+	        map.on('locationfound', locationFound);
+	        map.locate({
+	        	'watch': true,
+	        	'enableHighAccuracy': true
+	        });        
+	    });
+	}
+	initGetUserLocation();
+
+	var preciseLocationPointer;
+	var radiusPointer; 
+    function locationFound(event) {
+    	leafletData.getMap().then(function(map) {
+    		var radius = event.accuracy/2;
+    		if(preciseLocationPointer) {
+    			preciseLocationPointer.setLatLng(event.latlng);
+    			radiusPointer.setLatLng(event.latlng);
+    			radiusPointer.setRadius(radius);
+    		} else {
+    			preciseLocationPointer = L.circle(event.latlng, 2, {fillOpacity: 1, stroke: false});
+			    preciseLocationPointer.addTo(map);
+			    radiusPointer = L.circle(event.latlng, radius, {fillOpacity: 0.3, stroke: false});
+			    radiusPointer.addTo(map);
+    		}
+		    
+    	});
     }	
 
 	$scope.$on('leafletDirectiveMap.layeradd', correctElementSizeWithZoom);
