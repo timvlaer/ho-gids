@@ -29,6 +29,13 @@ body {
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 19px;
+
+    a {
+      color: white;
+    }
+    a:hover {
+      text-decoration: none;
+    }
   }
 }
 

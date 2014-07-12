@@ -27,18 +27,28 @@ angular.module('hoGidsApp')
 	var styles = {
 		'pavilioen': {
 			fillColor: '#A64E1B',
-			fillOpacity: 0.7,
+			fillOpacity: 1,
             stroke: false         
 		},
 		'loods': {
 			fillColor: '#733613',
-			fillOpacity: 0.7,
+			fillOpacity: 1,
             stroke: false        
 		},
 		'kampeergrond': {
 			fillColor: '#D9A443',
 			fillOpacity: 0.7,
             stroke: false        
+		},
+		'grond': {
+			fillColor: '#D9A443',
+			fillOpacity: 0.7,
+            stroke: false        
+		},
+		'vijver': {
+			fillColor: '#04D9D9',
+			fillOpacity: 0.7,
+            stroke: false			
 		},
 		'weg-hard': {
             weight: 4,
