@@ -529,7 +529,7 @@
       "type": "Feature",
       "properties": {
         "name": "KKK",
-        "style": "grond"
+        "style": "kampeergrond"
       },
       "geometry": {
         "type": "Polygon",
@@ -567,7 +567,7 @@
       "type": "Feature",
       "properties": {
         "name": "KKG",
-        "style": "grond"
+        "style": "podiumgrond"
       },
       "geometry": {
         "type": "Polygon",
@@ -756,7 +756,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Natuur & Avontuur",
+        "name": "N&A",
         "style": "pavilioen"
       },
       "geometry": {

@@ -1,5 +1,23 @@
 'use strict';
 
+var labelClassName = 'map-label';
+
+var hogeRielenCenter = {
+    lat: 51.24230669704754,
+    lng: 4.936895370483398,
+    zoom: 13
+}
+var hogeRielenBounds = {
+    northEast: {
+        lat: 51.250734,
+        lng: 4.955134
+    },
+    southWest: {
+        lat: 51.235000,
+        lng: 4.9164500
+    }
+};
+
 /**
  * @ngdoc function
  * @name hoGidsApp.controller:KaartCtrl
@@ -8,23 +26,25 @@
  * Controller of the hoGidsApp
  */
 angular.module('hoGidsApp')
-  .controller('KaartCtrl', function ($scope, $http) {
+  .controller('KaartCtrl', function ($scope, $http, leafletData) {
 
 	angular.extend($scope, {
-	    center: {
-	        lat: 51.242406,
-	        lng: 4.937968,
-	        zoom: 14
-	    },
+	    center: hogeRielenCenter,
+	    maxbounds: hogeRielenBounds,
 	    events: {
             map: {
-                enable: ['locationfound', 'locationerror'],
+                enable: ['layeradd', 'zoomend'],
                 logic: 'emit'
             }
         }
 	});
 
 	var styles = {
+		'podiumgrond': {
+			fillColor: '#BF244E',
+			fillOpacity: 1,
+            stroke: false         
+		},
 		'pavilioen': {
 			fillColor: '#A64E1B',
 			fillOpacity: 1,
@@ -37,17 +57,12 @@ angular.module('hoGidsApp')
 		},
 		'kampeergrond': {
 			fillColor: '#D9A443',
-			fillOpacity: 0.7,
-            stroke: false        
-		},
-		'grond': {
-			fillColor: '#D9A443',
-			fillOpacity: 0.7,
+			fillOpacity: 1,
             stroke: false        
 		},
 		'vijver': {
 			fillColor: '#04D9D9',
-			fillOpacity: 0.7,
+			fillOpacity: 1,
             stroke: false			
 		},
 		'weg-hard': {
@@ -82,35 +97,27 @@ angular.module('hoGidsApp')
 		}
 	};
 
+    var icons = {
+    	'ehboIcon': L.icon({
+			iconUrl: 'images/kaart/ehbo.png',
+			iconSize: [16, 16]
+		}),
+		'infoIcon': L.icon({
+			iconUrl: 'images/kaart/info.png',
+			iconSize: [16, 16]
+		}),
+		'sisIcon': L.icon({
+			iconUrl: 'images/kaart/sis.png',
+			iconSize: [16, 16]
+		})
+    };
+
 	function style(feature) {
-		console.log(feature.properties.style)
 		var style  = styles[feature.properties.style];
 		return style || styles.default;
     };
 
-    var icons = {
-    	'ehboIcon': L.icon({
-			iconUrl: 'images/kaart/ehbo.png',
-			iconSize: [16, 16],
-			iconAnchor: [8, 8],
-			popupAnchor: [0, -16]
-		}),
-		'infoIcon': L.icon({
-			iconUrl: 'images/kaart/info.png',
-			iconSize: [16, 16],
-			iconAnchor: [8, 8],
-			popupAnchor: [0, -16]
-		}),
-		'sisIcon': L.icon({
-			iconUrl: 'images/kaart/sis.png',
-			iconSize: [16, 16],
-			iconAnchor: [8, 8],
-			popupAnchor: [0, -16]
-		})
-    };
-
-
-    function pointToLayer(feature, latlng) {
+    function markerIcon(feature, latlng) {
     	if(feature.properties.name) {
     		switch (feature.properties.name.toLowerCase()) {
 			    case "ehbo": return L.marker(latlng, {icon: icons.ehboIcon});			        
@@ -119,12 +126,25 @@ angular.module('hoGidsApp')
 			    //case 'onthaal': return L.marker(latlng, {icon: icons.onthaalIcon});
 			}
     	}
-        return L.circleMarker(latlng, {});
+        return L.circle(latlng, 7);
     };
 
     function filter(feature, layer) {
         return !(feature.properties.show_on_map === false);
-    };				
+    };			
+
+    function addLabel(feature, layer) {
+    	if(feature.properties.name && feature.geometry.type == 'Polygon') {
+	    	var labelIcon = L.divIcon({
+	    		className: labelClassName,
+	    		html: feature.properties.name
+	    	});
+	    	var featurePolygon = L.polygon(layer._latlngs);
+	    	leafletData.getMap().then(function(map) {
+                L.marker(featurePolygon.getBounds().getCenter(), {icon: labelIcon}).addTo(map); 
+            });
+    	}
+    }	
 
 	$http.get("data/map.geojson")
 		.success(function(data, status) {
@@ -132,11 +152,28 @@ angular.module('hoGidsApp')
 				geojson: {
 					data: data,
 					style: style,
-					pointToLayer: pointToLayer,
-					filter: filter
+					pointToLayer: markerIcon,
+					filter: filter,
+					onEachFeature: addLabel
 				}
 			});
 		});
+
+	function correctElementSizeWithZoom(){
+        leafletData.getMap().then(function(map) {
+        	var zoomLevel = map.getZoom();
+
+        	//resize labels        	
+        	angular.element('.' + labelClassName).css('fontSize', (zoomLevel-4) + 'px');
+        	
+        	//resize icons
+    		var newIconSize = (zoomLevel <= 15) ? (16-((18-zoomLevel)*2)) : 16;
+    		angular.element('.leaflet-marker-icon').css('width', newIconSize + 'px').css('height', newIconSize + 'px');        	
+        });
+    }	
+
+	$scope.$on('leafletDirectiveMap.layeradd', correctElementSizeWithZoom);
+	$scope.$on('leafletDirectiveMap.zoomend', correctElementSizeWithZoom);
 	
 
   });

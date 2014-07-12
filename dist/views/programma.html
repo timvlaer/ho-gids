@@ -1,4 +1,4 @@
-<div ng-repeat="dag in programma" class="programma"> <h2>{{dag.dag}}</h2> <div class="programmaItem container-fluid" ng-repeat="item in dag.items"> <div class="row"> <div class="col-xs-3 tijd"> <p>{{item.start}} <span ng-show="item.stop">- {{item.stop}}</span></p> </div> <div class="col-xs-9 omschrijving"> <!--<div class="pull-right" ng-show="item.subitems">
+<div ng-repeat="dag in programma" class="programma"> <h2>{{dag.dag}}</h2> <div class="programmaItem container-fluid" ng-repeat="item in dag.items"> <div class="row"> <div class="col-xs-4 tijd"> <p>{{item.start}} <span ng-show="item.stop">- {{item.stop}}</span></p> </div> <div class="col-xs-8 omschrijving"> <!--<div class="pull-right" ng-show="item.subitems">
 					<button type="button" class="btn btn-link hidden">
 						<span class="glyphicon glyphicon-chevron-down"></span>
 					</button>
