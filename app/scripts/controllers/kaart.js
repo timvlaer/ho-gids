@@ -54,7 +54,7 @@ angular.module('hoGidsApp')
             stroke: false         
 		},
 		'loods': {
-			fillColor: '#733613',
+			fillColor: '#A64E1B',
 			fillOpacity: 1,
             stroke: false        
 		},
@@ -166,8 +166,9 @@ angular.module('hoGidsApp')
         leafletData.getMap().then(function(map) {
         	var zoomLevel = map.getZoom();
 
-        	//resize labels        	
-        	angular.element('.' + labelClassName).css('fontSize', (zoomLevel-4) + 'px');
+        	//resize labels
+			var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 9, '17': 12, '18': 16}
+        	angular.element('.' + labelClassName).css('fontSize', zoomLevelFontSizeMapping[zoomLevel] + 'px');
         	
         	//resize icons
     		var newIconSize = (zoomLevel <= 15) ? (16-((18-zoomLevel)*2)) : 16;
@@ -207,6 +208,5 @@ angular.module('hoGidsApp')
 
 	$scope.$on('leafletDirectiveMap.layeradd', correctElementSizeWithZoom);
 	$scope.$on('leafletDirectiveMap.zoomend', correctElementSizeWithZoom);
-	
 
   });

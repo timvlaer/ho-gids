@@ -12,13 +12,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 /* Space out content a bit */
 body {  
-  padding-top: 80px;
+  padding-top: 60px;
   padding-bottom: 20px;
 }
 
 
 .header {  
-  padding-top: 20px;
+  padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: black;
@@ -28,7 +28,7 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
-    padding-bottom: 19px;
+    padding-bottom: 10px;
 
     a {
       color: white;
@@ -40,6 +40,10 @@ body {
 
   a {
     color: #7c901f;
+  }
+
+  .nav-pills > li + li {
+    margin-left: 6px;
   }
 
   .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {

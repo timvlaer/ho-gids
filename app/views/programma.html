@@ -3,7 +3,7 @@
 
 	<div class="programmaItem container-fluid" ng-repeat="item in dag.items">
 		
-		<div class="row">
+		<div class="row" ng-class="{'clickable':item.plaats && !item.subitems}" ng-click="toonOpKaart(item)">
 			<div class="col-xs-4 tijd">
 				<p>{{item.start}} <span ng-show="item.stop">- {{item.stop}}</span></p> 				
 			</div>
@@ -13,7 +13,7 @@
 						<span class="glyphicon glyphicon-chevron-down"></span>
 					</button>
 				</div>-->
-				<h5>{{item.titel}} <small>{{item.plaats}}</small></h5>			
+				<h5>{{item.titel}} <small class="plaats">{{item.plaats}}</small></h5>			
 				<p ng-show="item.beschrijving" class="beschrijving">{{item.beschrijving}}</p>
 			</div>
 			<!--<div class="col-xs-3 plaats">
@@ -21,10 +21,10 @@
 			</div>-->
 		</div>
 
-		<div class="row">
+		<div class="row" ng-show="item.subitems">
 			<div class="col-xs-12">
 				<div class="subitems-container" masonry="{gutter:10}">
-					<div class="programmaSubitem masonry-brick" ng-repeat="subitem in item.subitems">
+					<div class="programmaSubitem clickable masonry-brick" ng-repeat="subitem in item.subitems" ng-click="toonOpKaart(subitem)">
 						{{subitem.titel}} 
 						<span class="plaats">[{{subitem.plaats}}]</span>
 					</div>

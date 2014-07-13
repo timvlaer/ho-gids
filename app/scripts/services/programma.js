@@ -105,7 +105,7 @@ angular.module('hoGidsApp')
 	    },
 	    {
 	        'titel': 'Groepsadministratie',
-	        'plaats': 'Natuur en Avontuur',
+	        'plaats': 'Natuur & Avontuur',
 	        'beschrijving': 'Het adressenbestand van je scouts- of gidsengroep beheren en de aansluiting van je leden bij Scouts en Gidsen Vlaanderen gebeurt via de Groepsadministratie. Maar er zijn zoveel meer tools, leuke snufjes en manieren om de Groepsadministratie te gebruiken. Wilde je al lang een nieuwsbrief sturen naar je ouders of je oud-leidingsploeg organiseren of wil je de nieuwe snufjes ontdekken? Leer het allemaal in dit thema.'
 	    }
 	];

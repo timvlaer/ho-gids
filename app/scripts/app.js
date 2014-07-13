@@ -36,4 +36,9 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function() {
+    if(navigator.splashscreen) {
+      navigator.splashscreen.hide();
+    }
   });
