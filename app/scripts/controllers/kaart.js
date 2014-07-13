@@ -1,20 +1,21 @@
 'use strict';
 
 var labelClassName = 'map-label';
+var iconClassName = 'map-icon';
 
 var hogeRielenCenter = {
     lat: 51.24230669704754,
     lng: 4.936895370483398,
     zoom: 14
-}
+};
 var hogeRielenBounds = {
     northEast: {
-        lat: 51.250734,
-        lng: 4.955134
+        lat: 51.2530,
+        lng: 4.9570
     },
     southWest: {
-        lat: 51.235000,
-        lng: 4.9164500
+        lat: 51.2300,
+        lng: 4.90900
     }
 };
 
@@ -27,8 +28,6 @@ var hogeRielenBounds = {
  */
 angular.module('hoGidsApp')
   .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams) {
-
-  	console.log("bla bla", $routeParams.highlightPlaats);
 
 	angular.extend($scope, {
 		defaults: {
@@ -43,6 +42,8 @@ angular.module('hoGidsApp')
             }
         }
 	});
+
+	var locations = {};
 
 	var styles = {
 		'podiumgrond': {
@@ -105,21 +106,23 @@ angular.module('hoGidsApp')
     var icons = {
     	'ehboIcon': L.icon({
 			iconUrl: 'images/kaart/ehbo.png',
-			iconSize: [16, 16]
+			iconSize: [16, 16],
+			className: iconClassName
 		}),
 		'infoIcon': L.icon({
 			iconUrl: 'images/kaart/info.png',
-			iconSize: [16, 16]
+			iconSize: [16, 16],
+			className: iconClassName
 		}),
 		'sisIcon': L.icon({
 			iconUrl: 'images/kaart/sis.png',
-			iconSize: [16, 16]
+			iconSize: [16, 16],
+			className: iconClassName
 		})
     };
 
 	function style(feature) {
-		var style  = styles[feature.properties.style];
-		return style || styles.default;
+		return styles[feature.properties.style] || styles.default;
     };
 
     function markerIcon(feature, latlng) {
@@ -136,7 +139,13 @@ angular.module('hoGidsApp')
 
     function filter(feature, layer) {
         return !(feature.properties.show_on_map === false);
-    };			
+    };	
+
+    function onEachFeature(feature, layer) {
+    	addLabel(feature, layer);
+    	addToIndex(feature, layer);
+    	checkIfUserSelectedThisFeature(feature, layer);
+    }		
 
     function addLabel(feature, layer) {
     	if(feature.properties.name && feature.geometry.type == 'Polygon') {
@@ -149,7 +158,32 @@ angular.module('hoGidsApp')
                 L.marker(featurePolygon.getBounds().getCenter(), {icon: labelIcon}).addTo(map); 
             });
     	}
-    }	
+    };	
+
+    function addToIndex(feature, layer) {
+    	if(feature.properties.name) {
+    		locations[feature.properties.name] = layer;
+    	}
+    	if(feature.properties.fullName) {
+    		locations[feature.properties.fullName] = layer;
+    	}
+    };
+
+    function checkIfUserSelectedThisFeature(feature, layer) {
+    	if($routeParams.highlightPlaats) {
+	    	if((feature.properties.name && feature.properties.name.toLowerCase() == $routeParams.highlightPlaats.toLowerCase()) 
+	    		|| (feature.properties.fullName && feature.properties.fullName.toLowerCase() == $routeParams.highlightPlaats.toLowerCase())) {
+	    		console.log("ja", feature.properties.name);
+	    		var featurePolygon = L.polygon(layer._latlngs);
+	    		leafletData.getMap().then(function(map) {
+	    			var highlightCoordinates = featurePolygon.getBounds().getCenter();
+	    			L.marker(highlightCoordinates).addTo(map);
+	    			//map.zoomIn(2, {'animate': true});
+	    			map.panTo(highlightCoordinates, {'animate': true, 'duration': 1});	    			
+	    		});
+	    	}
+    	}
+    };
 
 	$http.get("data/map.geojson")
 		.success(function(data, status) {
@@ -159,7 +193,7 @@ angular.module('hoGidsApp')
 					style: style,
 					pointToLayer: markerIcon,
 					filter: filter,
-					onEachFeature: addLabel
+					onEachFeature: onEachFeature
 				}
 			});
 		});
@@ -174,7 +208,7 @@ angular.module('hoGidsApp')
         	
         	//resize icons
     		var newIconSize = (zoomLevel <= 15) ? (16-((18-zoomLevel)*2)) : 16;
-    		angular.element('.leaflet-marker-icon').css('width', newIconSize + 'px').css('height', newIconSize + 'px');        	
+    		angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px');        	
         });
     };
 

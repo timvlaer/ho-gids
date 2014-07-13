@@ -8,17 +8,9 @@
 				<p>{{item.start}} <span ng-show="item.stop">- {{item.stop}}</span></p> 				
 			</div>
 			<div class="col-xs-8 omschrijving">
-				<!--<div class="pull-right" ng-show="item.subitems">
-					<button type="button" class="btn btn-link hidden">
-						<span class="glyphicon glyphicon-chevron-down"></span>
-					</button>
-				</div>-->
 				<h5>{{item.titel}} <small class="plaats">{{item.plaats}}</small></h5>			
 				<p ng-show="item.beschrijving" class="beschrijving">{{item.beschrijving}}</p>
 			</div>
-			<!--<div class="col-xs-3 plaats">
-				<span class="">{{item.plaats}}</span>
-			</div>-->
 		</div>
 
 		<div class="row" ng-show="item.subitems">
