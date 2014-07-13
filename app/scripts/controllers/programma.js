@@ -8,12 +8,12 @@
  * Controller of the hoGidsApp
  */
 angular.module('hoGidsApp')
-  .controller('ProgrammaCtrl', function ($scope, Programma) {    
+  .controller('ProgrammaCtrl', function ($scope, $location, Programma) {    
   	$scope.programma = Programma.programma;
 
   	$scope.toonOpKaart = function(item) {
   		if(item.plaats) {
-  			console.log(item.plaats);
+  			$location.path('/kaart/' + item.plaats);
   		}
   	}
 

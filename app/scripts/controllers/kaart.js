@@ -26,7 +26,9 @@ var hogeRielenBounds = {
  * Controller of the hoGidsApp
  */
 angular.module('hoGidsApp')
-  .controller('KaartCtrl', function ($scope, $http, leafletData) {
+  .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams) {
+
+  	console.log("bla bla", $routeParams.highlightPlaats);
 
 	angular.extend($scope, {
 		defaults: {

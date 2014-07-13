@@ -33,6 +33,10 @@ angular
         templateUrl: 'views/kaart.html',
         controller: 'KaartCtrl'
       })
+      .when('/kaart/:highlightPlaats', {
+        templateUrl: 'views/kaart.html',
+        controller: 'KaartCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
