@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "style": "vijver"
+        "style": "vijver",
+        "name": "Vijver 1"
       },
       "geometry": {
         "type": "Polygon",
@@ -567,15 +568,16 @@
       "type": "Feature",
       "properties": {
         "name": "KKG",
-        "style": "podiumgrond"
+        "style": "podiumgrond",
+        "alias": "KKG markt, KKG groot podium, KKG podium"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              4.936409890651703,
-              51.23919850678701
+              4.936423301696777,
+              51.239193469031036
             ],
             [
               4.9362194538116455,
@@ -590,8 +592,8 @@
               51.238938222005864
             ],
             [
-              4.936409890651703,
-              51.23919850678701
+              4.936423301696777,
+              51.239193469031036
             ]
           ]
         ]
@@ -757,7 +759,8 @@
       "type": "Feature",
       "properties": {
         "name": "N&A",
-        "style": "pavilioen"
+        "style": "pavilioen",
+        "alias": "Natuur & Avontuur"
       },
       "geometry": {
         "type": "Polygon",
@@ -1086,7 +1089,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "tejater",
+        "name": "Tejater",
         "style": "pavilioen"
       },
       "geometry": {
@@ -3307,6 +3310,41 @@
           [
             4.919037222862244,
             51.2408122395596
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Touw",
+        "alias": "Touwenparcours",
+        "style": "bos"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.927046298980712,
+              51.239717392698296
+            ],
+            [
+              4.927212595939636,
+              51.239955843160686
+            ],
+            [
+              4.927888512611388,
+              51.23988531568786
+            ],
+            [
+              4.927749037742615,
+              51.239677091089575
+            ],
+            [
+              4.927046298980712,
+              51.239717392698296
+            ]
           ]
         ]
       }

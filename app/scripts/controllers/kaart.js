@@ -71,6 +71,11 @@ angular.module('hoGidsApp')
 			fillOpacity: 1,
             stroke: false			
 		},
+		'bos': {
+			fillColor: '#07E668',
+			fillOpacity: 1,
+            stroke: false			
+		},
 		'weg-hard': {
             weight: 4,
             opacity: 1,
@@ -172,7 +177,7 @@ angular.module('hoGidsApp')
     function checkIfUserSelectedThisFeature(feature, layer) {
     	if($routeParams.highlightPlaats) {
 	    	if((feature.properties.name && feature.properties.name.toLowerCase() == $routeParams.highlightPlaats.toLowerCase()) 
-	    		|| (feature.properties.fullName && feature.properties.fullName.toLowerCase() == $routeParams.highlightPlaats.toLowerCase())) {
+	    		|| (feature.properties.alias && feature.properties.alias.toLowerCase().indexOf($routeParams.highlightPlaats.toLowerCase()) >= 0)) {
 	    		console.log("ja", feature.properties.name);
 	    		var featurePolygon = L.polygon(layer._latlngs);
 	    		leafletData.getMap().then(function(map) {
