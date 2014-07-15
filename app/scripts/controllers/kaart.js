@@ -176,12 +176,15 @@ angular.module('hoGidsApp')
     	var zoomLevel = map.getZoom();
 
     	//resize labels
-		var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 9, '17': 12, '18': 16}
+		var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 9, '17': 12, '18': 16};
     	angular.element('.' + labelClassName).css('fontSize', zoomLevelFontSizeMapping[zoomLevel] + 'px');
     	
     	//resize icons
-		var newIconSize = (zoomLevel <= 15) ? (16-((18-zoomLevel)*2)) : 16;
-		angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px');
+		var zoomLevelIconSizeMapping = {'14': 6, '15': 8, '16': 16, '17': 24, '18': 32};
+		var newIconSize = zoomLevelIconSizeMapping[zoomLevel];
+		var newMargin = -1 * newIconSize / 2;
+		angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px')
+			.css('margin-left', newMargin + 'px').css('margin-top', newMargin + 'px');
     };
 
     function initGetUserLocation() {
