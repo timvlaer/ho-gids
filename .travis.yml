@@ -1,7 +1,19 @@
 language: node_js
 node_js:
-  - '0.10'
+- '0.10'
 before_script:
-  - 'npm install -g bower grunt-cli'
-  - 'bower install'
-  - 'gem install compass'
+- npm install -g bower grunt-cli
+- bower install
+- gem install compass
+- git config --global user.email "timvanlaer@gmail.com"
+- git config --global user.name "Travis-CI"
+after_success:
+  - git config credential.helper "store --file=.git/credentials"
+  - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+  - node ./node_modules/grunt-cli/bin/grunt build
+  - git add dist
+  - git commit -m"New Dist Build by Travis-CI"
+  - git push origin master  
+env:
+  global:
+    secure: U4phGGWmuRncgvwrEpeZt7cPIdzsZv9oA27dBWguarXqmCW+NLXmzxO+eWRUlLstG2i40+Sg6jbMe6qI7KvxmwvDuftwwEcfaFT7q8hCjAFNO+rz5D6oM3dowY3w3uF9zjGDtSzX4OQYHMkNGBN8KYAbMXjNX1lsSy3x2A6rrIE=
