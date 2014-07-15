@@ -3,21 +3,8 @@
 var labelClassName = 'map-label';
 var iconClassName = 'map-icon';
 
-var hogeRielenCenter = {
-    lat: 51.24230669704754,
-    lng: 4.936895370483398,
-    zoom: 14
-};
-var hogeRielenBounds = {
-    northEast: {
-        lat: 51.2530,
-        lng: 4.9570
-    },
-    southWest: {
-        lat: 51.2300,
-        lng: 4.90900
-    }
-};
+var hogeRielenCenter =  L.latLng(51.24230669704754, 4.936895370483398);
+var hogeRielenBounds = L.latLngBounds(L.latLng(51.2300, 4.90900), L.latLng(51.2530, 4.9570));
 
 /**
  * @ngdoc function
@@ -29,21 +16,17 @@ var hogeRielenBounds = {
 angular.module('hoGidsApp')
   .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams) {
 
-	angular.extend($scope, {
-		defaults: {
-			'minZoom': 14
-		},
-	    center: hogeRielenCenter,
-	    maxbounds: hogeRielenBounds,
-	    events: {
-            map: {
-                enable: ['layeradd', 'zoomend'],
-                logic: 'emit'
-            }
-        }
-	});
+  	var map = L.map('map', {
+  		center: hogeRielenCenter,
+  		zoom: 14,
+  		minZoom: 14,
+  		maxBounds: hogeRielenBounds,
+  	});
 
-	var locations = {};
+  	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: ''}).addTo(map);
+
+	map.on('layeradd', correctElementSizeWithZoom);
+	map.on('zoomend', correctElementSizeWithZoom);
 
 	var styles = {
 		'podiumgrond': {
@@ -148,7 +131,6 @@ angular.module('hoGidsApp')
 
     function onEachFeature(feature, layer) {
     	addLabel(feature, layer);
-    	addToIndex(feature, layer);
     	checkIfUserSelectedThisFeature(feature, layer);
     }		
 
@@ -158,96 +140,73 @@ angular.module('hoGidsApp')
 	    		className: labelClassName,
 	    		html: feature.properties.name
 	    	});
-	    	var featurePolygon = L.polygon(layer._latlngs);
-	    	leafletData.getMap().then(function(map) {
-                L.marker(featurePolygon.getBounds().getCenter(), {icon: labelIcon}).addTo(map); 
-            });
-    	}
-    };	
-
-    function addToIndex(feature, layer) {
-    	if(feature.properties.name) {
-    		locations[feature.properties.name] = layer;
-    	}
-    	if(feature.properties.fullName) {
-    		locations[feature.properties.fullName] = layer;
+	    	var featurePolygon = L.polygon(layer._latlngs);	    	
+            L.marker(featurePolygon.getBounds().getCenter(), {icon: labelIcon}).addTo(map);             
     	}
     };
 
     function checkIfUserSelectedThisFeature(feature, layer) {
-    	if($routeParams.highlightPlaats) {
-	    	if((feature.properties.name && feature.properties.name.toLowerCase() == $routeParams.highlightPlaats.toLowerCase()) 
-	    		|| (feature.properties.alias && feature.properties.alias.toLowerCase().indexOf($routeParams.highlightPlaats.toLowerCase()) >= 0)) {
-	    		console.log("ja", feature.properties.name);
-	    		var featurePolygon = L.polygon(layer._latlngs);
-	    		leafletData.getMap().then(function(map) {
-	    			var highlightCoordinates = featurePolygon.getBounds().getCenter();
-	    			L.marker(highlightCoordinates).addTo(map);
-	    			//map.zoomIn(2, {'animate': true});
-	    			map.panTo(highlightCoordinates, {'animate': true, 'duration': 1});	    			
-	    		});
-	    	}
+    	if($routeParams.highlightPlaats && featureNameMatchesParam(feature)) {    	
+    		var featurePolygon = L.polygon(layer._latlngs);
+    		
+			var highlightCoordinates = featurePolygon.getBounds().getCenter();
+			L.marker(highlightCoordinates).addTo(map);
+			map.zoomIn(2, {'animate': false});
+			correctElementSizeWithZoom();
+			map.panTo(highlightCoordinates, {'animate': true, 'duration': 1});	    	
     	}
     };
 
+    function featureNameMatchesParam(feature) {
+    	return (feature.properties.name && feature.properties.name.toLowerCase() == $routeParams.highlightPlaats.toLowerCase()) 
+	    		|| (feature.properties.alias && feature.properties.alias.toLowerCase().indexOf($routeParams.highlightPlaats.toLowerCase()) >= 0)
+    }
+
 	$http.get("data/map.geojson")
 		.success(function(data, status) {
-			angular.extend($scope, {
-				geojson: {
-					data: data,
-					style: style,
-					pointToLayer: markerIcon,
-					filter: filter,
-					onEachFeature: onEachFeature
-				}
-			});
+			L.geoJson(data, {
+			    style: style,
+			    pointToLayer: markerIcon,
+			    filter: filter,
+			    onEachFeature: onEachFeature
+			}).addTo(map);
 		});
 
 	function correctElementSizeWithZoom(){
-        leafletData.getMap().then(function(map) {
-        	var zoomLevel = map.getZoom();
+    	var zoomLevel = map.getZoom();
 
-        	//resize labels
-			var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 9, '17': 12, '18': 16}
-        	angular.element('.' + labelClassName).css('fontSize', zoomLevelFontSizeMapping[zoomLevel] + 'px');
-        	
-        	//resize icons
-    		var newIconSize = (zoomLevel <= 15) ? (16-((18-zoomLevel)*2)) : 16;
-    		angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px');        	
-        });
+    	//resize labels
+		var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 9, '17': 12, '18': 16}
+    	angular.element('.' + labelClassName).css('fontSize', zoomLevelFontSizeMapping[zoomLevel] + 'px');
+    	
+    	//resize icons
+		var newIconSize = (zoomLevel <= 15) ? (16-((18-zoomLevel)*2)) : 16;
+		angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px');
     };
 
     function initGetUserLocation() {
-	    leafletData.getMap().then(function(map) {
-	        map.on('locationfound', locationFound);
-	        map.locate({
-	        	'watch': true,
-	        	'enableHighAccuracy': true
-	        });        
-	    });
+        map.on('locationfound', locationFound);
+        map.locate({
+        	'watch': true,
+        	'enableHighAccuracy': true
+        });
 	}
 	initGetUserLocation();
 
 	var preciseLocationPointer;
 	var radiusPointer; 
     function locationFound(event) {
-    	leafletData.getMap().then(function(map) {
-    		var radius = event.accuracy/2;
-    		if(preciseLocationPointer) {
-    			preciseLocationPointer.setLatLng(event.latlng);
-    			radiusPointer.setLatLng(event.latlng);
-    			radiusPointer.setRadius(radius);
-    		} else {
-    			preciseLocationPointer = L.circle(event.latlng, 2, {fillOpacity: 1, stroke: false});
-			    preciseLocationPointer.addTo(map);
-			    radiusPointer = L.circle(event.latlng, radius, {fillOpacity: 0.3, stroke: false});
-			    radiusPointer.addTo(map);
-    		}
-		    
-    	});
+		var radius = event.accuracy/2;
+		if(preciseLocationPointer) {
+			preciseLocationPointer.setLatLng(event.latlng);
+			radiusPointer.setLatLng(event.latlng);
+			radiusPointer.setRadius(radius);
+		} else {
+			preciseLocationPointer = L.circle(event.latlng, 2, {fillOpacity: 1, stroke: false});
+		    preciseLocationPointer.addTo(map);
+		    radiusPointer = L.circle(event.latlng, radius, {fillOpacity: 0.3, stroke: false});
+		    radiusPointer.addTo(map);
+		}		    
     }	
-
-	$scope.$on('leafletDirectiveMap.layeradd', correctElementSizeWithZoom);
-	$scope.$on('leafletDirectiveMap.zoomend', correctElementSizeWithZoom);
 
   });
