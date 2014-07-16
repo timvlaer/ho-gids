@@ -10,7 +10,7 @@ before_script:
 - git config --global user.name "Travis-CI"
 after_success:
 - git config credential.helper "store --file=.git/credentials"
-- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+- echo "https://${GH_TOKEN}:@github.com:timvlaer/ho-gids.git" > .git/credentials
 - cat .git/credentials
 - grunt build
 - git add dist
