@@ -4,6 +4,7 @@ node_js:
 before_script:
 - npm install -g bower grunt-cli
 - bower install
+- gem install sass -v 3.2.19 
 - gem install compass
 - git config --global user.email "timvanlaer@gmail.com"
 - git config --global user.name "Travis-CI"
