@@ -13,7 +13,7 @@ after_success:
 - echo "https://${GH_TOKEN}:@github.com:timvlaer/ho-gids.git" > .git/credentials
 - cat .git/credentials
 - grunt build
-- git add dist
+- git add --all dist
 - git commit -m"New Dist Build by Travis-CI"
 - git push origin master  
 env:
