@@ -22,6 +22,10 @@ Your browser should open at http://localhost:9000
 The final apps are build based on the `www` folder with [Adobe's build service](http://build.phonegap.com).
 Create a package with `grunt build`
 
+### Continious Integration ###
+
+Continious Integration with Travis: [![Build Status](https://travis-ci.org/timvlaer/ho-gids.svg?branch=master)](https://travis-ci.org/timvlaer/ho-gids)
+
 
 ### License ###
 
