@@ -4,17 +4,16 @@ Programma van het jaarlijkse startweekend voor leiding van Scouts en Gidsen Vlaa
 
 Build with [AngularJS](https://angularjs.org/), [Leaflet](http://www.leafletjs.com) and [Apache Cordova](http://cordova.apache.org/).
 
-### Requirements ###
-
-* npm
-* ruby / compass
-* grunt 
-
 ### Run this application locally ###
 
     grunt serve
 
 Your browser should open at http://localhost:9000
+
+**Requirements**
+* npm
+* ruby / compass
+* grunt 
 
 ### Cordova packages ###
 
