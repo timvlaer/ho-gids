@@ -69,7 +69,7 @@
     -->
 
     <!-- Define app icon for each platform. -->
-    <icon src="res/icon.png" />
+    <icon src="www/res/icon.png" />
 
     <!--
         Define access to external domains.
@@ -88,7 +88,7 @@
 
     <preference name="SplashScreen" value="screen" />
     <!--<preference name="SplashScreenDelay" value="3000" />-->
-    <gap:splash src="res/splash.png" />
+    <gap:splash src="www/res/splash.png" />
     
     <!--
       If you do not want any permissions to be added to your app, add the
