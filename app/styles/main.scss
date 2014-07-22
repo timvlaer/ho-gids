@@ -12,38 +12,66 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 /* Space out content a bit */
 body {  
-  padding-top: 60px;
+  padding-top: 50px;
   padding-bottom: 20px;
+}
+
+.navbar {
+  min-height: 0;
+}
+.navbar-fixed-top {
+  border-width: 0;
 }
 
 
 .header {  
-  padding-top: 10px;
+  padding-top: 0;
   padding-left: 10px;
   padding-right: 10px;
   background-color: black;
+  height: 48px;
+  border: none;
 
   /* Make the masthead heading the same height as the navigation */
   h3 {
-    margin-top: 0;
+    margin-top: 5px;
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 10px;
 
     a {
       color: white;
+      background: none;
+      margin-left: 0;
     }
     a:hover {
       text-decoration: none;
     }
   }
 
-  a {
+  .nav-pills > li > a {
     color: #7c901f;
+    text-indent: -99999px;
+    background: transparent url('../images/menu/calendar.png') no-repeat 50% 50%;
+    height: 48px;
+    width: 48px;
+    border-radius: 0;
   }
+
+  .nav-pills > li > a:focus {
+    background-color: #7c901f
+  }
+
+
+  a#mnu-programma { background-image: url('../images/menu/calendar.png'); }
+  a#mnu-kaart { background-image: url('../images/menu/map.png'); }
 
   .nav-pills > li + li {
     margin-left: 6px;
+  }
+
+  .nav-pills > li > a:hover {
+      background-color: transparent;
   }
 
   .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {

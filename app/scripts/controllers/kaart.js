@@ -146,7 +146,7 @@ angular.module('hoGidsApp')
     };
 
     function checkIfUserSelectedThisFeature(feature, layer) {
-    	if($routeParams.highlightPlaats && featureNameMatchesParam(feature)) {    	
+    	if(featureNameMatchesParam(feature)) {    	
     		var featurePolygon = L.polygon(layer._latlngs);
     		
 			var highlightCoordinates = featurePolygon.getBounds().getCenter();
@@ -157,9 +157,16 @@ angular.module('hoGidsApp')
     	}
     };
 
-    function featureNameMatchesParam(feature) {
-    	return (feature.properties.name && feature.properties.name.toLowerCase() == $routeParams.highlightPlaats.toLowerCase()) 
-	    		|| (feature.properties.alias && feature.properties.alias.toLowerCase().indexOf($routeParams.highlightPlaats.toLowerCase()) >= 0)
+    function featureNameMatchesParam(feature) {    	
+    	if($routeParams.highlightPlaats) {
+    		var featureName = feature.properties.name;
+    		var featureAlias = feature.properties.alias;
+    		var selectedPlace = $routeParams.highlightPlaats.toLowerCase();    	
+    		return (featureName && featureName.toLowerCase() == selectedPlace) 
+    				|| (featureAlias && featureAlias.toLowerCase().indexOf(selectedPlace) >= 0)
+    	} else {
+    		return false;
+    	}
     }
 
 	$http.get("data/map.geojson")
