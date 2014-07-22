@@ -25,6 +25,8 @@ angular.module('hoGidsApp')
 
   	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: ''}).addTo(map);
 
+    L.Icon.Default.imagePath = 'images/kaart';
+
 	map.on('layeradd', correctElementSizeWithZoom);
 	map.on('zoomend', correctElementSizeWithZoom);
 

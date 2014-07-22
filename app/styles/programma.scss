@@ -22,8 +22,24 @@
 		}
 
 		.clickable {
-			cursor: pointer;			
+			cursor: pointer;	
 		}
+		.clickable.ng-click-active {
+			background-color: #e10f21 !IMPORTANT; 
+			color: white !IMPORTANT;
+
+			.tijd {
+				color: white;
+			}
+			.omschrijving {
+				.beschrijving {
+					color: #e4bec1;
+				}
+			}
+			.plaats {
+				color: #e08e95;
+			}
+		}		
 
 		.tijd {
 			color: #000;
@@ -57,20 +73,5 @@
 		}
 	}
 
-	.ng-click-active {
-		background-color: #e10f21 !IMPORTANT; 
-		color: white !IMPORTANT;
-
-		.tijd {
-			color: white;
-		}
-		.omschrijving {
-			.beschrijving {
-				color: #e4bec1;
-			}
-		}
-		.plaats {
-			color: #e08e95;
-		}
-	}
+	
 }
