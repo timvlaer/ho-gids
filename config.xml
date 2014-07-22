@@ -71,7 +71,7 @@
     -->
 
     <!-- Define app icon for each platform. -->
-    <icon src="www/res/icon.png" />
+    <icon src="www/res/icon_inv.png" />
 
     <!--
         Define access to external domains.
