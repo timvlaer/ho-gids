@@ -13,6 +13,7 @@ angular.module('hoGidsApp')
 
   	$scope.toonOpKaart = function(item) {
   		if(item.plaats) {
+  			item.selected = true;
   			$location.path('/kaart/' + item.plaats);
   		}
   	}

@@ -16,7 +16,8 @@
 		<div class="row" ng-show="item.subitems">
 			<div class="col-xs-12">
 				<div class="subitems-container" masonry="{gutter:10}">
-					<div class="programmaSubitem clickable masonry-brick" ng-repeat="subitem in item.subitems" ng-click="toonOpKaart(subitem)">
+					<div class="programmaSubitem clickable masonry-brick"
+						 ng-repeat="subitem in item.subitems" ng-click="toonOpKaart(subitem)">
 						{{subitem.titel}} 
 						<span class="plaats">[{{subitem.plaats}}]</span>
 					</div>

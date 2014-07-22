@@ -22,23 +22,7 @@
 		}
 
 		.clickable {
-			cursor: pointer;
-			&:active {
-				background-color: #e10f21;
-				color: white;
-
-				.tijd {
-					color: white;
-				}
-				.omschrijving {
-					.beschrijving {
-						color: #e4bec1;
-					}
-				}
-				.plaats {
-					color: #e08e95;
-				}
-			}
+			cursor: pointer;			
 		}
 
 		.tijd {
@@ -57,8 +41,6 @@
 	}
 
 	.subitems-container {
-		/*margin: 10px 0;*/
-
 		.programmaSubitem {
 			overflow: hidden;
 			padding: 5px 12px;
@@ -72,6 +54,23 @@
 			.plaats {
 				font-size: 10px;
 			}
+		}
+	}
+
+	.ng-click-active {
+		background-color: #e10f21 !IMPORTANT; 
+		color: white !IMPORTANT;
+
+		.tijd {
+			color: white;
+		}
+		.omschrijving {
+			.beschrijving {
+				color: #e4bec1;
+			}
+		}
+		.plaats {
+			color: #e08e95;
 		}
 	}
 }
