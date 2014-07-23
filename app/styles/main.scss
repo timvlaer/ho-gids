@@ -12,7 +12,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 /* Space out content a bit */
 body {  
-  padding-top: 50px;
+  padding-top: 48px;
   padding-bottom: 20px;
 }
 
@@ -28,9 +28,10 @@ body {
   padding-top: 0;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: black;
+  background-color: #7c901f;
   height: 48px;
-  border: none;
+  border: none;  
+  box-shadow: 0px 5px 20px 0px rgba(50, 50, 50, 0.3);
 
   /* Make the masthead heading the same height as the navigation */
   h3 {
@@ -38,6 +39,7 @@ body {
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 10px;
+    font-weight: normal;
 
     a {
       color: white;
@@ -50,16 +52,22 @@ body {
   }
 
   .nav-pills > li > a {
-    color: #7c901f;
+    color: #c8d400;
     text-indent: -99999px;
     background: transparent url('../images/menu/calendar.png') no-repeat 50% 50%;
     height: 48px;
     width: 48px;
     border-radius: 0;
+    padding: 8px 8px;
+  }
+
+  .nav-pills > li > a > img {
+    height: 32px;
+    width: 32px;
   }
 
   .nav-pills > li > a:focus {
-    background-color: #7c901f
+    background-color: #c8d400
   }
 
 
@@ -75,9 +83,19 @@ body {
   }
 
   .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    background-color: #7c901f;
-  } 
+    background-color: #c8d400;
+  }
+}
 
+img.sfeer {
+  width: 100%;
+}
+
+.startpagina {
+  background-color: black;
+  color: #eee;
+  min-height: 100%;
+  padding: 30px 30px 60px;
 }
 
 /* Custom page footer */

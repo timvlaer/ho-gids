@@ -190,7 +190,7 @@ angular.module('hoGidsApp')
     	var zoomLevel = map.getZoom();
 
     	//resize labels
-		var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 9, '17': 12, '18': 16};
+		var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 10, '17': 12, '18': 16};
     	angular.element('.' + labelClassName).css('fontSize', zoomLevelFontSizeMapping[zoomLevel] + 'px');
     	
     	//resize icons

@@ -37,6 +37,9 @@ angular
         templateUrl: 'views/kaart.html',
         controller: 'KaartCtrl'
       })
+      .when('/leefregels', {
+        templateUrl: 'views/leefregels.html'
+      })
       .otherwise({
         redirectTo: '/'
       });

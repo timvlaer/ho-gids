@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/programma.css">
     <link rel="stylesheet" href="styles/kaart.css">
+    <link rel="stylesheet" href="styles/leefregels.css">
     <!-- endbuild -->
 
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
@@ -28,8 +29,15 @@
     <nav class="header navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <ul class="nav nav-pills pull-right" ng-controller="MenuCtrl">
-          <li ng-class="{active:isActive('/programma')}"><a ng-href="#/programma" id="mnu-programma">Programma</a></li>
-          <li ng-class="{active:isActive('/kaart')}"><a ng-href="#/kaart" id="mnu-kaart">Kaart</a></li>
+          <li ng-class="{active:isActive('/leefregels')}">
+            <a ng-href="#/leefregels"><img src="images/menu/thumbsup.png" alt="Leefregels" class="img-responsive" /></a>
+          </li>
+          <li ng-class="{active:isActive('/programma')}">
+            <a ng-href="#/programma"><img src="images/menu/calendar.png" alt="Programma" class="img-responsive" /></a>
+          </li>
+          <li ng-class="{active:isActive('/kaart')}">
+            <a ng-href="#/kaart"><img src="images/menu/map.png" alt="Kaart" class="img-responsive" /></a>
+          </li>
         </ul>
         <h3 class="text-muted"><a ng-href="#">Herfstontmoeting</a></h3>
       </div>  
