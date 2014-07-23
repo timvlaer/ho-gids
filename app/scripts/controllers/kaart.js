@@ -108,7 +108,12 @@ angular.module('hoGidsApp')
 			iconUrl: 'images/kaart/sis.png',
 			iconSize: [16, 16],
 			className: iconClassName
-		})
+		}),
+        'onthaalIcon': L.icon({
+            iconUrl: 'images/kaart/onthaal.png',
+            iconSize: [16, 16],
+            className: iconClassName
+        })
     };
 
 	function style(feature) {
@@ -121,7 +126,7 @@ angular.module('hoGidsApp')
 			    case "ehbo": return L.marker(latlng, {icon: icons.ehboIcon});			        
 			    case "infopunt": return L.marker(latlng, {icon: icons.infoIcon});
 			    case 'sis': return L.marker(latlng, {icon: icons.sisIcon});
-			    //case 'onthaal': return L.marker(latlng, {icon: icons.onthaalIcon});
+			    case 'onthaal': return L.marker(latlng, {icon: icons.onthaalIcon});
 			}
     	}
         return L.circle(latlng, 7);
