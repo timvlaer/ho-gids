@@ -35,11 +35,11 @@ body {
 
   /* Make the masthead heading the same height as the navigation */
   h3 {
-    margin-top: 5px;
+    margin-top: 8px;
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 10px;
-    font-weight: normal;
+    font-weight: normal;    
 
     a {
       color: white;
@@ -61,7 +61,7 @@ body {
     padding: 8px 8px;
   }
 
-  .nav-pills > li > a > img {
+  a > img {
     height: 32px;
     width: 32px;
   }
