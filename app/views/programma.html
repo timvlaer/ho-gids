@@ -3,7 +3,7 @@
 
 	<div class="programmaItem container-fluid" ng-repeat="item in dag.items">
 		
-		<div class="row" ng-class="{'clickable':item.plaats && !item.subitems}" ng-click="toonOpKaart(item)">
+		<div class="row" ng-class="{'clickable':item.plaats && !item.subitems}" ng-click="item.subitems || toonOpKaart(item)">
 			<div class="col-xs-4 tijd">
 				<p>{{item.start}} <span ng-show="item.stop">- {{item.stop}}</span></p> 				
 			</div>
