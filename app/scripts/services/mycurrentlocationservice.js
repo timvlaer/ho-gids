@@ -1,15 +1,26 @@
 'use strict';
 
 /**
- * @ngdoc service
+ * @ngdoc factory
  * @name hoGidsApp.myCurrentLocationService
  * @description
  * # myCurrentLocationService
  * Service in the hoGidsApp.
  */
 angular.module('hoGidsApp')
-  .service('Mycurrentlocationservice', function Mycurrentlocationservice() {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+  .service('MyCurrentLocationService', function Mycurrentlocationservice() {
+
+
+    var handlers = [];
+
+    
+
+    return {
+        var addListener = fuction(listener) {
+            handlers.push(listener);
+        }        
+    } 
+
 
     /*
 	function initGetUserLocation() {
@@ -40,4 +51,4 @@ angular.module('hoGidsApp')
     */
 
 
-  });
+  }]);
