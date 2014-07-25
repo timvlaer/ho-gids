@@ -12,6 +12,8 @@ after_success:
 - git config credential.helper "store --file=.git/credentials"
 - echo "https://${GH_TOKEN}:@github.com:timvlaer/ho-gids.git" > .git/credentials
 - grunt build:phonegap
+- git remote rm origin
+- git remote add origin https://timvlaer:${GH_TOKEN}@github.com/timvlaer/ho-gids.git
 - git add --all www
 - git commit -m"New Phonegap Build by Travis-CI"
 - git push origin master
