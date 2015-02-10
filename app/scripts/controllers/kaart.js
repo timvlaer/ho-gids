@@ -6,6 +6,97 @@ var iconClassName = 'map-icon';
 var hogeRielenCenter =  L.latLng(51.24230669704754, 4.936895370483398);
 var hogeRielenBounds = L.latLngBounds(L.latLng(51.2300, 4.90900), L.latLng(51.2530, 4.9570));
 
+var styles = {
+    'podiumgrond': {
+        fillColor: '#BF244E',
+        fillOpacity: 1,
+        stroke: false         
+    },
+    'pavilioen': {
+        fillColor: '#A64E1B',
+        fillOpacity: 1,
+        stroke: false         
+    },
+    'loods': {
+        fillColor: '#A64E1B',
+        fillOpacity: 1,
+        stroke: false        
+    },
+    'kampeergrond': {
+        fillColor: '#D9A443',
+        fillOpacity: 1,
+        stroke: false        
+    },
+    'vijver': {
+        fillColor: '#04D9D9',
+        fillOpacity: 1,
+        stroke: false           
+    },
+    'bos': {
+        fillColor: '#07E668',
+        fillOpacity: 1,
+        stroke: false           
+    },
+    'weg-hard': {
+        weight: 4,
+        opacity: 1,
+        color: 'white'
+    },
+    'weg-halfhard': {
+        weight: 4,
+        opacity: 1,
+        dashArray: '5',
+        color: 'white'
+    },
+    'weg-zand': {
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3'
+    },
+    'faciliteit': {
+        stroke: false,
+        radius: 4,
+        fillColor: '#04C4D9',
+        fillOpacity: 1
+    },
+    'default': {
+        fillColor: 'black',
+        weight: 1,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.7
+    }
+};
+
+var icons = {
+    'ehboIcon': L.icon({
+        iconUrl: 'images/kaart/ehbo.png',
+        iconSize: [16, 16],
+        className: iconClassName
+    }),
+    'infoIcon': L.icon({
+        iconUrl: 'images/kaart/info.png',
+        iconSize: [16, 16],
+        className: iconClassName
+    }),
+    'sisIcon': L.icon({
+        iconUrl: 'images/kaart/sis.png',
+        iconSize: [16, 16],
+        className: iconClassName
+    }),
+    'onthaalIcon': L.icon({
+        iconUrl: 'images/kaart/onthaal.png',
+        iconSize: [16, 16],
+        className: iconClassName
+    }),        
+    'locationIcon': L.icon({
+        iconUrl: 'images/kaart/locatie.png',
+        iconSize: [16, 16],
+        className: 'banaan'
+    })
+};
+
 /**
  * @ngdoc function
  * @name hoGidsApp.controller:KaartCtrl
@@ -14,7 +105,7 @@ var hogeRielenBounds = L.latLngBounds(L.latLng(51.2300, 4.90900), L.latLng(51.25
  * Controller of the hoGidsApp
  */
 angular.module('hoGidsApp')
-  .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams) {
+  .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams, $log) {
 
   	var map = L.map('map', {
   		center: hogeRielenCenter,
@@ -23,98 +114,21 @@ angular.module('hoGidsApp')
   		maxBounds: hogeRielenBounds,
   	});
 
+    map.whenReady(function() {
+        startLocationPolling();
+
+        map.on('layeradd', correctElementSizeWithZoom);
+        map.on('zoomend', correctElementSizeWithZoom);
+
+        document.addEventListener("pause", stopLocationPolling);
+        document.addEventListener("resume", startLocationPolling);    
+    });
+    
+
   	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: ''}).addTo(map);
 
     L.Icon.Default.imagePath = 'images/kaart';
-
-	map.on('layeradd', correctElementSizeWithZoom);
-	map.on('zoomend', correctElementSizeWithZoom);
-
-	var styles = {
-		'podiumgrond': {
-			fillColor: '#BF244E',
-			fillOpacity: 1,
-            stroke: false         
-		},
-		'pavilioen': {
-			fillColor: '#A64E1B',
-			fillOpacity: 1,
-            stroke: false         
-		},
-		'loods': {
-			fillColor: '#A64E1B',
-			fillOpacity: 1,
-            stroke: false        
-		},
-		'kampeergrond': {
-			fillColor: '#D9A443',
-			fillOpacity: 1,
-            stroke: false        
-		},
-		'vijver': {
-			fillColor: '#04D9D9',
-			fillOpacity: 1,
-            stroke: false			
-		},
-		'bos': {
-			fillColor: '#07E668',
-			fillOpacity: 1,
-            stroke: false			
-		},
-		'weg-hard': {
-            weight: 4,
-            opacity: 1,
-            color: 'white'
-        },
-        'weg-halfhard': {
-            weight: 4,
-            opacity: 1,
-            dashArray: '5',
-            color: 'white'
-        },
-		'weg-zand': {
-            weight: 2,
-            opacity: 1,
-            color: 'white',
-            dashArray: '3'
-        },
-        'faciliteit': {
-        	stroke: false,
-		    radius: 4,
-		    fillColor: '#04C4D9',
-		    fillOpacity: 1
-        },
-        'default': {
-			fillColor: 'black',
-            weight: 1,
-            opacity: 1,
-            color: 'white',
-            fillOpacity: 0.7
-		}
-	};
-
-    var icons = {
-    	'ehboIcon': L.icon({
-			iconUrl: 'images/kaart/ehbo.png',
-			iconSize: [16, 16],
-			className: iconClassName
-		}),
-		'infoIcon': L.icon({
-			iconUrl: 'images/kaart/info.png',
-			iconSize: [16, 16],
-			className: iconClassName
-		}),
-		'sisIcon': L.icon({
-			iconUrl: 'images/kaart/sis.png',
-			iconSize: [16, 16],
-			className: iconClassName
-		}),
-        'onthaalIcon': L.icon({
-            iconUrl: 'images/kaart/onthaal.png',
-            iconSize: [16, 16],
-            className: iconClassName
-        })
-    };
+	
 
 	function style(feature) {
 		return styles[feature.properties.style] || styles.default;
@@ -200,5 +214,41 @@ angular.module('hoGidsApp')
 		angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px')
 			.css('margin-left', newMargin + 'px').css('margin-top', newMargin + 'px');
     };
+
+    function startLocationPolling() {
+        $log.debug("Start location polling");
+        L.control.locate({
+            drawCircle: true,  // controls whether a circle is drawn that shows the uncertainty about the location
+            follow: true,  // follow the user's location
+            keepCurrentZoomLevel: true, // keep the current map zoom level when displaying the user's location. (if `false`, use maxZoom)
+            stopFollowingOnDrag: false, // stop following when the map is dragged if `follow` is true (deprecated, see below)
+            remainActive: false, // if true locate control remains active on click even if the user's location is in view.
+            markerClass: L.circleMarker, // L.circleMarker or L.marker
+            circleStyle: {},  // change the style of the circle around the user's location
+            markerStyle: {},
+            followCircleStyle: {},  // set difference for the style of the circle around the user's location while following
+            followMarkerStyle: {},
+            icon: 'icon-location',  // `icon-location` or `icon-direction`
+            iconLoading: 'icon-spinner  animate-spin',  // class for loading icon
+            circlePadding: [0, 0], // padding around accuracy circle, value is passed to setBounds
+            metric: true,  // use metric or imperial units
+            onLocationOutsideMapBounds:  function(context) { // called when outside map boundaries
+                    alert(context.options.strings.outsideMapBoundsMsg);
+            },
+            strings: {
+                title: "Show me where I am",  // title of the locate control
+                popup: "You are within {distance} {unit} from this point",  // text to appear if user clicks on circle
+                outsideMapBoundsMsg: "You seem located outside the boundaries of the map" // default message for onLocationOutsideMapBounds
+            },
+            locateOptions: {enableHighAccuracy: true}  // define location options e.g enableHighAccuracy: true or maxZoom: 10
+        }).addTo(map);
+    }
+
+    function stopLocationPolling() {
+        $log.debug("Stop location polling")
+        map.stopLocate();
+    }
+
+
 
   });
