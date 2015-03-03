@@ -10,6 +10,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="bower_components/leaflet-dist/leaflet.css" />
+    <link rel="stylesheet" href="bower_components/angular-snap/angular-snap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -28,22 +29,40 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav class="header navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <ul class="nav nav-pills pull-right" ng-controller="MenuCtrl">
-          <li ng-class="{active:isActive('/programma')}">
-            <a ng-href="#/programma"><img src="images/menu/calendar.png" alt="Programma" class="img-responsive" /></a>
-          </li>
-          <li ng-class="{active:isActive('/kaart')}">
-            <a ng-href="#/kaart"><img src="images/menu/map.png" alt="Kaart" class="img-responsive" /></a>
-          </li>
+    <div snap-content id="content">
+        <nav class="header navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" snap-toggle="left">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Herfstontmoeting 2015</a>
+            </div>
+          </div>  
+        </nav>
+        
+        <div ng-view=""></div>
+    </div>
+
+    <div snap-drawer id="sidemenu">
+        <ul ng-controller="MenuCtrl">
+            <li ng-class="{active:isActive('/informatie')}">
+                <a ng-href="#/informatie" snap-close="left">Informatie</a>
+              </li>
+            <li ng-class="{active:isActive('/programma')}">
+                <a ng-href="#/programma" snap-close="left">Programma</a>
+              </li>
+              <li ng-class="{active:isActive('/kaart')}">
+                <a ng-href="#/kaart" snap-close="left">Kaart</a>
+              </li>            
+              <li ng-class="{active:isActive('/nieuwsstroom')}">
+                <a ng-href="#/nieuwsstroom" snap-close="left">Nieuwsstroom</a>
+              </li>                    
         </ul>
-        <h3 class="text-muted pull-left"><a ng-href="#"><img src="images/menu/ho-logo.png" alt="Herfstontmoeting" class="img-responsive" /></a></h3>
-      </div>  
-    </nav>
-    
-    
-    <div ng-view=""></div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <!--<script>
@@ -100,6 +119,8 @@
     <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
     <script src="bower_components/leaflet-dist/leaflet.js"></script>
     <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+    <script src="bower_components/snapjs/snap.js"></script>
+    <script src="bower_components/angular-snap/angular-snap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

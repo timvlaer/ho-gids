@@ -125,7 +125,13 @@ angular.module('hoGidsApp')
     });
     
 
-  	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: ''}).addTo(map);
+  	//TODO: choose one!
+    var tileUrl_default = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+    var tileUrl_baseLayer = 'http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png'    
+
+    var tileUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
+    L.tileLayer(tileUrl, { attribution: '' }).addTo(map);
+
 
     L.Icon.Default.imagePath = 'images/kaart';
 	

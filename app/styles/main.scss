@@ -3,6 +3,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
+$main-color: #c4d545;
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -28,63 +30,64 @@ body {
   padding-top: 0;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #7c901f;
+  background-color: $main-color;
   height: 48px;
   border: none;  
-  box-shadow: 0px 5px 20px 0px rgba(50, 50, 50, 0.3);
+  box-shadow: 0px 5px 12px 0px rgba(50, 50, 50, 0.5);
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 8px;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 10px;
-    font-weight: normal;    
+  button.navbar-toggle {
+    border: none;
 
-    a {
-      color: white;
-      background: none;
-      margin-left: 0;
+    &:hover {
+      background-color: white;
+      color: black;
     }
-    a:hover {
+    &:focus {
+      background-color: white;
+    }
+  }
+
+  a.navbar-brand {    
+    color: white;
+    
+    &:hover {
       text-decoration: none;
     }
   }
+}
 
-  .nav-pills > li > a {
-    color: #c8d400;
-    text-indent: -99999px;
-    background: transparent url('../images/menu/calendar.png') no-repeat 50% 50%;
-    height: 48px;
-    width: 48px;
-    border-radius: 0;
-    padding: 8px 8px;
+#sidemenu {
+  padding: 20px 5px;
+  background-color: #333333;
+  color: #f0f0f0;
+
+  ul {
+    margin-top: 25px;
+
+    li {
+      font-size: 24px;    
+      font-family: helvetica, arial, sans-serif;
+      font-weight: normal;
+      list-style-type: none;
+      margin-bottom: 24px;
+
+      a {
+        color: white;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+
+    li.active a {
+      color: $main-color;
+    }
   }
+}
 
-  a > img {
-    height: 32px;
-    width: 32px;
-  }
-
-  .nav-pills > li > a:focus {
-    background-color: #c8d400
-  }
-
-
-  a#mnu-programma { background-image: url('../images/menu/calendar.png'); }
-  a#mnu-kaart { background-image: url('../images/menu/map.png'); }
-
-  .nav-pills > li + li {
-    margin-left: 6px;
-  }
-
-  .nav-pills > li > a:hover {
-      background-color: transparent;
-  }
-
-  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    background-color: #c8d400;
-  }
+#content {
+  background-color: white;
 }
 
 img.sfeer {
@@ -98,13 +101,6 @@ img.sfeer {
   padding: 30px 30px 60px;
 }
 
-/* Custom page footer */
-.footer {  
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 19px;
-  color: #c8d400;
-}
 
 .container-narrow > hr {
   margin: 30px 0;

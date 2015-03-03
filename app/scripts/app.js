@@ -17,9 +17,10 @@ angular
     'ngSanitize',
     'ngTouch',
     'wu.masonry',
-    'leaflet-directive'
+    'leaflet-directive',
+    'snap'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, snapRemoteProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -37,12 +38,15 @@ angular
         templateUrl: 'views/kaart.html',
         controller: 'KaartCtrl'
       })
-      .when('/leefregels', {
-        templateUrl: 'views/leefregels.html'
-      })
       .otherwise({
         redirectTo: '/'
       });
+
+
+      snapRemoteProvider.globalOptions = {
+        disable: 'right',
+        hyperextensible: false
+      }
   })
   .run(function() {
     if(navigator.splashscreen) {
