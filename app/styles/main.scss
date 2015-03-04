@@ -4,6 +4,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 // endbower
 
 $main-color: #c4d545;
+$menu-color: #333333;
 
 .browsehappy {
   margin: 0.2em 0;
@@ -16,6 +17,7 @@ $main-color: #c4d545;
 body {  
   padding-top: 48px;
   padding-bottom: 20px;
+  background-color: $menu-color;
 }
 
 .navbar {
@@ -57,8 +59,8 @@ body {
 }
 
 #sidemenu {
-  padding: 20px 5px;
-  background-color: #333333;
+  padding: 145px 5px 20px;
+  background: $menu-color url('../images/menu/logo_medium.png') no-repeat 45px 35px;
   color: #f0f0f0;
 
   ul {
