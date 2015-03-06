@@ -42,6 +42,10 @@ angular
         templateUrl: 'views/kaart.html',
         controller: 'KaartCtrl'
       })
+      .when('/nieuwsstroom', {
+        templateUrl: 'views/nieuwsstroom.html',
+        controller: 'NieuwsstroomCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

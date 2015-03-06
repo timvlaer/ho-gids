@@ -8,10 +8,10 @@
  * Controller of the hoGidsApp
  */
 angular.module('hoGidsApp')
-  .controller('InformatieCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('InformatieCtrl', function ($scope, $location) {
+    
+    $scope.gaNaarRodeKruis = function(item) {        
+        //$location.path('/kaart/ehbo');        
+    }
+
   });

@@ -4,6 +4,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 // endbower
 
 $main-color: #c4d545;
+$main-color-dark : #95A234;
+$secondary-color: #f07d00;
 $menu-color: #333333;
 
 .browsehappy {
@@ -15,9 +17,9 @@ $menu-color: #333333;
 
 /* Space out content a bit */
 body {  
-  padding-top: 48px;
   padding-bottom: 20px;
   background-color: $menu-color;
+  font-family: 'Roboto', sans-serif;
 }
 
 .navbar {
@@ -29,29 +31,30 @@ body {
 
 
 .header {  
-  padding-top: 0;
   padding-left: 10px;
   padding-right: 10px;
   background-color: $main-color;
   height: 48px;
   border: none;  
   box-shadow: 0px 5px 12px 0px rgba(50, 50, 50, 0.5);
+  
+  /*-ms-transform: skewY(-1.4deg); 
+  -webkit-transform: skewY(-1.4deg); 
+  transform: skewY(-1.4deg);
+  margin-top: -8px;
+  padding-top: 7px;
+  height: 55px;*/
 
   button.navbar-toggle {
     border: none;
 
-    &:hover {
-      background-color: white;
-      color: black;
-    }
-    &:focus {
-      background-color: white;
+    &:hover, &:focus {
+      background-color: $main-color-dark;
     }
   }
 
   a.navbar-brand {    
-    color: white;
-    
+    color: white;    
     &:hover {
       text-decoration: none;
     }
@@ -59,27 +62,30 @@ body {
 }
 
 #sidemenu {
-  padding: 145px 5px 20px;
-  background: $menu-color url('../images/menu/logo_medium.png') no-repeat 45px 35px;
+  padding: 195px 5px 20px;
+  background: $menu-color url('../images/menu/logo_medium.png') no-repeat 45px 85px; /*left top*/
   color: #f0f0f0;
 
   ul {
     margin-top: 25px;
+    padding-left: 0px;
 
     li {
       font-size: 24px;    
-      font-family: helvetica, arial, sans-serif;
-      font-weight: normal;
+      font-weight: 100;
       list-style-type: none;
-      margin-bottom: 24px;
+      padding: 0;
 
       a {
         color: white;
+        display: block;
+        padding: 12px 10px 12px 30px;
+
+        &:focus, &:hover {
+          text-decoration: none;
+        }
       }
 
-      a:hover {
-        text-decoration: none;
-      }
     }
 
     li.active a {
@@ -89,7 +95,9 @@ body {
 }
 
 #content {
+  padding-top: 48px;
   background-color: white;
+  box-shadow: 5px 12px 0px 0px rgba(50, 50, 50, 0.5);
 }
 
 img.sfeer {

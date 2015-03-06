@@ -1,0 +1,29 @@
+$secondary-color: #f07d00;
+
+#informatie {
+	
+	padding: 10px 35px;
+
+	h2 {
+		font-weight: 700;
+	}
+
+	h4 {
+		margin-top: 30px;
+		color: $secondary-color;
+	}
+
+	p {
+		text-align: justify;
+	}
+
+	ul {
+		padding-left: 0px;
+
+		li {
+			list-style-type: circle;
+		}
+
+	}
+
+}

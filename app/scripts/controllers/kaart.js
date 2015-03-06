@@ -107,35 +107,6 @@ var icons = {
 angular.module('hoGidsApp')
   .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams, $log) {
 
-  	var map = L.map('map', {
-  		center: hogeRielenCenter,
-  		zoom: 14,
-  		minZoom: 14,
-  		maxBounds: hogeRielenBounds,
-  	});
-
-    map.whenReady(function() {
-        startLocationPolling();
-
-        map.on('layeradd', correctElementSizeWithZoom);
-        map.on('zoomend', correctElementSizeWithZoom);
-
-        document.addEventListener("pause", stopLocationPolling);
-        document.addEventListener("resume", startLocationPolling);    
-    });
-    
-
-  	//TODO: choose one!
-    var tileUrl_default = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-    var tileUrl_baseLayer = 'http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png'    
-
-    var tileUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
-    L.tileLayer(tileUrl, { attribution: '' }).addTo(map);
-
-
-    L.Icon.Default.imagePath = 'images/kaart';
-	
-
 	function style(feature) {
 		return styles[feature.properties.style] || styles.default;
     };
@@ -196,32 +167,64 @@ angular.module('hoGidsApp')
     	}
     }
 
-	$http.get("data/map.geojson")
-		.success(function(data, status) {
-			L.geoJson(data, {
-			    style: style,
-			    pointToLayer: markerIcon,
-			    filter: filter,
-			    onEachFeature: onEachFeature
-			}).addTo(map);
-		});
+    function correctElementSizeWithZoom(){
+        var zoomLevel = map.getZoom();
 
-	function correctElementSizeWithZoom(){
-    	var zoomLevel = map.getZoom();
-
-    	//resize labels
-		var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 10, '17': 12, '18': 16};
-    	angular.element('.' + labelClassName).css('fontSize', zoomLevelFontSizeMapping[zoomLevel] + 'px');
-    	
-    	//resize icons
-		var zoomLevelIconSizeMapping = {'14': 6, '15': 8, '16': 16, '17': 24, '18': 32};
-		var newIconSize = zoomLevelIconSizeMapping[zoomLevel];
-		var newMargin = -1 * newIconSize / 2;
-		angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px')
-			.css('margin-left', newMargin + 'px').css('margin-top', newMargin + 'px');
+        //resize labels
+        var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 10, '17': 12, '18': 16};
+        angular.element('.' + labelClassName).css('fontSize', zoomLevelFontSizeMapping[zoomLevel] + 'px');
+        
+        //resize icons
+        var zoomLevelIconSizeMapping = {'14': 6, '15': 8, '16': 16, '17': 24, '18': 32};
+        var newIconSize = zoomLevelIconSizeMapping[zoomLevel];
+        var newMargin = -1 * newIconSize / 2;
+        angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px')
+            .css('margin-left', newMargin + 'px').css('margin-top', newMargin + 'px');
     };
+    
+    var map = L.map('map', {
+        center: hogeRielenCenter,
+        zoom: 14,
+        minZoom: 14,
+        maxBounds: hogeRielenBounds,
+    });
 
-    function startLocationPolling() {
+    map.whenReady(function() {
+        //startLocationPolling();
+
+        map.on('layeradd', correctElementSizeWithZoom);
+        map.on('zoomend', correctElementSizeWithZoom);
+
+        /*document.addEventListener("pause", stopLocationPolling);
+        document.addEventListener("resume", startLocationPolling);    */
+    });
+    
+
+    //TODO: choose one!
+    var tileUrl_default = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+    var tileUrl_baseLayer = 'http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png'    
+    var tileUrl_tim = '/images/render/{z}/{x}/{y}.png'    
+
+    var tileUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
+    L.tileLayer(tileUrl, { attribution: '' }).addTo(map);
+
+
+    L.Icon.Default.imagePath = 'images/kaart';
+
+    $http.get("data/map.geojson")
+        .success(function(data, status) {
+            L.geoJson(data, {
+                style: style,
+                pointToLayer: markerIcon,
+                filter: filter,
+                onEachFeature: onEachFeature
+            }).addTo(map);
+        });
+
+
+	
+
+    /*function startLocationPolling() {
         $log.debug("Start location polling");
         L.control.locate({
             drawCircle: true,  // controls whether a circle is drawn that shows the uncertainty about the location
@@ -253,7 +256,7 @@ angular.module('hoGidsApp')
     function stopLocationPolling() {
         $log.debug("Stop location polling")
         map.stopLocate();
-    }
+    }*/
 
 
 
