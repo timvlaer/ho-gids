@@ -10,7 +10,7 @@ Build with [AngularJS](https://angularjs.org/), [Leaflet](http://www.leafletjs.c
 
 Your browser should open at http://localhost:9000
 
-You can use the [![ripple emulator](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc)] to simulate your mobile phone browser. 
+You can use the [ripple emulator](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc) to emulate your mobile phone in the browser. 
 
 **Requirements**
 * npm
