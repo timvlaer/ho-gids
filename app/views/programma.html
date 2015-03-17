@@ -1,10 +1,11 @@
 <div id="programma">
+	<h2>Programma</h2>
 <div ng-repeat="dag in programma" class="programma">
-	<h2>{{dag.dag}}</h2>
+	<h3>{{dag.dag}}</h3>
 
 	<div class="programmaItem container-fluid" ng-repeat="item in dag.items">
 		
-		<div class="row" ng-class="{'clickable':item.plaats && !item.subitems}" ng-click="item.subitems || toonOpKaart(item)">
+		<a class="row" ng-class="{'clickable':item.plaats && !item.subitems}" ng-click="item.subitems || toonOpKaart(item)">
 			<div class="col-xs-4 tijd">
 				<p>{{item.start}} <span ng-show="item.stop">- {{item.stop}}</span></p> 				
 			</div>
@@ -12,7 +13,7 @@
 				<h5>{{item.titel}} <small class="plaats">{{item.plaats}}</small></h5>			
 				<p ng-show="item.beschrijving" class="beschrijving">{{item.beschrijving}}</p>
 			</div>
-		</div>
+		</a>
 
 		<div class="row" ng-show="item.subitems">
 			<div class="col-xs-12">

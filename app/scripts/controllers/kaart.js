@@ -23,7 +23,7 @@ var styles = {
         stroke: false        
     },
     'kampeergrond': {
-        fillColor: '#db812d',
+        fillColor: '#f38230',
         fillOpacity: 1,
         stroke: false        
     },
@@ -208,7 +208,8 @@ angular.module('hoGidsApp')
     //TODO: choose one!
     var tileUrl_default = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
     var tileUrl_baseLayer = 'http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png'    
-    var tileUrl_tim = '/images/render/{z}/{x}/{y}.png'    
+    var tileUrl_tim = '/images/render/{z}/{x}/{y}.png'
+    var tileUrl_leeg = '/images/kaart/leeg.png'    
 
     var tileUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
     L.tileLayer(tileUrl, { attribution: '' }).addTo(map);
