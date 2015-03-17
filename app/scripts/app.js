@@ -16,7 +16,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'wu.masonry',
+    /*'wu.masonry',*/
     'leaflet-directive',
     'snap'
   ])

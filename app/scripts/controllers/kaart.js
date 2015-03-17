@@ -8,22 +8,22 @@ var hogeRielenBounds = L.latLngBounds(L.latLng(51.2300, 4.90900), L.latLng(51.25
 
 var styles = {
     'podiumgrond': {
-        fillColor: '#BF244E',
+        fillColor: '#c4d545',
         fillOpacity: 1,
         stroke: false         
     },
     'pavilioen': {
-        fillColor: '#A64E1B',
+        fillColor: '#0e7594',
         fillOpacity: 1,
         stroke: false         
     },
     'loods': {
-        fillColor: '#A64E1B',
+        fillColor: '#417493',
         fillOpacity: 1,
         stroke: false        
     },
     'kampeergrond': {
-        fillColor: '#D9A443',
+        fillColor: '#db812d',
         fillOpacity: 1,
         stroke: false        
     },
@@ -45,19 +45,24 @@ var styles = {
     'weg-halfhard': {
         weight: 4,
         opacity: 1,
-        dashArray: '5',
         color: 'white'
     },
     'weg-zand': {
-        weight: 2,
+        weight: 1,
         opacity: 1,
-        color: 'white',
-        dashArray: '3'
+        color: '#417493',
+        dashArray: '5'
     },
     'faciliteit': {
         stroke: false,
         radius: 4,
-        fillColor: '#04C4D9',
+        fillColor: '#0e7594',
+        fillOpacity: 1
+    },
+    'border': {
+        fillColor: '#c1d7e4',
+        weight: 5,
+        color: '#0e7594',
         fillOpacity: 1
     },
     'default': {

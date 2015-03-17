@@ -16,6 +16,6 @@ angular.module('hoGidsApp')
   			item.selected = true;
   			$location.path('/kaart/' + item.plaats);
   		}
-  	}
+  	};
 
 });
