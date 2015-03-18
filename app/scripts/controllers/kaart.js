@@ -25,7 +25,8 @@ var styles = {
     'kampeergrond': {
         fillColor: '#f38230',
         fillOpacity: 1,
-        stroke: false        
+        stroke: false,
+        lineJoin: 'round'        
     },
     'vijver': {
         fillColor: '#04D9D9',
@@ -40,12 +41,14 @@ var styles = {
     'weg-hard': {
         weight: 4,
         opacity: 1,
-        color: 'white'
+        color: 'white',
+        lineCap: 'square'
     },
     'weg-halfhard': {
         weight: 4,
         opacity: 1,
-        color: 'white'
+        color: 'white',
+        lineCap: 'square'
     },
     'weg-zand': {
         weight: 1,
@@ -63,7 +66,8 @@ var styles = {
         fillColor: '#c1d7e4',
         weight: 5,
         color: '#0e7594',
-        fillOpacity: 1
+        fillOpacity: 1,
+        opacity: 1
     },
     'default': {
         fillColor: 'black',

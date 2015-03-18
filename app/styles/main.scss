@@ -36,7 +36,7 @@ body {
   background-color: $main-color;
   height: 48px;
   border: none;  
-  box-shadow: 0px 5px 12px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 5px 12px 0px rgba(130, 130, 130, 0.4);
   
   /*-ms-transform: skewY(-1.4deg); 
   -webkit-transform: skewY(-1.4deg); 
@@ -62,9 +62,13 @@ body {
 }
 
 #sidemenu {
-  padding: 195px 5px 20px;
-  background: $menu-color url('../images/menu/logo_medium.png') no-repeat 45px 85px; /*left top*/
+  padding: 78px 5px 20px;
+  background-color: $menu-color;
   color: #f0f0f0;
+
+  img {
+    padding: 10px 5px 10px 30px;
+  }
 
   ul {
     margin-top: 25px;
@@ -83,6 +87,10 @@ body {
 
         &:focus, &:hover {
           text-decoration: none;
+        }
+        &:active {
+          background-color: #444444;
+          color: $secondary-color;
         }
       }
 
