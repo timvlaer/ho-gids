@@ -15,6 +15,11 @@ $menu-color: #333333;
   padding: 0.2em 0;
 }
 
+@import "start.scss";
+@import "programma.scss";
+@import "kaart.scss";
+@import "informatie.scss";
+
 /* Space out content a bit */
 body {  
   padding-bottom: 20px;
@@ -37,13 +42,6 @@ body {
   height: 48px;
   border: none;  
   box-shadow: 0px 5px 12px 0px rgba(130, 130, 130, 0.4);
-  
-  /*-ms-transform: skewY(-1.4deg); 
-  -webkit-transform: skewY(-1.4deg); 
-  transform: skewY(-1.4deg);
-  margin-top: -8px;
-  padding-top: 7px;
-  height: 55px;*/
 
   button.navbar-toggle {
     border: none;
@@ -59,6 +57,16 @@ body {
       text-decoration: none;
     }
   }
+}
+
+#content {
+  padding-top: 48px;
+  background-color: white;
+  box-shadow: 5px 12px 0px 0px rgba(50, 50, 50, 0.5);
+}
+
+h2 {
+  font-weight: 700;
 }
 
 #sidemenu {
@@ -89,7 +97,7 @@ body {
           text-decoration: none;
         }
         &:active {
-          background-color: #444444;
+          background-color: #404040;
           color: $secondary-color;
         }
       }
@@ -102,51 +110,5 @@ body {
   }
 }
 
-#content {
-  padding-top: 48px;
-  background-color: white;
-  box-shadow: 5px 12px 0px 0px rgba(50, 50, 50, 0.5);
-}
-
-img.sfeer {
-  width: 100%;
-}
-
-.startpagina {
-  background-color: black;
-  color: #eee;
-  min-height: 100%;
-  padding: 30px 30px 60px;
-}
 
 
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-h2 {
-  font-weight: 700;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
-}
