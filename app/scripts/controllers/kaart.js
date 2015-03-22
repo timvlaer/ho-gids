@@ -190,6 +190,36 @@ angular.module('hoGidsApp')
         angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px')
             .css('margin-left', newMargin + 'px').css('margin-top', newMargin + 'px');
     };
+
+    function onAccuratePositionProgress (e) {
+        onAccuratePositionFound(e);
+    }
+
+    var preciseLocationPointer;
+    var radiusPointer; 
+    function onAccuratePositionFound (event) {
+        console.log(event.accuracy);
+        console.log(event.latlng);
+        
+        var radius = event.accuracy/2;
+        if(preciseLocationPointer) {
+           preciseLocationPointer.setLatLng(event.latlng);
+           radiusPointer.setLatLng(event.latlng);
+           radiusPointer.setRadius(radius);
+        } else {
+           preciseLocationPointer = L.circle(event.latlng, 2, {fillOpacity: 1, stroke: false});
+           preciseLocationPointer.addTo(map);
+           radiusPointer = L.circle(event.latlng, radius, {fillOpacity: 0.3, stroke: false});
+           radiusPointer.addTo(map);
+        }  
+         
+
+    }
+
+    function onAccuratePositionError (e) {
+        console.log('Error', e);
+    }
+
     
     var map = L.map('map', {
         center: hogeRielenCenter,
@@ -199,13 +229,18 @@ angular.module('hoGidsApp')
     });
 
     map.whenReady(function() {
-        //startLocationPolling();
+        /*map.findAccuratePosition({
+            maxWait: 8000, 
+            desiredAccuracy: 50 
+        });*/
 
         map.on('layeradd', correctElementSizeWithZoom);
         map.on('zoomend', correctElementSizeWithZoom);
 
-        /*document.addEventListener("pause", stopLocationPolling);
-        document.addEventListener("resume", startLocationPolling);    */
+        map.on('accuratepositionprogress', onAccuratePositionProgress);
+        map.on('accuratepositionfound', onAccuratePositionFound);
+        map.on('accuratepositionerror', onAccuratePositionError);
+
     });
     
 
@@ -221,7 +256,7 @@ angular.module('hoGidsApp')
 
     L.Icon.Default.imagePath = 'images/kaart';
 
-    $http.get("data/map.geojson")
+    $http.get('data/map.geojson')
         .success(function(data, status) {
             L.geoJson(data, {
                 style: style,
@@ -232,41 +267,6 @@ angular.module('hoGidsApp')
         });
 
 
-	
-
-    /*function startLocationPolling() {
-        $log.debug("Start location polling");
-        L.control.locate({
-            drawCircle: true,  // controls whether a circle is drawn that shows the uncertainty about the location
-            follow: true,  // follow the user's location
-            keepCurrentZoomLevel: true, // keep the current map zoom level when displaying the user's location. (if `false`, use maxZoom)
-            stopFollowingOnDrag: false, // stop following when the map is dragged if `follow` is true (deprecated, see below)
-            remainActive: false, // if true locate control remains active on click even if the user's location is in view.
-            markerClass: L.circleMarker, // L.circleMarker or L.marker
-            circleStyle: {},  // change the style of the circle around the user's location
-            markerStyle: {},
-            followCircleStyle: {},  // set difference for the style of the circle around the user's location while following
-            followMarkerStyle: {},
-            icon: 'icon-location',  // `icon-location` or `icon-direction`
-            iconLoading: 'icon-spinner  animate-spin',  // class for loading icon
-            circlePadding: [0, 0], // padding around accuracy circle, value is passed to setBounds
-            metric: true,  // use metric or imperial units
-            onLocationOutsideMapBounds:  function(context) { // called when outside map boundaries
-                    alert(context.options.strings.outsideMapBoundsMsg);
-            },
-            strings: {
-                title: "Show me where I am",  // title of the locate control
-                popup: "You are within {distance} {unit} from this point",  // text to appear if user clicks on circle
-                outsideMapBoundsMsg: "You seem located outside the boundaries of the map" // default message for onLocationOutsideMapBounds
-            },
-            locateOptions: {enableHighAccuracy: true}  // define location options e.g enableHighAccuracy: true or maxZoom: 10
-        }).addTo(map);
-    }
-
-    function stopLocationPolling() {
-        $log.debug("Stop location polling")
-        map.stopLocate();
-    }*/
 
 
 
