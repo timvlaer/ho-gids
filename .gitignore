@@ -4,4 +4,5 @@ node_modules
 .idea
 .DS_Store
 /bower_components
+/app/config.xml
 dist
