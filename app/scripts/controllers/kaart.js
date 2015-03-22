@@ -206,7 +206,7 @@ angular.module('hoGidsApp')
                 preciseLocationPointer.getLatLng(), 
                 {'animate': true, 'duration': 1}
             );
-        } else {
+        } else if(preciseLocationPointer || featureHighlightPointer) {
             map.setZoom(DEFAULT_ZOOM+2, {'animate': false});
             correctElementSizeWithZoom();
             if(preciseLocationPointer) {
@@ -224,25 +224,29 @@ angular.module('hoGidsApp')
     }
     
     function onAccuratePositionFound (event) {
-        console.log(event.accuracy);
-        console.log(event.latlng);
-
-        //TODO check if location is within HR bounds
-
-        var radius = event.accuracy/2;
-        if(!preciseLocationPointer || !radiusPointer) {
-            preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon}).addTo(map);
-            radiusPointer = L.circle(event.latlng, radius, {fillOpacity: 0.3, fillColor: '#1d9c5a', stroke: false}).addTo(map);
-            showInterestingViewport();
+        console.log(event);
+        
+        if(hogeRielenBounds.contains(event.latlng)) {
+            var radius = event.accuracy/2;
+            if(!preciseLocationPointer || !radiusPointer) {
+                preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon}).addTo(map);
+                radiusPointer = L.circle(event.latlng, radius, {fillOpacity: 0.3, fillColor: '#1d9c5a', stroke: false}).addTo(map);
+                showInterestingViewport();
+            } else {
+               preciseLocationPointer.setLatLng(event.latlng);
+               radiusPointer.setLatLng(event.latlng);
+               radiusPointer.setRadius(radius); 
+            }
         } else {
-           preciseLocationPointer.setLatLng(event.latlng);
-           radiusPointer.setLatLng(event.latlng);
-           radiusPointer.setRadius(radius); 
+            preciseLocationPointer = undefined;
+            radiusPointer = undefined;
         }
     }
 
     function onAccuratePositionError (e) {
-        console.log('Error', e);
+        preciseLocationPointer = undefined;
+        radiusPointer = undefined;
+        //TODO remove marker from map
     }
 
     function doGeolocation() {
@@ -258,7 +262,7 @@ angular.module('hoGidsApp')
         });
     }
 
-    
+    //TODO create map as global object: keep state + fix bug 'Map container is already initialized.'
     var map = L.map('map', {
         center: hogeRielenCenter,
         zoom: DEFAULT_ZOOM,
@@ -271,12 +275,10 @@ angular.module('hoGidsApp')
         map.on('zoomend', correctElementSizeWithZoom);
     });
     
-
-    //TODO: choose one!
-    var tileUrl_default = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-    var tileUrl_baseLayer = 'http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png'    
-    var tileUrl_tim = '/images/render/{z}/{x}/{y}.png'
-    var tileUrl_leeg = '/images/kaart/leeg.png'    
+    
+    //var tileUrl_default = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'    
+    //var tileUrl_tim = '/images/render/{z}/{x}/{y}.png'
+    //var tileUrl_leeg = '/images/kaart/leeg.png'    
 
     var tileUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
     L.tileLayer(tileUrl, { attribution: '' }).addTo(map);
