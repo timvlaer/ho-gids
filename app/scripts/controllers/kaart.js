@@ -6,6 +6,8 @@ var iconClassName = 'map-icon';
 var hogeRielenCenter =  L.latLng(51.24230669704754, 4.936895370483398);
 var hogeRielenBounds = L.latLngBounds(L.latLng(51.2300, 4.90900), L.latLng(51.2530, 4.9570));
 
+var DEFAULT_ZOOM = 14;
+
 var styles = {
     'podiumgrond': {
         fillColor: '#c4d545',
@@ -100,9 +102,14 @@ var icons = {
         className: iconClassName
     }),        
     'locationIcon': L.icon({
-        iconUrl: 'images/kaart/locatie.png',
-        iconSize: [16, 16],
-        className: 'banaan'
+        iconUrl: 'images/kaart/marker-location.png',
+        iconRetinaUrl: 'images/kaart/marker-location-2x.png',
+        shadowUrl: 'images/kaart/marker-shadow.png',
+        shadowRetinaUrl: 'images/kaart/marker-shadow.png',
+        iconSize:    [25, 41],
+        iconAnchor:  [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize:  [41, 41]
     })
 };
 
@@ -115,6 +122,9 @@ var icons = {
  */
 angular.module('hoGidsApp')
   .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams, $log) {
+
+    var preciseLocationPointer, radiusPointer; 
+    var featureHighlightPointer;    
 
 	function style(feature) {
 		return styles[feature.properties.style] || styles.default;
@@ -157,10 +167,7 @@ angular.module('hoGidsApp')
     		var featurePolygon = L.polygon(layer._latlngs);
     		
 			var highlightCoordinates = featurePolygon.getBounds().getCenter();
-			L.marker(highlightCoordinates).addTo(map);
-			map.zoomIn(2, {'animate': false});
-			correctElementSizeWithZoom();
-			map.panTo(highlightCoordinates, {'animate': true, 'duration': 1});	    	
+			featureHighlightPointer = L.marker(highlightCoordinates).addTo(map);
     	}
     };
 
@@ -191,56 +198,77 @@ angular.module('hoGidsApp')
             .css('margin-left', newMargin + 'px').css('margin-top', newMargin + 'px');
     };
 
+    function showInterestingViewport() {
+        //FIXME if a feature is highlighted, this method is triggered first and your current location doesn't get in viewport.
+        if(preciseLocationPointer && featureHighlightPointer) {
+            map.panInsideBounds(L.latLngBounds(                
+                featureHighlightPointer.getLatLng()),
+                preciseLocationPointer.getLatLng(), 
+                {'animate': true, 'duration': 1}
+            );
+        } else {
+            map.setZoom(DEFAULT_ZOOM+2, {'animate': false});
+            correctElementSizeWithZoom();
+            if(preciseLocationPointer) {
+                map.panTo(preciseLocationPointer.getLatLng(), {'animate': true, 'duration': 1});
+            } else if (featureHighlightPointer) {
+                map.panTo(featureHighlightPointer.getLatLng(), {'animate': true, 'duration': 1});
+            }
+        }
+    }
+
+
+
     function onAccuratePositionProgress (e) {
         onAccuratePositionFound(e);
     }
-
-    var preciseLocationPointer;
-    var radiusPointer; 
+    
     function onAccuratePositionFound (event) {
         console.log(event.accuracy);
         console.log(event.latlng);
-        
+
+        //TODO check if location is within HR bounds
+
         var radius = event.accuracy/2;
-        if(preciseLocationPointer) {
+        if(!preciseLocationPointer || !radiusPointer) {
+            preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon}).addTo(map);
+            radiusPointer = L.circle(event.latlng, radius, {fillOpacity: 0.3, fillColor: '#1d9c5a', stroke: false}).addTo(map);
+            showInterestingViewport();
+        } else {
            preciseLocationPointer.setLatLng(event.latlng);
            radiusPointer.setLatLng(event.latlng);
-           radiusPointer.setRadius(radius);
-        } else {
-           preciseLocationPointer = L.circle(event.latlng, 2, {fillOpacity: 1, stroke: false});
-           preciseLocationPointer.addTo(map);
-           radiusPointer = L.circle(event.latlng, radius, {fillOpacity: 0.3, stroke: false});
-           radiusPointer.addTo(map);
-        }  
-         
-
+           radiusPointer.setRadius(radius); 
+        }
     }
 
     function onAccuratePositionError (e) {
         console.log('Error', e);
     }
 
-    
-    var map = L.map('map', {
-        center: hogeRielenCenter,
-        zoom: 14,
-        minZoom: 14,
-        maxBounds: hogeRielenBounds,
-    });
-
-    map.whenReady(function() {
-        /*map.findAccuratePosition({
-            maxWait: 8000, 
-            desiredAccuracy: 50 
-        });*/
-
-        map.on('layeradd', correctElementSizeWithZoom);
-        map.on('zoomend', correctElementSizeWithZoom);
-
+    function doGeolocation() {
+        //TODO: cache location and poll only every minute or so to save battery.
+        //TOOD: if location is outside HR bounds, disable location polling for 10min or so
         map.on('accuratepositionprogress', onAccuratePositionProgress);
         map.on('accuratepositionfound', onAccuratePositionFound);
         map.on('accuratepositionerror', onAccuratePositionError);
 
+        map.findAccuratePosition({
+            maxWait: 8000, 
+            desiredAccuracy: 50 
+        });
+    }
+
+    
+    var map = L.map('map', {
+        center: hogeRielenCenter,
+        zoom: DEFAULT_ZOOM,
+        minZoom: 14,
+        maxBounds: hogeRielenBounds,
+    });
+
+    map.whenReady(function() {       
+        map.on('layeradd', correctElementSizeWithZoom);
+        map.on('zoomend', correctElementSizeWithZoom);
     });
     
 
@@ -264,10 +292,10 @@ angular.module('hoGidsApp')
                 filter: filter,
                 onEachFeature: onEachFeature
             }).addTo(map);
+
+            doGeolocation();
+
+            showInterestingViewport();
         });
-
-
-
-
 
   });
