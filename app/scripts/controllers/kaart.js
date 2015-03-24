@@ -12,33 +12,33 @@ var styles = {
     'podiumgrond': {
         fillColor: '#c4d545',
         fillOpacity: 1,
-        stroke: false         
+        stroke: false
     },
     'pavilioen': {
         fillColor: '#0e7594',
         fillOpacity: 1,
-        stroke: false         
+        stroke: false
     },
     'loods': {
         fillColor: '#417493',
         fillOpacity: 1,
-        stroke: false        
+        stroke: false
     },
     'kampeergrond': {
         fillColor: '#f38230',
         fillOpacity: 1,
         stroke: false,
-        lineJoin: 'round'        
+        lineJoin: 'round'
     },
     'vijver': {
         fillColor: '#04D9D9',
         fillOpacity: 1,
-        stroke: false           
+        stroke: false
     },
     'bos': {
         fillColor: '#07E668',
         fillOpacity: 1,
-        stroke: false           
+        stroke: false
     },
     'weg-hard': {
         weight: 4,
@@ -100,7 +100,7 @@ var icons = {
         iconUrl: 'images/kaart/onthaal.png',
         iconSize: [16, 16],
         className: iconClassName
-    }),        
+    }),
     'locationIcon': L.icon({
         iconUrl: 'images/kaart/marker-location.png',
         iconRetinaUrl: 'images/kaart/marker-location-2x.png',
@@ -123,33 +123,34 @@ var icons = {
 angular.module('hoGidsApp')
   .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams, $log) {
 
-    var preciseLocationPointer, radiusPointer; 
-    var featureHighlightPointer;    
+    var preciseLocationPointer, radiusPointer;
+    var featureHighlightPointer;
+    var locationPollInterval;
 
-	function style(feature) {
-		return styles[feature.properties.style] || styles.default;
-    };
+	  function style(feature) {
+		  return styles[feature.properties.style] || styles.default;
+    }
 
     function markerIcon(feature, latlng) {
     	if(feature.properties.name) {
     		switch (feature.properties.name.toLowerCase()) {
-			    case "ehbo": return L.marker(latlng, {icon: icons.ehboIcon});			        
+			    case "ehbo": return L.marker(latlng, {icon: icons.ehboIcon});
 			    case "infopunt": return L.marker(latlng, {icon: icons.infoIcon});
 			    case 'sis': return L.marker(latlng, {icon: icons.sisIcon});
 			    case 'onthaal': return L.marker(latlng, {icon: icons.onthaalIcon});
 			}
     	}
         return L.circle(latlng, 7);
-    };
+    }
 
     function filter(feature, layer) {
         return !(feature.properties.show_on_map === false);
-    };	
+    }
 
     function onEachFeature(feature, layer) {
     	addLabel(feature, layer);
     	checkIfUserSelectedThisFeature(feature, layer);
-    }		
+    }
 
     function addLabel(feature, layer) {
     	if(feature.properties.name && feature.geometry.type == 'Polygon') {
@@ -157,26 +158,26 @@ angular.module('hoGidsApp')
 	    		className: labelClassName,
 	    		html: feature.properties.name
 	    	});
-	    	var featurePolygon = L.polygon(layer._latlngs);	    	
-            L.marker(featurePolygon.getBounds().getCenter(), {icon: labelIcon}).addTo(map);             
+	    	var featurePolygon = L.polygon(layer._latlngs);
+            L.marker(featurePolygon.getBounds().getCenter(), {icon: labelIcon}).addTo(map);
     	}
-    };
+    }
 
     function checkIfUserSelectedThisFeature(feature, layer) {
-    	if(featureNameMatchesParam(feature)) {    	
+    	if(featureNameMatchesParam(feature)) {
     		var featurePolygon = L.polygon(layer._latlngs);
-    		
+
 			var highlightCoordinates = featurePolygon.getBounds().getCenter();
 			featureHighlightPointer = L.marker(highlightCoordinates).addTo(map);
     	}
-    };
+    }
 
-    function featureNameMatchesParam(feature) {    	
+    function featureNameMatchesParam(feature) {
     	if($routeParams.highlightPlaats) {
     		var featureName = feature.properties.name;
     		var featureAlias = feature.properties.alias;
-    		var selectedPlace = $routeParams.highlightPlaats.toLowerCase();    	
-    		return (featureName && featureName.toLowerCase() == selectedPlace) 
+    		var selectedPlace = $routeParams.highlightPlaats.toLowerCase();
+    		return (featureName && featureName.toLowerCase() == selectedPlace)
     				|| (featureAlias && featureAlias.toLowerCase().indexOf(selectedPlace) >= 0)
     	} else {
     		return false;
@@ -184,37 +185,37 @@ angular.module('hoGidsApp')
     }
 
     function correctElementSizeWithZoom(){
-        var zoomLevel = map.getZoom();
+      var zoomLevel = map.getZoom();
 
-        //resize labels
-        var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 10, '17': 12, '18': 16};
-        angular.element('.' + labelClassName).css('fontSize', zoomLevelFontSizeMapping[zoomLevel] + 'px');
-        
-        //resize icons
-        var zoomLevelIconSizeMapping = {'14': 6, '15': 8, '16': 16, '17': 24, '18': 32};
-        var newIconSize = zoomLevelIconSizeMapping[zoomLevel];
-        var newMargin = -1 * newIconSize / 2;
-        angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px')
-            .css('margin-left', newMargin + 'px').css('margin-top', newMargin + 'px');
-    };
+      //resize labels
+      var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 10, '17': 12, '18': 16};
+      angular.element('.' + labelClassName).css('fontSize', zoomLevelFontSizeMapping[zoomLevel] + 'px');
+
+      //resize icons
+      var zoomLevelIconSizeMapping = {'14': 6, '15': 8, '16': 16, '17': 24, '18': 32};
+      var newIconSize = zoomLevelIconSizeMapping[zoomLevel];
+      var newMargin = -1 * newIconSize / 2;
+      angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px')
+          .css('margin-left', newMargin + 'px').css('margin-top', newMargin + 'px');
+    }
 
     function showInterestingViewport() {
-        //FIXME if a feature is highlighted, this method is triggered first and your current location doesn't get in viewport.
-        if(preciseLocationPointer && featureHighlightPointer) {
-            map.panInsideBounds(L.latLngBounds(                
-                featureHighlightPointer.getLatLng()),
-                preciseLocationPointer.getLatLng(), 
-                {'animate': true, 'duration': 1}
-            );
-        } else if(preciseLocationPointer || featureHighlightPointer) {
-            map.setZoom(DEFAULT_ZOOM+2, {'animate': false});
-            correctElementSizeWithZoom();
-            if(preciseLocationPointer) {
-                map.panTo(preciseLocationPointer.getLatLng(), {'animate': true, 'duration': 1});
-            } else if (featureHighlightPointer) {
-                map.panTo(featureHighlightPointer.getLatLng(), {'animate': true, 'duration': 1});
-            }
+      //FIXME if a feature is highlighted, this method is triggered first and your current location doesn't get in viewport.
+      if (preciseLocationPointer && featureHighlightPointer) {
+        map.panInsideBounds(L.latLngBounds(
+            featureHighlightPointer.getLatLng()),
+          preciseLocationPointer.getLatLng(),
+          {'animate': true, 'duration': 1}
+        );
+      } else if (preciseLocationPointer || featureHighlightPointer) {
+        map.setZoom(DEFAULT_ZOOM + 2, {'animate': false});
+        correctElementSizeWithZoom();
+        if (preciseLocationPointer) {
+          map.panTo(preciseLocationPointer.getLatLng(), {'animate': true, 'duration': 1});
+        } else if (featureHighlightPointer) {
+          map.panTo(featureHighlightPointer.getLatLng(), {'animate': true, 'duration': 1});
         }
+      }
     }
 
 
@@ -222,44 +223,65 @@ angular.module('hoGidsApp')
     function onAccuratePositionProgress (e) {
         onAccuratePositionFound(e);
     }
-    
-    function onAccuratePositionFound (event) {
-        console.log(event);
-        
-        if(hogeRielenBounds.contains(event.latlng)) {
-            var radius = event.accuracy/2;
-            if(!preciseLocationPointer || !radiusPointer) {
-                preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon}).addTo(map);
-                radiusPointer = L.circle(event.latlng, radius, {fillOpacity: 0.3, fillColor: '#1d9c5a', stroke: false}).addTo(map);
-                showInterestingViewport();
-            } else {
-               preciseLocationPointer.setLatLng(event.latlng);
-               radiusPointer.setLatLng(event.latlng);
-               radiusPointer.setRadius(radius); 
-            }
+
+    function onAccuratePositionFound(event) {
+      console.log(event);
+
+      if (hogeRielenBounds.contains(event.latlng)) {
+        var radius = event.accuracy / 2;
+        if (!preciseLocationPointer || !radiusPointer) {
+          preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon}).addTo(map);
+          radiusPointer = L.circle(event.latlng, radius, {
+            fillOpacity: 0.3,
+            fillColor: '#1d9c5a',
+            stroke: false
+          }).addTo(map);
+          showInterestingViewport();
         } else {
-            preciseLocationPointer = undefined;
-            radiusPointer = undefined;
+          preciseLocationPointer.setLatLng(event.latlng);
+          preciseLocationPointer.update();
+          radiusPointer.setLatLng(event.latlng);
+          radiusPointer.setRadius(radius);
+          radiusPointer.redraw();
         }
+        scheduleLocationPolling(30);
+      } else {
+        clearCurrentLocation();
+        scheduleLocationPolling(10*60); // recheck in 10 minutes
+      }
     }
 
     function onAccuratePositionError (e) {
-        preciseLocationPointer = undefined;
-        radiusPointer = undefined;
-        //TODO remove marker from map
+        clearCurrentLocation();
+    }
+
+    function clearCurrentLocation() {
+      preciseLocationPointer = undefined;
+      radiusPointer = undefined;
+      //TODO remove marker from map
     }
 
     function doGeolocation() {
-        //TODO: cache location and poll only every minute or so to save battery.
-        //TOOD: if location is outside HR bounds, disable location polling for 10min or so
-        map.on('accuratepositionprogress', onAccuratePositionProgress);
-        map.on('accuratepositionfound', onAccuratePositionFound);
-        map.on('accuratepositionerror', onAccuratePositionError);
+      map.on('accuratepositionprogress', onAccuratePositionProgress);
+      map.on('accuratepositionfound', onAccuratePositionFound);
+      map.on('accuratepositionerror', onAccuratePositionError);
 
-        map.findAccuratePosition({
-            maxWait: 8000, 
-            desiredAccuracy: 50 
-        });
+      findAccuratePosition();
+    }
+
+    function findAccuratePosition() {
+      $log.info("Request position.");
+      map.findAccuratePosition({
+        maxWait: 8000,
+        desiredAccuracy: 50
+      });
+    }
+
+    function scheduleLocationPolling(seconds) {
+      if(locationPollInterval) {
+        clearInterval(locationPollInterval);
+      }
+      locationPollInterval = setInterval(findAccuratePosition, seconds * 1000);
     }
 
     //TODO create map as global object: keep state + fix bug 'Map container is already initialized.'
@@ -267,27 +289,27 @@ angular.module('hoGidsApp')
         center: hogeRielenCenter,
         zoom: DEFAULT_ZOOM,
         minZoom: 14,
-        maxBounds: hogeRielenBounds,
+        maxBounds: hogeRielenBounds
     });
 
-    map.whenReady(function() {       
+    map.whenReady(function() {
         map.on('layeradd', correctElementSizeWithZoom);
         map.on('zoomend', correctElementSizeWithZoom);
     });
-    
-    
-    //var tileUrl_default = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'    
-    //var tileUrl_tim = '/images/render/{z}/{x}/{y}.png'
-    //var tileUrl_leeg = '/images/kaart/leeg.png'    
 
-    var tileUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
+
+    //var tileUrl_default = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+    //var tileUrl_tim = '/images/render/{z}/{x}/{y}.png'
+    //var tileUrl_leeg = '/images/kaart/leeg.png'
+
+    var tileUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
     L.tileLayer(tileUrl, { attribution: '' }).addTo(map);
 
 
     L.Icon.Default.imagePath = 'images/kaart';
 
     $http.get('data/map.geojson')
-        .success(function(data, status) {
+        .success(function(data) {
             L.geoJson(data, {
                 style: style,
                 pointToLayer: markerIcon,
