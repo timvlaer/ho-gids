@@ -9,9 +9,9 @@
  */
 angular.module('hoGidsApp')
   .controller('InformatieCtrl', function ($scope, $location) {
-    
-    $scope.gaNaarRodeKruis = function(item) {        
-        //$location.path('/kaart/ehbo');        
+
+    $scope.showOnMap = function(name) {
+        $location.path('/kaart/' + name);
     }
 
   });

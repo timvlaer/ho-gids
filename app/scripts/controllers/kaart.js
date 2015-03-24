@@ -153,23 +153,23 @@ angular.module('hoGidsApp')
     }
 
     function addLabel(feature, layer) {
-    	if(feature.properties.name && feature.geometry.type == 'Polygon') {
-	    	var labelIcon = L.divIcon({
-	    		className: labelClassName,
-	    		html: feature.properties.name
-	    	});
-	    	var featurePolygon = L.polygon(layer._latlngs);
-            L.marker(featurePolygon.getBounds().getCenter(), {icon: labelIcon}).addTo(map);
-    	}
+      if (feature.properties.name && feature.geometry.type == 'Polygon') {
+        var labelIcon = L.divIcon({
+          className: labelClassName,
+          html: feature.properties.name
+        });
+        var featurePolygon = L.polygon(layer._latlngs);
+        L.marker(featurePolygon.getBounds().getCenter(), {icon: labelIcon}).addTo(map);
+      }
     }
 
     function checkIfUserSelectedThisFeature(feature, layer) {
-    	if(featureNameMatchesParam(feature)) {
-    		var featurePolygon = L.polygon(layer._latlngs);
-
-			var highlightCoordinates = featurePolygon.getBounds().getCenter();
-			featureHighlightPointer = L.marker(highlightCoordinates).addTo(map);
-    	}
+      if (featureNameMatchesParam(feature)) {
+        var highlightCoordinates = (layer._latlngs) ? L.polygon(layer._latlngs).getBounds().getCenter() : layer._latlng;
+        if (highlightCoordinates) {
+          featureHighlightPointer = L.marker(highlightCoordinates).addTo(map);
+        }
+      }
     }
 
     function featureNameMatchesParam(feature) {
@@ -202,10 +202,9 @@ angular.module('hoGidsApp')
     function showInterestingViewport() {
       //FIXME if a feature is highlighted, this method is triggered first and your current location doesn't get in viewport.
       if (preciseLocationPointer && featureHighlightPointer) {
-        map.panInsideBounds(L.latLngBounds(
-            featureHighlightPointer.getLatLng()),
-          preciseLocationPointer.getLatLng(),
-          {'animate': true, 'duration': 1}
+        map.panInsideBounds(
+          L.latLngBounds(featureHighlightPointer.getLatLng(), preciseLocationPointer.getLatLng()),
+          {'animate': true, 'duration': 1, 'maxZoom': DEFAULT_ZOOM}
         );
       } else if (preciseLocationPointer || featureHighlightPointer) {
         map.setZoom(DEFAULT_ZOOM + 2, {'animate': false});
