@@ -80,6 +80,12 @@ var styles = {
     }
 };
 
+var accuracyCircleStyle = {
+  fillOpacity: 0.3,
+  fillColor: '#1d9c5a',
+  stroke: false
+};
+
 var icons = {
     'ehboIcon': L.icon({
         iconUrl: 'images/kaart/ehbo.png',
@@ -134,8 +140,8 @@ angular.module('hoGidsApp')
     function markerIcon(feature, latlng) {
     	if(feature.properties.name) {
     		switch (feature.properties.name.toLowerCase()) {
-			    case "ehbo": return L.marker(latlng, {icon: icons.ehboIcon});
-			    case "infopunt": return L.marker(latlng, {icon: icons.infoIcon});
+			    case 'ehbo': return L.marker(latlng, {icon: icons.ehboIcon});
+			    case 'infopunt': return L.marker(latlng, {icon: icons.infoIcon});
 			    case 'sis': return L.marker(latlng, {icon: icons.sisIcon});
 			    case 'onthaal': return L.marker(latlng, {icon: icons.onthaalIcon});
 			}
@@ -144,7 +150,7 @@ angular.module('hoGidsApp')
     }
 
     function filter(feature, layer) {
-        return !(feature.properties.show_on_map === false);
+      return feature.properties.show_on_map !== false;
     }
 
     function onEachFeature(feature, layer) {
@@ -153,7 +159,7 @@ angular.module('hoGidsApp')
     }
 
     function addLabel(feature, layer) {
-      if (feature.properties.name && feature.geometry.type == 'Polygon') {
+      if (feature.properties.name && feature.geometry.type === 'Polygon') {
         var labelIcon = L.divIcon({
           className: labelClassName,
           html: feature.properties.name
@@ -177,8 +183,8 @@ angular.module('hoGidsApp')
     		var featureName = feature.properties.name;
     		var featureAlias = feature.properties.alias;
     		var selectedPlace = $routeParams.highlightPlaats.toLowerCase();
-    		return (featureName && featureName.toLowerCase() == selectedPlace)
-    				|| (featureAlias && featureAlias.toLowerCase().indexOf(selectedPlace) >= 0)
+    		return (featureName && featureName.toLowerCase() === selectedPlace) ||
+          (featureAlias && featureAlias.toLowerCase().indexOf(selectedPlace) >= 0);
     	} else {
     		return false;
     	}
@@ -229,12 +235,12 @@ angular.module('hoGidsApp')
       if (hogeRielenBounds.contains(event.latlng)) {
         var radius = event.accuracy / 2;
         if (!preciseLocationPointer || !radiusPointer) {
-          preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon}).addTo(map);
-          radiusPointer = L.circle(event.latlng, radius, {
-            fillOpacity: 0.3,
-            fillColor: '#1d9c5a',
-            stroke: false
-          }).addTo(map);
+          preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon});
+          map.addLayer(preciseLocationPointer);
+
+          radiusPointer = L.circle(event.latlng, radius, accuracyCircleStyle);
+          map.addLayer(radiusPointer);
+
           showInterestingViewport();
         } else {
           preciseLocationPointer.setLatLng(event.latlng);
@@ -243,7 +249,7 @@ angular.module('hoGidsApp')
           radiusPointer.setRadius(radius);
           radiusPointer.redraw();
         }
-        scheduleLocationPolling(30);
+        scheduleLocationPolling(20);
       } else {
         clearCurrentLocation();
         scheduleLocationPolling(10*60); // recheck in 10 minutes
@@ -251,13 +257,19 @@ angular.module('hoGidsApp')
     }
 
     function onAccuratePositionError (e) {
-        clearCurrentLocation();
+      $log.warn('Position not found', e);
+      clearCurrentLocation();
     }
 
     function clearCurrentLocation() {
+      if (preciseLocationPointer) {
+        map.removeLayer(preciseLocationPointer);
+      }
+      if (radiusPointer) {
+        map.removeLayer(radiusPointer);
+      }
       preciseLocationPointer = undefined;
       radiusPointer = undefined;
-      //TODO remove marker from map
     }
 
     function doGeolocation() {
@@ -269,7 +281,7 @@ angular.module('hoGidsApp')
     }
 
     function findAccuratePosition() {
-      $log.info("Request position.");
+      $log.info('Request position.');
       map.findAccuratePosition({
         maxWait: 8000,
         desiredAccuracy: 50

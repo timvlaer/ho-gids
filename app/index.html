@@ -23,7 +23,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400italic,100,300,700,400' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="hoGidsApp">
-     <nav class="header navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="header navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle pull-left" snap-toggle="left">
@@ -38,27 +38,27 @@
     </nav>
 
     <div snap-content id="content">
-        <div ng-view=""></div>
+      <div ng-view=""></div>
     </div>
 
     <div snap-drawer id="sidemenu">
-        <a href="/#/" snap-close="left">
-            <img src="images/menu/logo_medium.png" alt="logo HO" />
-        </a>
-        <ul ng-controller="MenuCtrl">
-            <li ng-class="{active:isActive('/informatie')}">
-                <a ng-href="#/informatie" snap-close="left">Informatie</a>
-              </li>
-            <li ng-class="{active:isActive('/programma')}">
-                <a ng-href="#/programma" snap-close="left">Programma</a>
-              </li>
-              <li ng-class="{active:isActive('/kaart')}">
-                <a ng-href="#/kaart" snap-close="left">Kaart</a>
-              </li>
-              <!--<li ng-class="{active:isActive('/nieuwsstroom')}">
-                <a ng-href="#/nieuwsstroom" snap-close="left">Nieuwsstroom</a>
-              </li>-->
-        </ul>
+      <a ng-href="#/" snap-close="left">
+        <img src="images/menu/logo_medium.png" alt="logo HO"/>
+      </a>
+      <ul ng-controller="MenuCtrl">
+        <li ng-class="{active:isActive('/informatie')}">
+          <a ng-href="#/informatie" snap-close="left">Informatie</a>
+        </li>
+        <li ng-class="{active:isActive('/programma')}">
+          <a ng-href="#/programma" snap-close="left">Programma</a>
+        </li>
+        <li ng-class="{active:isActive('/kaart')}">
+          <a ng-href="#/kaart" snap-close="left">Kaart</a>
+        </li>
+        <!--<li ng-class="{active:isActive('/nieuwsstroom')}">
+          <a ng-href="#/nieuwsstroom" snap-close="left">Nieuwsstroom</a>
+         </li>-->
+      </ul>
     </div>
 
     <!-- build:js(.) scripts/vendor.js -->
