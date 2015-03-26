@@ -208,7 +208,7 @@ angular.module('hoGidsApp')
     function showInterestingViewport() {
       //FIXME if a feature is highlighted, this method is triggered first and your current location doesn't get in viewport.
       if (preciseLocationPointer && featureHighlightPointer) {
-        map.panInsideBounds(
+        map.fitBounds(
           L.latLngBounds(featureHighlightPointer.getLatLng(), preciseLocationPointer.getLatLng()),
           {'animate': true, 'duration': 1, 'maxZoom': DEFAULT_ZOOM}
         );
