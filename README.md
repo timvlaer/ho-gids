@@ -4,18 +4,19 @@ Programma van het jaarlijkse startweekend voor leiding van Scouts en Gidsen Vlaa
 
 Build with [AngularJS](https://angularjs.org/), [Leaflet](http://www.leafletjs.com) and [Apache Cordova](http://cordova.apache.org/).
 
+### Prerequisites ###
+* [node](https://nodejs.org/)
+* [grunt](http://gruntjs.com/getting-started)
+* [bower](http://bower.io/)
+
 ### Run this application locally ###
 
+    npm install
+    bower install
     grunt serve
 
-Your browser should open at http://localhost:9000
-
-You can use the [ripple emulator](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc) to emulate your mobile phone in the browser. 
-
-**Requirements**
-* npm
-* ruby / compass
-* grunt 
+Your browser should open at http://localhost:9000.
+To test it on a smartphone, you can surf to this url with your smartphone or use the [ripple emulator](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc) to emulate your mobile phone in the browser. 
 
 ### Cordova packages ###
 
