@@ -4,13 +4,13 @@
 	<h3>{{dag.dag}}</h3>
 
 	<div class="programmaItem container-fluid" ng-repeat="item in dag.items">
-		
+
 		<a class="row" ng-class="{'clickable':item.plaats && !item.subitems}" ng-click="item.subitems || toonOpKaart(item)">
 			<div class="col-xs-4 tijd">
-				<p>{{item.start}} <span ng-show="item.stop">- {{item.stop}}</span></p> 				
+				<p>{{item.start}} <span ng-show="item.stop">- {{item.stop}}</span></p>
 			</div>
 			<div class="col-xs-8 omschrijving">
-				<h5>{{item.titel}} <small class="plaats">{{item.plaats}}</small></h5>			
+				<h5>{{item.titel}} <small class="plaats">{{item.plaats}} <span ng-show="item.plaats && item.plaats.toLowerCase() == 'gouwgrond'">{{gouw.naam}}</span></small></h5>
 				<p ng-show="item.beschrijving" class="beschrijving">{{item.beschrijving}}</p>
 			</div>
 		</a>
@@ -20,10 +20,10 @@
 				<div class="subitems-container" masonry="{gutter:10}" load-images="false">
 					<div class="programmaSubitem clickable masonry-brick"
 						 ng-repeat="subitem in item.subitems" ng-click="toonOpKaart(subitem)">
-						{{subitem.titel}} 
+						{{subitem.titel}}
 						<span class="plaats">[{{subitem.plaats}}]</span>
 					</div>
-				</div>	
+				</div>
 			</div>
 		</div>
 

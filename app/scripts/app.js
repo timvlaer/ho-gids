@@ -18,9 +18,10 @@ angular
     'ngTouch',
     'wu.masonry',
     'leaflet-directive',
-    'snap'
+    'snap',
+    'LocalStorageModule'
   ])
-  .config(function ($routeProvider, snapRemoteProvider) {
+  .config(function ($routeProvider, snapRemoteProvider, localStorageServiceProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -33,6 +34,10 @@ angular
       .when('/programma', {
         templateUrl: 'views/programma.html',
         controller: 'ProgrammaCtrl'
+      })
+      .when('/instellingen', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
       })
       .when('/kaart', {
         templateUrl: 'views/kaart.html',
@@ -51,10 +56,14 @@ angular
       });
 
 
-      snapRemoteProvider.globalOptions = {
-        disable: 'right',
-        hyperextensible: false
-      }
+    snapRemoteProvider.globalOptions = {
+      disable: 'right',
+      hyperextensible: false
+    };
+
+    localStorageServiceProvider
+      .setPrefix('yourAppName')
+      .setStorageCookie(0, '/');
   })
   .run(function() {
     if(navigator.splashscreen) {

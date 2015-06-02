@@ -12,6 +12,6 @@ angular.module('hoGidsApp')
 
     $scope.showOnMap = function(name) {
         $location.path('/kaart/' + name);
-    }
+    };
 
   });

@@ -54,6 +54,9 @@
         <li ng-class="{active:isActive('/kaart')}">
           <a ng-href="#/kaart" snap-close="left">Kaart</a>
         </li>
+        <li ng-class="{active:isActive('/meta')}">
+          <a ng-href="#/instellingen" snap-close="left">Instellingen</a>
+        </li>
         <!--<li ng-class="{active:isActive('/nieuwsstroom')}">
           <a ng-href="#/nieuwsstroom" snap-close="left">Nieuwsstroom</a>
          </li>-->
@@ -101,6 +104,7 @@
     <script src="bower_components/masonry/masonry.js"></script>
     <script src="bower_components/imagesloaded/imagesloaded.js"></script>
     <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -116,6 +120,7 @@
         <script src="scripts/Leaflet.AccuratePosition.js" ></script>
         <script src="scripts/controllers/informatie.js"></script>
         <script src="scripts/controllers/nieuwsstroom.js"></script>
+        <script src="scripts/controllers/settings.js"></script>
         <!-- endbuild -->
 </body>
 </html>

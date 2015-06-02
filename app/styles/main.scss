@@ -19,9 +19,10 @@ $menu-color: #333333;
 @import "programma.scss";
 @import "kaart.scss";
 @import "informatie.scss";
+@import "instellingen.scss";
 
 /* Space out content a bit */
-body {  
+body {
   padding-bottom: 20px;
   background-color: $menu-color;
   font-family: 'Roboto', sans-serif;
@@ -41,24 +42,24 @@ body {
 }
 
 
-.header {  
+.header {
   padding-left: 10px;
   padding-right: 10px;
   background-color: $main-color;
   height: 48px;
-  border: none;  
+  border: none;
   box-shadow: 0px 5px 12px 0px rgba(130, 130, 130, 0.4);
 
   button.navbar-toggle {
     border: none;
 
     &:hover, &:focus {
-      background-color: $main-color-dark;
+      background-color: transparent;
     }
   }
 
-  a.navbar-brand {    
-    color: white;    
+  a.navbar-brand {
+    color: white;
     &:hover {
       text-decoration: none;
     }
@@ -89,7 +90,7 @@ h2 {
     padding-left: 0px;
 
     li {
-      font-size: 24px;    
+      font-size: 24px;
       font-weight: 100;
       list-style-type: none;
       padding: 0;
