@@ -3,6 +3,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
+$main-bg-color: #ffffff;
 $main-color: #c4d545;
 $main-color-dark : #95A234;
 $secondary-color: #f07d00;
@@ -20,6 +21,7 @@ $menu-color: #333333;
 @import "kaart.scss";
 @import "informatie.scss";
 @import "instellingen.scss";
+@import "over.scss";
 
 /* Space out content a bit */
 body {
@@ -68,8 +70,8 @@ body {
 
 #content {
   padding-top: 48px;
-  background-color: white;
   box-shadow: 5px 12px 0px 0px rgba(50, 50, 50, 0.5);
+  background-color: $main-bg-color;
 }
 
 h2 {
@@ -90,7 +92,7 @@ h2 {
     padding-left: 0px;
 
     li {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 100;
       list-style-type: none;
       padding: 0;
@@ -115,6 +117,17 @@ h2 {
       color: $main-color;
     }
   }
+}
+
+.scrollable{
+  overflow: auto;
+  -webkit-transition-property: top, bottom;
+  transition-property: top, bottom;
+  -webkit-transition-duration: .2s, .2s;
+  transition-duration: .2s, .2s;
+  -webkit-transition-timing-function: linear, linear;
+  transition-timing-function: linear, linear;
+  -webkit-overflow-scrolling: touch;
 }
 
 

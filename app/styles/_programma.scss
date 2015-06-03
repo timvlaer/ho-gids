@@ -1,17 +1,17 @@
 #programma {
-
-	margin-bottom: 80px;
+  background-color: white;
+	padding-bottom: 80px;
 
 	h2 {
 		padding: 10px 35px;
 	}
 
 	h3 {
-		padding-left: 40px;	
+		padding-left: 40px;
 		padding-bottom: 10px;
 		margin-top: 45px;
 		margin-bottom: 0;
-		border-bottom: 1px solid #eee;	
+		border-bottom: 1px solid #eee;
 		color: $secondary-color;
 	}
 
@@ -21,20 +21,20 @@
 	}
 
 	.programmaItem {
-		background-color: white;		
+		background-color: white;
 		border-bottom: 1px solid #eee;
 
 		a.row {
-			padding-top: 15px;			
+			padding-top: 15px;
 			display: block;
 			color: inherit;
 		}
 
 		.clickable {
-			cursor: pointer;	
+			cursor: pointer;
 		}
 		.clickable:active {
-			background-color: $secondary-color !IMPORTANT; 
+			background-color: $secondary-color !IMPORTANT;
 			color: white !IMPORTANT;
 
 			.tijd {
@@ -48,7 +48,7 @@
 			.plaats {
 				color: #e08e95;
 			}
-		}		
+		}
 
 		.tijd {
 			color: #000;
@@ -71,8 +71,8 @@
 			padding: 5px 12px;
 			width: 31%;
 			margin-bottom: 10px;
-			background-color: #efefef;	
-			color: #555;	
+			background-color: #efefef;
+			color: #555;
 			/*font-family: 'Droid Sans', sans-serif;*/
 			font-size: 12px;
 
@@ -82,5 +82,5 @@
 		}
 	}
 
-	
+
 }

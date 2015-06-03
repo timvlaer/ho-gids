@@ -36,8 +36,12 @@ angular
         controller: 'ProgrammaCtrl'
       })
       .when('/instellingen', {
-        templateUrl: 'views/settings.html',
-        controller: 'SettingsCtrl'
+        templateUrl: 'views/instellingen.html',
+        controller: 'InstellingenCtrl'
+      })
+      .when('/over', {
+        templateUrl: 'views/over.html',
+        controller: 'OverCtrl'
       })
       .when('/kaart', {
         templateUrl: 'views/kaart.html',
