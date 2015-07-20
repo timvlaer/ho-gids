@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "be.scoutsengidsenvlaanderen.hogids"
-        version   = "1.0.0">
+        version   = "1.0.1">
 
     <name>HO</name>
 
@@ -90,7 +90,7 @@
 
     <!-- Spotlight Icon -->
     <icon src="www/res/icon/ios/Icon-Small-40.png" gap:platform="ios" width="40" height="40" />
-    <icon src="www/res/icon/ios/Icon-Small-40@2x.png" gap:platform="ios" width="80" height="80" />    
+    <icon src="www/res/icon/ios/Icon-Small-40@2x.png" gap:platform="ios" width="80" height="80" />
 
     <!-- iPhone / iPod Touch -->
     <icon src="www/res/icon/ios/Icon.png" gap:platform="ios" width="57" height="57" />
