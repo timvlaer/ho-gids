@@ -62,7 +62,8 @@ angular
 
     snapRemoteProvider.globalOptions = {
       disable: 'right',
-      hyperextensible: false
+      hyperextensible: false,
+      touchToDrag: false
     };
 
     localStorageServiceProvider
