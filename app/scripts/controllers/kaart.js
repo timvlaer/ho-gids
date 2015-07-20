@@ -9,36 +9,48 @@ var hogeRielenBounds = L.latLngBounds(L.latLng(51.2300, 4.90900), L.latLng(51.25
 var DEFAULT_ZOOM = 14;
 
 var styles = {
+    'podium': {
+        fillColor: '#f07d00',
+        fillOpacity: 1,
+        stroke: false
+    },
     'podiumgrond': {
-        fillColor: '#c4d545',
+        fillColor: '#006f93',
         fillOpacity: 1,
         stroke: false
     },
     'pavilioen': {
-        fillColor: '#0e7594',
+        fillColor: '#e2afc4',
         fillOpacity: 1,
         stroke: false
     },
     'loods': {
-        fillColor: '#417493',
+        fillColor: '#dae283',
         fillOpacity: 1,
         stroke: false
     },
     'kampeergrond': {
-        fillColor: '#f38230',
+        fillColor: '#51af31',
+        fillOpacity: 1,
+        stroke: false,
+        lineJoin: 'round'
+    },
+    'aanbod': {
+        fillColor: '#da0c25',
         fillOpacity: 1,
         stroke: false,
         lineJoin: 'round'
     },
     'vijver': {
-        fillColor: '#04D9D9',
+        fillColor: '#009fe3',
         fillOpacity: 1,
         stroke: false
     },
     'bos': {
-        fillColor: '#07E668',
+        fillColor: '#7e216e',
         fillOpacity: 1,
-        stroke: false
+        weight: 1,
+        color: '37af6b'
     },
     'weg-hard': {
         weight: 4,
@@ -46,8 +58,14 @@ var styles = {
         color: 'white',
         lineCap: 'square'
     },
+    'weg-hard-2': {
+      weight: 3,
+      opacity: 1,
+      color: 'white',
+      lineCap: 'square'
+    },
     'weg-halfhard': {
-        weight: 4,
+        weight: 3,
         opacity: 1,
         color: 'white',
         lineCap: 'square'
@@ -55,7 +73,7 @@ var styles = {
     'weg-zand': {
         weight: 1,
         opacity: 1,
-        color: '#417493',
+        color: '#c7d301',
         dashArray: '5'
     },
     'faciliteit': {
@@ -65,9 +83,9 @@ var styles = {
         fillOpacity: 1
     },
     'border': {
-        fillColor: '#c1d7e4',
+        fillColor: '#f4f6da',
         weight: 5,
-        color: '#0e7594',
+        color: '#c7d301',
         fillOpacity: 1,
         opacity: 1
     },
@@ -93,7 +111,7 @@ var icons = {
         className: iconClassName
     }),
     'infoIcon': L.icon({
-        iconUrl: 'images/kaart/info.png',
+        iconUrl: 'images/kaart/infopunt.png',
         iconSize: [16, 16],
         className: iconClassName
     }),
@@ -104,6 +122,26 @@ var icons = {
     }),
     'onthaalIcon': L.icon({
         iconUrl: 'images/kaart/onthaal.png',
+        iconSize: [16, 16],
+        className: iconClassName
+    }),
+    'sanitair': L.icon({
+        iconUrl: 'images/kaart/sanitair.png',
+        iconSize: [16, 16],
+        className: iconClassName
+    }),
+    'afwasbatterij': L.icon({
+        iconUrl: 'images/kaart/afwasbatterij.png',
+        iconSize: [16, 16],
+        className: iconClassName
+    }),
+    'evacuatiepunt': L.icon({
+        iconUrl: 'images/kaart/evacuatiepunt.png',
+        iconSize: [16, 16],
+        className: iconClassName
+    }),
+    'bar': L.icon({
+        iconUrl: 'images/kaart/bar.png',
         iconSize: [16, 16],
         className: iconClassName
     }),
@@ -144,6 +182,10 @@ angular.module('hoGidsApp')
 			    case 'infopunt': return L.marker(latlng, {icon: icons.infoIcon});
 			    case 'sis': return L.marker(latlng, {icon: icons.sisIcon});
 			    case 'onthaal': return L.marker(latlng, {icon: icons.onthaalIcon});
+			    case 'sanitair': return L.marker(latlng, {icon: icons.sanitair});
+			    case 'afwasbatterij': return L.marker(latlng, {icon: icons.afwasbatterij});
+			    case 'evacuatiepunt': return L.marker(latlng, {icon: icons.evacuatiepunt});
+			    case 'centrale bar': return L.marker(latlng, {icon: icons.bar});
 			}
     	}
         return L.circle(latlng, 7);
@@ -283,7 +325,7 @@ angular.module('hoGidsApp')
     function findAccuratePosition() {
       $log.info('Request position.');
       map.findAccuratePosition({
-        maxWait: 8000,
+        maxWait: 15000,
         desiredAccuracy: 50
       });
     }

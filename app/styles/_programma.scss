@@ -1,5 +1,7 @@
+$item-border-color: #d5dd59;
+
 #programma {
-  background-color: white;
+  background-color: $main-bg-color;
 	padding-bottom: 80px;
 
 	h2 {
@@ -11,7 +13,7 @@
 		padding-bottom: 10px;
 		margin-top: 45px;
 		margin-bottom: 0;
-		border-bottom: 1px solid #eee;
+		border-bottom: 1px dashed $item-border-color;
 		color: $secondary-color;
 	}
 
@@ -21,8 +23,8 @@
 	}
 
 	.programmaItem {
-		background-color: white;
-		border-bottom: 1px solid #eee;
+		background-color: $main-bg-color;
+		border-bottom: 1px dashed $item-border-color;
 
 		a.row {
 			padding-top: 15px;
@@ -35,6 +37,7 @@
 		}
 		.clickable:active {
 			background-color: $secondary-color !IMPORTANT;
+      border-color: $secondary-color !IMPORTANT;
 			color: white !IMPORTANT;
 
 			.tijd {
@@ -42,16 +45,20 @@
 			}
 			.omschrijving {
 				.beschrijving {
-					color: #e4bec1;
+					color: #000000;
 				}
 			}
 			.plaats {
-				color: #e08e95;
+				color: #000000;
 			}
 		}
 
+    .plaats {
+      color: $dark-text;
+    }
+
 		.tijd {
-			color: #000;
+			color: #000000;
 			text-align: right;
 			font-style: italic;
 			font-size: 95%;
@@ -60,7 +67,7 @@
 		.omschrijving {
 			.beschrijving {
 				font-size: 85%;
-				color: #666;
+				color: $dark-text;
 			}
 		}
 	}
@@ -71,10 +78,10 @@
 			padding: 5px 12px;
 			width: 31%;
 			margin-bottom: 10px;
-			background-color: #efefef;
-			color: #555;
-			/*font-family: 'Droid Sans', sans-serif;*/
+			background-color: $main-bg-color-em;
+      border: 1px dotted $main-color;
 			font-size: 12px;
+      color: #000000;
 
 			.plaats {
 				font-size: 10px;

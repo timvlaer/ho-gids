@@ -3,11 +3,15 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
-$main-bg-color: #ffffff;
-$main-color: #c4d545;
+$main-bg-color: #f9fbed;
+$main-bg-color-em: #f4f6da;
+$main-color: #c7d301;
 $main-color-dark : #95A234;
+$title-color: #006f93;
 $secondary-color: #f07d00;
 $menu-color: #333333;
+$dark-text: #505319;
+$dark-border: #D7DF43;
 
 .browsehappy {
   margin: 0.2em 0;
@@ -50,7 +54,6 @@ body {
   background-color: $main-color;
   height: 48px;
   border: none;
-  box-shadow: 0px 5px 12px 0px rgba(130, 130, 130, 0.4);
 
   button.navbar-toggle {
     border: none;
@@ -76,6 +79,7 @@ body {
 
 h2 {
   font-weight: 700;
+  color: $title-color;
 }
 
 #sidemenu {
@@ -128,6 +132,11 @@ h2 {
   -webkit-transition-timing-function: linear, linear;
   transition-timing-function: linear, linear;
   -webkit-overflow-scrolling: touch;
+}
+
+.btn-default, .form-control {
+  background-color: $main-bg-color-em;
+  border-color: $dark-border;
 }
 
 
