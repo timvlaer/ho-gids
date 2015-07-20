@@ -126,16 +126,16 @@ h1, h2 {
   }
 }
 
-//.scrollable{
-//  overflow: auto;
-//  -webkit-transition-property: top, bottom;
-//  transition-property: top, bottom;
-//  -webkit-transition-duration: .2s, .2s;
-//  transition-duration: .2s, .2s;
-//  -webkit-transition-timing-function: linear, linear;
-//  transition-timing-function: linear, linear;
-//  -webkit-overflow-scrolling: touch;
-//}
+.scrollable{
+  overflow: auto;
+  -webkit-transition-property: top, bottom;
+  transition-property: top, bottom;
+  -webkit-transition-duration: .2s, .2s;
+  transition-duration: .2s, .2s;
+  -webkit-transition-timing-function: linear, linear;
+  transition-timing-function: linear, linear;
+  -webkit-overflow-scrolling: touch;
+}
 
 .btn-default, .form-control {
   background-color: $main-bg-color-em;
