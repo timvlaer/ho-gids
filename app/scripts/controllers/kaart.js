@@ -43,8 +43,9 @@ var styles = {
     },
     'vijver': {
         fillColor: '#009fe3',
-        fillOpacity: 1,
-        stroke: false
+        fillOpacity: 0.6,
+        stroke: false,
+        lineJoin: 'round'
     },
     'bos': {
         fillColor: '#7e216e',
@@ -107,42 +108,42 @@ var accuracyCircleStyle = {
 var icons = {
     'ehboIcon': L.icon({
         iconUrl: 'images/kaart/ehbo.png',
-        iconSize: [16, 16],
+        iconSize: [24, 24],
         className: iconClassName
     }),
     'infoIcon': L.icon({
         iconUrl: 'images/kaart/infopunt.png',
-        iconSize: [16, 16],
+        iconSize: [24, 24],
         className: iconClassName
     }),
     'sisIcon': L.icon({
         iconUrl: 'images/kaart/sis.png',
-        iconSize: [16, 16],
+        iconSize: [24, 24],
         className: iconClassName
     }),
     'onthaalIcon': L.icon({
         iconUrl: 'images/kaart/onthaal.png',
-        iconSize: [16, 16],
+        iconSize: [24, 24],
         className: iconClassName
     }),
     'sanitair': L.icon({
         iconUrl: 'images/kaart/sanitair.png',
-        iconSize: [16, 16],
+        iconSize: [24, 24],
         className: iconClassName
     }),
     'afwasbatterij': L.icon({
         iconUrl: 'images/kaart/afwasbatterij.png',
-        iconSize: [16, 16],
+        iconSize: [24, 24],
         className: iconClassName
     }),
     'evacuatiepunt': L.icon({
         iconUrl: 'images/kaart/evacuatiepunt.png',
-        iconSize: [16, 16],
+        iconSize: [24, 24],
         className: iconClassName
     }),
     'bar': L.icon({
         iconUrl: 'images/kaart/bar.png',
-        iconSize: [16, 16],
+        iconSize: [24, 24],
         className: iconClassName
     }),
     'locationIcon': L.icon({
@@ -236,11 +237,11 @@ angular.module('hoGidsApp')
       var zoomLevel = map.getZoom();
 
       //resize labels
-      var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 10, '17': 12, '18': 16};
+      var zoomLevelFontSizeMapping = {'14': 6, '15': 7, '16': 12, '17': 14, '18': 20};
       angular.element('.' + labelClassName).css('fontSize', zoomLevelFontSizeMapping[zoomLevel] + 'px');
 
       //resize icons
-      var zoomLevelIconSizeMapping = {'14': 6, '15': 8, '16': 16, '17': 24, '18': 32};
+      var zoomLevelIconSizeMapping = {'14': 10, '15': 16, '16': 24, '17': 44, '18': 56};
       var newIconSize = zoomLevelIconSizeMapping[zoomLevel];
       var newMargin = -1 * newIconSize / 2;
       angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px')
