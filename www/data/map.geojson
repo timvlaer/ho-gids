@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "features": [  
+  "features": [
     {
       "type": "Feature",
       "properties": {
@@ -8,7 +8,8 @@
         "stroke-width": 2,
         "stroke-opacity": 1,
         "fill": "#555555",
-        "fill-opacity": 0.5,
+        "fill-opacity": 0.1,
+        "name": "",
         "style": "border"
       },
       "geometry": {
@@ -76,24 +77,28 @@
               51.23894829757319
             ],
             [
-              4.946959018707275,
-              51.241541003546246
+              4.945628643035889,
+              51.24019765081806
+            ],
+            [
+              4.947484731674194,
+              51.24176265297585
             ],
             [
               4.9497270584106445,
               51.24234699635255
             ],
             [
-              4.952259063720703,
-              51.24211863315798
+              4.951878190040588,
+              51.24213878289722
             ],
             [
               4.954662322998047,
               51.24440221408529
             ],
             [
-              4.954683780670166,
-              51.245154427683886
+              4.954758882522583,
+              51.24491936225587
             ],
             [
               4.953846931457519,
@@ -186,8 +191,47 @@
     {
       "type": "Feature",
       "properties": {
-        "style": "vijver",
-        "name": "Vijver 1"
+        "name": "KKG",
+        "style": "podiumgrond",
+        "alias": "KKG markt, KKG podium, KKG groot podium"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.936423301696777,
+              51.239193469031036
+            ],
+            [
+              4.9362194538116455,
+              51.23856878301374
+            ],
+            [
+              4.938907027244568,
+              51.238199341054745
+            ],
+            [
+              4.938488602638245,
+              51.238938222005864
+            ],
+            [
+              4.936423301696777,
+              51.239193469031036
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
+        "style": "vijver"
       },
       "geometry": {
         "type": "Polygon",
@@ -711,8 +755,13 @@
     {
       "type": "Feature",
       "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
         "name": "KKK",
-        "style": "kampeergrond"
+        "style": "aanbod"
       },
       "geometry": {
         "type": "Polygon",
@@ -749,43 +798,13 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "KKG",
-        "style": "podiumgrond",
-        "alias": "KKG markt, KKG podium, KKG groot podium"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              4.936423301696777,
-              51.239193469031036
-            ],
-            [
-              4.9362194538116455,
-              51.23856878301374
-            ],
-            [
-              4.938907027244568,
-              51.238199341054745
-            ],
-            [
-              4.938488602638245,
-              51.238938222005864
-            ],
-            [
-              4.936423301696777,
-              51.239193469031036
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
         "name": "KP14",
-        "style": "kampeergrond"
+        "style": "aanbod"
       },
       "geometry": {
         "type": "Polygon",
@@ -838,8 +857,13 @@
     {
       "type": "Feature",
       "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
         "name": "K12",
-        "style": "kampeergrond"
+        "style": "aanbod"
       },
       "geometry": {
         "type": "Polygon",
@@ -1009,8 +1033,13 @@
     {
       "type": "Feature",
       "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
         "name": "K9",
-        "style": "kampeergrond"
+        "style": "aanbod"
       },
       "geometry": {
         "type": "Polygon",
@@ -1725,8 +1754,13 @@
     {
       "type": "Feature",
       "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
         "name": "K10",
-        "style": "kampeergrond"
+        "style": "aanbod"
       },
       "geometry": {
         "type": "Polygon",
@@ -2415,8 +2449,8 @@
         "type": "LineString",
         "coordinates": [
           [
-            4.923205375671387,
-            51.24176936960858
+            4.9232013523578635,
+            51.24175845507992
           ],
           [
             4.922652840614319,
@@ -2495,7 +2529,10 @@
     {
       "type": "Feature",
       "properties": {
-        "style": "weg-hard"
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "style": "weg-hard-2"
       },
       "geometry": {
         "type": "LineString",
@@ -3050,8 +3087,8 @@
         "type": "LineString",
         "coordinates": [
           [
-            4.927228689193726,
-            51.24080216440054
+            4.927215278148651,
+            51.24079124964239
           ],
           [
             4.926493763923645,
@@ -3158,8 +3195,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.93897944688797,
-          51.239300941038984
+          4.938912391662598,
+          51.23929422404586
         ]
       }
     },
@@ -3186,16 +3223,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.93835985660553,
-          51.23839413809379
+          4.9384939670562735,
+          51.2385620659137
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3208,7 +3248,10 @@
     {
       "type": "Feature",
       "properties": {
-        "style": "faciliteit",
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "style": "sanitair",
         "name": "sanitair"
       },
       "geometry": {
@@ -3222,8 +3265,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3236,8 +3282,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3250,8 +3299,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3264,8 +3316,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3278,8 +3333,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3292,8 +3350,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3306,22 +3367,28 @@
     {
       "type": "Feature",
       "properties": {
-        "style": "faciliteit",
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "style": "sanitair",
         "name": "sanitair"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.938687086105347,
-          51.23897516574192
+          4.938456416130066,
+          51.23899867537666
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3334,8 +3401,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3348,8 +3418,11 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "water",
-        "style": "faciliteit"
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "name": "afwasbatterij",
+        "style": "afwasbatterij"
       },
       "geometry": {
         "type": "Point",
@@ -3362,8 +3435,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3376,8 +3452,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3390,22 +3469,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.937681257724762,
-          51.23719175699606
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3456,8 +3524,11 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
         "name": "sanitair",
-        "style": "faciliteit"
+        "style": "sanitair"
       },
       "geometry": {
         "type": "Point",
@@ -3470,28 +3541,14 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "onthaal",
-        "style": "faciliteit"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.918484687805176,
-          51.24277685340791
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "style": "weg-hard"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            4.922668933868407,
-            51.24189362713678
+            4.922663569450378,
+            51.24188271263763
           ],
           [
             4.922593832015991,
@@ -3544,7 +3601,7 @@
         "stroke": "#555555",
         "stroke-width": 2,
         "stroke-opacity": 1,
-        "style": "weg-hard"
+        "style": "weg-hard-2"
       },
       "geometry": {
         "type": "LineString",
@@ -3562,8 +3619,517 @@
             51.24471787664707
           ],
           [
-            4.921349287033081,
-            51.24546336899075
+            4.921177625656128,
+            51.245590974577105
+          ],
+          [
+            4.9206626415252686,
+            51.245483517264745
+          ],
+          [
+            4.91987943649292,
+            51.24471116044488
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "style": "weg-halfhard"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.9215638637542725,
+            51.24341155687123
+          ],
+          [
+            4.922513365745544,
+            51.2425451340881
+          ],
+          [
+            4.922389984130859,
+            51.24220930691505
+          ],
+          [
+            4.92212176322937,
+            51.2422428897427
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "style": "weg-zand"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.922394007444382,
+            51.242210146486045
+          ],
+          [
+            4.923272430896759,
+            51.24202124262718
+          ],
+          [
+            4.923202693462371,
+            51.24175845507992
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "style": "weg-hard-2"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.92087721824646,
+            51.243327601889305
+          ],
+          [
+            4.919675588607788,
+            51.24491264608312
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "style": "weg-hard-2"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.919235706329345,
+            51.24267610602098
+          ],
+          [
+            4.918988943099975,
+            51.24235371289994
+          ],
+          [
+            4.918355941772461,
+            51.24229998049341
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "style": "weg-hard-2"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.922588467597961,
+            51.24127233613904
+          ],
+          [
+            4.922567009925842,
+            51.24095664993043
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "style": "faciliteit",
+        "name": "centrale bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.9381935596466064,
+          51.23840085521836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "style": "afwasbatterij",
+        "name": "afwasbatterij"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.938075542449951,
+          51.23893150495976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "style": "afwasbatterij",
+        "name": "afwasbatterij"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.930715560913086,
+          51.24573201191854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "name": "sanitair",
+        "style": "sanitair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.932383894920349,
+          51.242921257611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "style": "evacuatiepunt",
+        "name": "evacuatiepunt"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.917497634887695,
+          51.24336790029974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "name": "evacuatiepunt"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.919471740722656,
+          51.23831689109079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "name": "evacuatiepunt"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.945156574249268,
+          51.238921429388775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
+        "style": "podium"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.936407208442688,
+              51.23875686141684
+            ],
+            [
+              4.936482310295105,
+              51.23902050574105
+            ],
+            [
+              4.936629831790924,
+              51.23900035463583
+            ],
+            [
+              4.936549365520477,
+              51.23874678580758
+            ],
+            [
+              4.936407208442688,
+              51.23875686141684
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
+        "name": "Vijver 1",
+        "style": "aanbod"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.937839508056641,
+              51.24131263635018
+            ],
+            [
+              4.938204288482666,
+              51.241460403488844
+            ],
+            [
+              4.938569068908691,
+              51.24131263635018
+            ],
+            [
+              4.938418865203857,
+              51.24109770148289
+            ],
+            [
+              4.938011169433594,
+              51.241138001847
+            ],
+            [
+              4.937839508056641,
+              51.24131263635018
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
+        "style": "vijver"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.938928484916687,
+              51.2423436380785
+            ],
+            [
+              4.939008951187134,
+              51.2421522160518
+            ],
+            [
+              4.939411282539368,
+              51.24194400171477
+            ],
+            [
+              4.940237402915955,
+              51.24235707117326
+            ],
+            [
+              4.939942359924316,
+              51.24268282252031
+            ],
+            [
+              4.93960976600647,
+              51.24273319623398
+            ],
+            [
+              4.938928484916687,
+              51.2423436380785
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
+        "style": "vijver"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.935484528541565,
+              51.24260894097377
+            ],
+            [
+              4.9360960721969604,
+              51.24294140699865
+            ],
+            [
+              4.935784935951233,
+              51.243048870250355
+            ],
+            [
+              4.935806393623352,
+              51.24330409446691
+            ],
+            [
+              4.935505986213684,
+              51.243300736262725
+            ],
+            [
+              4.935248494148254,
+              51.243210064657156
+            ],
+            [
+              4.935189485549927,
+              51.242907824681
+            ],
+            [
+              4.935484528541565,
+              51.24260894097377
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
+        "name": "P8|P7",
+        "style": "pavilioen"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.9268639087677,
+              51.244637282156376
+            ],
+            [
+              4.926933646202087,
+              51.2444744136921
+            ],
+            [
+              4.9276819825172415,
+              51.24459362674831
+            ],
+            [
+              4.9276041984558105,
+              51.24476321098599
+            ],
+            [
+              4.9268639087677,
+              51.244637282156376
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "style": "weg-hard"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.928521513938904,
+            51.2404444948239
+          ],
+          [
+            4.928384721279144,
+            51.240610735958946
+          ],
+          [
+            4.928231835365295,
+            51.24069469589983
+          ],
+          [
+            4.928113818168639,
+            51.24072660063718
+          ],
+          [
+            4.927928745746612,
+            51.24073499661701
+          ],
+          [
+            4.927743673324584,
+            51.240719883852215
+          ],
+          [
+            4.9276310205459595,
+            51.24069637509709
           ]
         ]
       }
