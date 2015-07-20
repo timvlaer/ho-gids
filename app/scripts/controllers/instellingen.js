@@ -7,7 +7,7 @@ angular.module('hoGidsApp')
     $scope.gouwen = Programma.gouwen;
 
     $scope.setGouw = function(gouw) {
-      console.debug("Zet gouw op: " + gouw);
+      console.debug('Zet gouw op: ' + gouw);
       localStorageService.set('gouw', gouw);
     };
 
