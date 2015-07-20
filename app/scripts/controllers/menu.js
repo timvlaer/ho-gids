@@ -9,9 +9,13 @@
  */
 angular.module('hoGidsApp')
   .controller('MenuCtrl', function ($scope, $location) {
-    
-  	$scope.isActive = function (viewLocation) {   		
+
+  	$scope.isActive = function (viewLocation) {
         return $location.path().indexOf(viewLocation) === 0;
     };
+
+    $scope.go = function(location) {
+      $location.path(location);
+    }
 
 });

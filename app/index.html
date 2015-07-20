@@ -40,25 +40,25 @@
       <div ng-view=""></div>
     </div>
 
-    <div snap-drawer id="sidemenu">
-      <a ng-href="#/" snap-close="left">
-        <img src="images/menu/logo_medium.png" alt="logo HO"/>
+    <div snap-drawer id="sidemenu" ng-controller="MenuCtrl">
+      <a ng-click="go('/')" snap-close="left">
+        <img src="images/menu/logo.png" alt="logo HO" id="logo"/>
       </a>
-      <ul ng-controller="MenuCtrl">
+      <ul>
         <li ng-class="{active:isActive('/informatie')}">
-          <a ng-href="#/informatie" snap-close="left">Informatie</a>
+          <a ng-click="go('/informatie')" snap-close="left">Informatie</a>
         </li>
         <li ng-class="{active:isActive('/programma')}">
-          <a ng-href="#/programma" snap-close="left">Programma</a>
+          <a ng-click="go('/programma')" snap-close="left">Programma</a>
         </li>
         <li ng-class="{active:isActive('/kaart')}">
-          <a ng-href="#/kaart" snap-close="left">Kaart</a>
+          <a ng-click="go('/kaart')" snap-close="left">Kaart</a>
         </li>
         <li ng-class="{active:isActive('/instellingen')}">
-          <a ng-href="#/instellingen" snap-close="left">Instellingen</a>
+          <a ng-click="go('/instellingen')" snap-close="left">Instellingen</a>
         </li>
         <li ng-class="{active:isActive('/over')}">
-          <a ng-href="#/over" snap-close="left">Over deze app</a>
+          <a ng-click="go('/over')" snap-close="left">Over deze app</a>
         </li>
         <!--<li ng-class="{active:isActive('/nieuwsstroom')}">
           <a ng-href="#/nieuwsstroom" snap-close="left">Nieuwsstroom</a>
