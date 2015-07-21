@@ -13,6 +13,10 @@ $menu-color: #333333;
 $dark-text: #505319;
 $dark-border: #D7DF43;
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -65,6 +69,7 @@ body {
 
   a.navbar-brand {
     color: white;
+    padding: 15px 0;
     &:hover {
       text-decoration: none;
     }
@@ -75,6 +80,7 @@ body {
   padding-top: 48px;
   box-shadow: 5px 12px 0px 0px rgba(50, 50, 50, 0.5);
   background-color: $main-bg-color;
+  z-index: 100;
 }
 
 h1, h2 {
@@ -126,6 +132,31 @@ h1, h2 {
   }
 }
 
+#legenda {
+  color: $main-bg-color;
+  padding: 10px 20px;
+
+  h2 {
+    padding-left: 10px;
+    font-weight: normal;
+    color: $main-bg-color;
+    margin-bottom: 10px;
+    margin-top: 50px;
+  }
+
+  ul li {
+    img {
+      width: 32px;
+      margin: 4px 10px;
+    }
+    &.area {
+      margin: 6px 0 10px 0;
+      padding: 2px 12px;
+      border-radius: 2px;
+    }
+  }
+}
+
 .scrollable{
   overflow: auto;
   -webkit-transition-property: top, bottom;
@@ -140,6 +171,13 @@ h1, h2 {
 .btn-default, .form-control {
   background-color: $main-bg-color-em;
   border-color: $dark-border;
+  color: $dark-text;
+
+  &:focus {
+    background-color: $main-bg-color;
+    border-color: $dark-border;
+    color: $dark-text;
+  }
 }
 
 

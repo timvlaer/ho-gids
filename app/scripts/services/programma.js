@@ -12,27 +12,27 @@ angular.module('hoGidsApp')
 
   	var takken = [
   		{
-		    'titel': 'Kapoenen / Zeehondjes',
+		    'titel': 'Kapoenen, Zeehondjes',
 		    'plaats': 'K10',
 		    'beschrijving': 'Kom op ontdekking en leer waar jij en je kapoenen goed in zijn! \nNieuwe spelen, moeilijke kapoenen, voorlezen, spelen in elkaar boksen, gescheiden ouders,... dit en méér kan je vinden in het kapoenenaanbod!'
 		},
 		{
-		    'titel': 'Kabouters / (Zee)welpen',
+		    'titel': 'Kabouters, (Zee)welpen',
 		    'plaats': 'K14',
 		    'beschrijving': 'Of je nu nieuw bent in de horde, al wat lessen van Baloe onder de knie hebt, of een ervaren Akela bent, doet er niet zo toe. Bij ons vind je workshops om ervaringen uit te wisselen, om nieuwe spellen te leren, om je danskunsten bij te schaven,... Kortom, in onze jungle is er voor elk wat wils.'
 		},
 		{
-		    'titel': 'Jonggidsen / Jongverkenner / Scheepsmakker',
+		    'titel': 'Jonggidsen, Jongverkenner, Scheepsmakker',
 		    'plaats': 'K9',
 		    'beschrijving': 'Alle leiding zijn helden maar alleen als team zijn ze ontoombaar. Als leiding ben je een held voor je leden omdat je ze vanalles kan leren, maar een held blijf je pas als je zelf steeds bijleert.'
 		},
 		{
-		    'titel': '(Zee)gidsen / (Zee)verkenner (+ SOLL)',
+		    'titel': '(Zee)gidsen, (Zee)verkenner, SOLL',
 		    'plaats': 'Vijver 1',
 		    'beschrijving': 'Klaar om een fantastisch jaar als giverleiding tegemoet te gaan? Na het volgen van een van onze werkwinkels zeker wel! Aan de vijver bieden wij jullie inspiratie om in het kader van het jaarthema met je givers van het buitenleven te genieten, tips en tricks om originele en uitdagende projecten op te bouwen, een kans om even stil te staan bij totemisatie en nog veel meer.'
 		},
 		{
-		    'titel': 'Jins / Loodsen',
+		    'titel': 'Jins, Loodsen',
 		    'plaats': 'K12',
 		    'beschrijving': 'Zin om je jinjaar zonder kleerscheuren te overleven? Op zoek naar een originele jinvergadering? Ideeën nodig voor het eerste jinweekend? Zin in een leuk project, maar weet je niet goed hoe eraan te beginnen? Inspiratie nodig? Meer weten over kampen, leefweek en kleurentotems? \nPrima, wees dan welkom op onze Jingrond. We bewijzen dat vorming allesbehalve saai hoeft te zijn door zowel inhoudelijke als praktische werkwinkels aan te bieden. Dit alles is natuurlijk, zoals het de jins betaamt, overgoten met een zotte en speelse saus.'
 		},
