@@ -67,7 +67,7 @@ angular
     };
 
     localStorageServiceProvider
-      .setPrefix('yourAppName')
+      .setPrefix('hogids')
       .setStorageCookie(0, '/');
   })
   .run(function() {
