@@ -125,7 +125,7 @@
 
     <preference name="SplashScreen" value="screen" />
     <!--<preference name="SplashScreenDelay" value="3000" />-->
-    <gap:splash src="www/res/splash/splash.png" />
+    <gap:splash src="www/res/splash/splash2.png" />
 
     <!-- iPhone and iPod touch -->
     <gap:splash src="www/res/splash/ios/Default.png" gap:platform="ios" width="320" height="480" />
