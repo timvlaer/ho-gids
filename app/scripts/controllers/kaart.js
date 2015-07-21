@@ -2,6 +2,7 @@
 
 var labelClassName = 'map-label';
 var iconClassName = 'map-icon';
+var iconRectClassName = 'map-icon-rect';
 
 var hogeRielenCenter =  L.latLng(51.24230669704754, 4.936895370483398);
 var hogeRielenBounds = L.latLngBounds(L.latLng(51.2300, 4.90900), L.latLng(51.2530, 4.9570));
@@ -146,6 +147,11 @@ var icons = {
         iconSize: [24, 24],
         className: iconClassName
     }),
+    'tent': L.icon({
+        iconUrl: 'images/kaart/tent.png',
+        iconSize: [128, 64],
+        className: iconRectClassName
+    }),
     'locationIcon': L.icon({
         iconUrl: 'images/kaart/marker-location.png',
         iconRetinaUrl: 'images/kaart/marker-location-2x.png',
@@ -202,13 +208,18 @@ angular.module('hoGidsApp')
     }
 
     function addLabel(feature, layer) {
-      if (feature.properties.name && feature.geometry.type === 'Polygon') {
-        var labelIcon = L.divIcon({
-          className: labelClassName,
-          html: feature.properties.name
-        });
+      if (feature.geometry.type === 'Polygon') {
         var featurePolygon = L.polygon(layer._latlngs);
-        L.marker(featurePolygon.getBounds().getCenter(), {icon: labelIcon}).addTo(map);
+        if (feature.properties.style === 'kampeergrond') {
+          L.marker(featurePolygon.getBounds().getCenter(), {icon: icons.tent}).addTo(map);
+        }
+        if(feature.properties.name) {
+          var labelIcon = L.divIcon({
+            className: labelClassName,
+            html: feature.properties.name
+          });
+          L.marker(featurePolygon.getBounds().getCenter(), {icon: labelIcon}).addTo(map);
+        }
       }
     }
 
@@ -246,6 +257,14 @@ angular.module('hoGidsApp')
       var newMargin = -1 * newIconSize / 2;
       angular.element('.' + iconClassName).css('width', newIconSize + 'px').css('height', newIconSize + 'px')
           .css('margin-left', newMargin + 'px').css('margin-top', newMargin + 'px');
+
+      //resize rectangular icons
+      var zoomLevelIconRectSizeMapping = {'14': 10, '15': 16, '16': 32, '17': 56, '18': 64};
+      var newIconHeight = zoomLevelIconRectSizeMapping[zoomLevel];
+      var newMarginLeft = -1 * newIconHeight;
+      var newMarginTop = -1 * newIconHeight / 2;
+      angular.element('.' + iconRectClassName).css('width', (newIconHeight*2) + 'px').css('height', newIconHeight + 'px')
+        .css('margin-left', newMarginLeft + 'px').css('margin-top', newMarginTop + 'px');
     }
 
     function showInterestingViewport() {
