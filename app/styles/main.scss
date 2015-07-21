@@ -145,15 +145,18 @@ h1, h2 {
     margin-top: 50px;
   }
 
-  ul li {
-    img {
-      width: 32px;
-      margin: 4px 10px;
-    }
-    &.area {
-      margin: 6px 0 10px 0;
-      padding: 2px 12px;
-      border-radius: 2px;
+  ul {
+    margin: 30px 0;
+    li {
+      img {
+        width: 24px;
+        margin: 4px 10px;
+      }
+      &.area {
+        margin: 6px 0 10px 0;
+        padding: 2px 12px;
+        border-radius: 2px;
+      }
     }
   }
 }

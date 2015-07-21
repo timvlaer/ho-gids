@@ -66,7 +66,7 @@
       </ul>
     </div>
 
-    <div snap-drawer="right" id="legenda" snap-close="right" ng-cloak>
+    <div snap-drawer="right" id="legenda" snap-close="right" ng-cloak ng-controller="MenuCtrl">
       <h2>Legenda</h2>
       <ul class="list-unstyled">
         <li><img src="images/kaart/ehbo.png">EHBO</li>
@@ -83,6 +83,10 @@
         <li class="area" style="background-color: #dae283; color: #505319;">Loods</li>
         <li class="area" style="background-color: #009fe3;">Vijver</li>
       </ul>
+      <!--<button class="btn btn-default" ng-show="gouw" ng-click="go('/kaart/' + gouw.grond)">
+        <span class="glyphicon glyphicon-map-marker"></span>
+        Gouw {{gouw.naam}} <span class="glyphicon glyphicon-arrow-right"></span> {{gouw.grond}}
+      </button>-->
     </div>
 
     <!-- build:js(.) scripts/vendor.js -->

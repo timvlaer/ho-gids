@@ -18,7 +18,7 @@ angular.module('hoGidsApp')
 		},
 		{
 		    'titel': 'Kabouters, (Zee)welpen',
-		    'plaats': 'K14',
+		    'plaats': 'KP14',
 		    'beschrijving': 'Of je nu nieuw bent in de horde, al wat lessen van Baloe onder de knie hebt, of een ervaren Akela bent, doet er niet zo toe. Bij ons vind je workshops om ervaringen uit te wisselen, om nieuwe spellen te leren, om je danskunsten bij te schaven,... Kortom, in onze jungle is er voor elk wat wils.'
 		},
 		{
@@ -60,7 +60,7 @@ angular.module('hoGidsApp')
     },
     {
       'titel': 'Lokalen, Financiën en Administratie',
-      'plaats': 'K14',
+      'plaats': 'KP14',
       'beschrijving': ''
     },
     {

@@ -8,7 +8,9 @@
  * Controller of the hoGidsApp
  */
 angular.module('hoGidsApp')
-  .controller('MenuCtrl', function ($scope, $location) {
+  .controller('MenuCtrl', function ($scope, $location, localStorageService) {
+
+    $scope.gouw = localStorageService.get('gouw');
 
   	$scope.isActive = function (viewLocation) {
         return $location.path().indexOf(viewLocation) === 0;
