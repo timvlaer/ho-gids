@@ -4,12 +4,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.1,
-        "name": "",
         "style": "border"
       },
       "geometry": {
@@ -3879,11 +3873,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "style": "podium"
       },
       "geometry": {
@@ -3917,11 +3906,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "name": "Vijver 1",
         "style": "aanbod"
       },
@@ -3960,11 +3944,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "style": "vijver"
       },
       "geometry": {
@@ -4006,11 +3985,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "style": "vijver"
       },
       "geometry": {
@@ -4056,11 +4030,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "name": "P8|P7",
         "style": "pavilioen"
       },
@@ -4095,9 +4064,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
         "style": "weg-hard"
       },
       "geometry": {
@@ -4130,6 +4096,29 @@
           [
             4.9276310205459595,
             51.24069637509709
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "style": "weg-zand"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.935492575168609,
+            51.23810865939315
+          ],
+          [
+            4.935433566570282,
+            51.23796088148752
+          ],
+          [
+            4.935138523578644,
+            51.23798103304805
           ]
         ]
       }
