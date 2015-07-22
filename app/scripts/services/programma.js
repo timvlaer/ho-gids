@@ -141,18 +141,18 @@ angular.module('hoGidsApp')
 	    }
       ],
       gouwen: [
-        {naam: 'Noordzee', grond: 'K5'},
-        {naam: 'Zuid-West-Vlaanderen', grond: 'K5'},
-        {naam: 'Gent', grond: 'K15'},
-        {naam: 'Land van Egmont', grond: 'K1'}, /*midden*/
-        {naam: 'Waas', grond: 'K1'}, /*west*/
         {naam: 'Antwerpen', grond: 'K2'},
+        {naam: 'Gent', grond: 'K15'},
         {naam: 'Heide', grond: 'K8'},
-        {naam: 'Opsinjoor', grond: 'K4'},
         {naam: 'Kempen', grond: 'K1'}, /*oost*/
+        {naam: 'Land van Egmont', grond: 'K1'}, /*midden*/
+        {naam: 'Limburg', grond: 'K7'},
+        {naam: 'Noordzee', grond: 'K5'},
+        {naam: 'Opsinjoor', grond: 'K4'},
+        {naam: 'Waas', grond: 'K1'}, /*west*/
         {naam: 'Webra', grond: 'K6'},
-        {naam: 'Oost-Brabant', grond: 'K6'},
-        {naam: 'Limburg', grond: 'K7'}
+        {naam: 'Zuid-West-Vlaanderen', grond: 'K5'},
+        {naam: 'Oost-Brabant', grond: 'K6'}
       ]
    };
 
