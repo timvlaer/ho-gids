@@ -73,6 +73,13 @@
     <!-- Define app icon for each platform. -->
     <icon src="www/res/icon/icon_inv.png" />
 
+    <!--android-->
+    <icon src="www/res/icon/android/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+    <icon src="www/res/icon/android/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+    <icon src="www/res/icon/android/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+    <icon src="www/res/icon/android/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+    <icon src="www/res/icon/android/xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
+
     <!-- iPhone 6 / 6+ -->
     <icon src="www/res/icon/ios/Icon-60@3x.png" gap:platform="ios" width="180" height="180" />
 
@@ -125,7 +132,13 @@
 
     <preference name="SplashScreen" value="screen" />
     <!--<preference name="SplashScreenDelay" value="3000" />-->
-    <gap:splash src="www/res/splash/splash2.png" />
+    <gap:splash src="www/res/splash/splash.png" />
+
+    <!--android-->
+    <gap:splash src="www/res/splash/android/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+    <gap:splash src="www/res/splash/android/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+    <gap:splash src="www/res/splash/android/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+    <gap:splash src="www/res/splash/android/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
 
     <!-- iPhone and iPod touch -->
     <gap:splash src="www/res/splash/ios/Default.png" gap:platform="ios" width="320" height="480" />
