@@ -47,43 +47,99 @@ angular.module('hoGidsApp')
 		    'beschrijving': 'Scouting... zonder beperking! \nEen handicap hoeft geen beperking te zijn. Ontdek hoe je het maximum kan halen uit je groep en echt iedereen meekrijgt bij scouting, of je nu een lid hebt met ADHD, autisme of downsyndroom. Rolstoelspelen, klauteren in de bossen, zwaardgevechten... we doen het gewoon bij Akabe!'
 		}];
 
-	var themas = [
-    {
-      'titel': 'Scouting DNA',
-      'plaats': 'KKK',
-      'beschrijving': ''
-    },
-    {
-      'titel': 'Scouting DNA',
-      'plaats': 'K10',
-      'beschrijving': ''
-    },
-    {
-      'titel': 'Lokalen, Financiën en Administratie',
-      'plaats': 'KP14',
-      'beschrijving': ''
-    },
-    {
-      'titel': 'Actie en Spel',
-      'plaats': 'K9',
-      'beschrijving': ''
-    },
-    {
-      'titel': 'Zeescouting',
-      'plaats': 'Vijver 1',
-      'beschrijving': ''
-    },
-    {
-      'titel': 'Safety First',
-      'plaats': 'K12',
-      'beschrijving': ''
-    },
-    {
-      'titel': 'Technieken',
-      'plaats': 'KKG',
-      'beschrijving': ''
-    }
-	];
+    var themas = [
+      {
+        'titel': 'Scouting DNA',
+        'plaats': 'KKK',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Scouting DNA',
+        'plaats': 'K10',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Lokalen, Financiën en Administratie',
+        'plaats': 'KP14',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Actie en Spel',
+        'plaats': 'K9',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Zeescouting',
+        'plaats': 'Vijver 1',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Safety First',
+        'plaats': 'K12',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Technieken',
+        'plaats': 'KKG',
+        'beschrijving': ''
+      }
+    ];
+
+    var vrijdagavond = [
+      {
+        'titel': 'Scouteske zangavond',
+        'plaats': 'Hoofdpodium',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Volksdansen',
+        'plaats': 'K10',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Jindiana Jones',
+        'plaats': 'L341',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Lasershooting',
+        'plaats': 'L341',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Kampvuur',
+        'plaats': 'KKG',
+        'beschrijving': ''
+      }
+    ];
+
+    var zaterdagavond = [
+      {
+        'titel': 'Winnaar \'Scouting got talent\' (23u)',
+        'plaats': 'Hoofdpodium',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Tuxedo swamp blues band (23u)',
+        'plaats': 'K10',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'DJ Turntable Tities (0u)',
+        'plaats': 'Hoofdpodium',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Pussy Willow (0u45)',
+        'plaats': 'K10',
+        'beschrijving': ''
+      },
+      {
+        'titel': 'Kampvuur',
+        'plaats': 'KKG',
+        'beschrijving': ''
+      }
+    ];
 
     var service = {
       	programma: [
@@ -97,7 +153,7 @@ angular.module('hoGidsApp')
 		        { 'start': '23:00', 'stop': '01:00', 'titel': 'Onthaalshow',
 		          'beschrijving': 'Onthaalshow en \'Scouting Got Talent\' op het grote podium', 'plaats': 'KKG' },
 		        { 'start': '01:00', 'stop': '02:30', 'titel': 'Scouteske avond',
-		          'beschrijving': 'Scouteske avond met animo, kampvuur en café', 'plaats': 'KKG' },
+		          'beschrijving': 'Scouteske avond met animo, kampvuur en café', 'plaats': '', 'subitems': vrijdagavond },
 		        { 'start': '03:00', 'titel': 'Slaapwel',
 		          'beschrijving': 'Tijd om je slaapzak te kruipen', 'plaats': 'Gouwgrond' }
 		    ]
@@ -120,7 +176,7 @@ angular.module('hoGidsApp')
 		        { 'start': '22:15', 'stop': '22:45', 'titel': 'Zin in HO',
 		          'beschrijving': 'ZIN in HO op het grote podium', 'plaats': 'KKG' },
 		        { 'start': '22:45', 'stop': '02:30', 'titel': 'Avondaanbod',
-		          'beschrijving': 'Avondgebeuren met optredens, animo, kampvuur en café', 'plaats': 'KKG' },
+		          'beschrijving': 'Avondgebeuren met optredens, animo, kampvuur en café', 'plaats': '', 'subitems': zaterdagavond },
 		        { 'start': '03:00', 'titel': 'Slaapwel',
 		          'beschrijving': 'Tijd om in je slaapzak te kruipen', 'plaats': 'Gouwgrond' }
 		    ]
