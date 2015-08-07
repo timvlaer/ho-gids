@@ -16,7 +16,7 @@
         Tim Van Laer voor Scouts en Gidsen Vlaanderen
     </author>
 
-    <content src="index.html" />
+    <content src="www/index.html" />
 
     <!--
         If you do not want any permissions to be added to your app, add the
