@@ -6,6 +6,8 @@ node_modules
 /bower_components
 /app/config.xml
 dist
+tmp
 werkbestanden
 *.keystore
 *.certSigningRequest
+*.iml
