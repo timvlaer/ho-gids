@@ -135,10 +135,10 @@
     <gap:splash src="www/res/splash/splash.png" />
 
     <!--android-->
-    <gap:splash src="www/res/splash/android/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
-    <gap:splash src="www/res/splash/android/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
-    <gap:splash src="www/res/splash/android/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
-    <gap:splash src="www/res/splash/android/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+  <!--<gap:splash src="www/res/splash/android/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+  <gap:splash src="www/res/splash/android/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+  <gap:splash src="www/res/splash/android/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+  <gap:splash src="www/res/splash/android/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />-->
 
     <!-- iPhone and iPod touch -->
     <gap:splash src="www/res/splash/ios/Default.png" gap:platform="ios" width="320" height="480" />
