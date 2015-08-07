@@ -1,7 +1,7 @@
 <div id="programma">
 	<h2>Programma</h2>
 <div ng-repeat="dag in programma" class="programma">
-	<h3>{{dag.dag}}</h3>
+	<h3 id="{{dag.dag | lowercase}}">{{dag.dag}}</h3>
 
 	<div class="programmaItem container-fluid" ng-repeat="item in dag.items">
 
