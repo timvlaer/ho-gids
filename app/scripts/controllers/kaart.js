@@ -172,11 +172,13 @@ var icons = {
  * Controller of the hoGidsApp
  */
 angular.module('hoGidsApp')
-  .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams, $log) {
+  .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams, $log, localStorageService) {
 
     var preciseLocationPointer, radiusPointer;
     var featureHighlightPointer;
     var locationPollInterval;
+
+    var isLocationEnabled = localStorageService.get('locationEnabled') !== false;
 
 	  function style(feature) {
 		  return styles[feature.properties.style] || styles.default;
@@ -335,11 +337,13 @@ angular.module('hoGidsApp')
     }
 
     function doGeolocation() {
-      map.on('accuratepositionprogress', onAccuratePositionProgress);
-      map.on('accuratepositionfound', onAccuratePositionFound);
-      map.on('accuratepositionerror', onAccuratePositionError);
+      if (isLocationEnabled) {
+        map.on('accuratepositionprogress', onAccuratePositionProgress);
+        map.on('accuratepositionfound', onAccuratePositionFound);
+        map.on('accuratepositionerror', onAccuratePositionError);
 
-      findAccuratePosition();
+        findAccuratePosition();
+      }
     }
 
     function findAccuratePosition() {

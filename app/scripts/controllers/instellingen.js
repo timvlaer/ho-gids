@@ -15,5 +15,14 @@ angular.module('hoGidsApp')
       $location.path('/kaart/' + name);
     };
 
+    $scope.enableLocation = function(enable) {
+      $scope.locationEnabled = enable;
+      localStorageService.set('locationEnabled', enable);
+      return enable;
+    };
+
+    $scope.locationEnabled = localStorageService.get('locationEnabled') === false ? false : $scope.enableLocation(true);
+
+
 
   });
