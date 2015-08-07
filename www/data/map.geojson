@@ -502,7 +502,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "KP12",
+        "name": "K15",
         "style": "kampeergrond"
       },
       "geometry": {
@@ -3804,6 +3804,7 @@
     {
       "type": "Feature",
       "properties": {
+        "alias": "hoofdpodium",
         "style": "podium"
       },
       "geometry": {
