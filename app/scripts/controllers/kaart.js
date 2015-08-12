@@ -13,6 +13,7 @@ var POLL_LOCATION_INTERVAL = 4; //seconds
 var POLL_LOCATION_TIMEOUT = 4; //seconds
 var POLL_LOCATION_INTERVAL_OUTSIDE_AREA = 10 * 60; //seconds
 var POSITION_DESIRED_ACCURACY = 60; //meter
+var POSITION_MAX_ALLOWED_ACCURACY = 350; //meter
 
 var styles = {
     'podium': {
@@ -108,6 +109,11 @@ var styles = {
 var accuracyCircleStyle = {
   fillOpacity: 0.3,
   fillColor: '#1d9c5a',
+  stroke: false
+};
+var accuracyCircleStyleInvalid = {
+  fillOpacity: 0.3,
+  fillColor: '#9C2A1D',
   stroke: false
 };
 
@@ -302,21 +308,24 @@ angular.module('hoGidsApp')
       console.log(event);
 
       if (hogeRielenBounds.contains(event.latlng)) {
-        var radius = event.accuracy / 2;
-        if (!preciseLocationPointer || !radiusPointer) {
-          preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon});
-          map.addLayer(preciseLocationPointer);
+        if(event.accuracy < POSITION_MAX_ALLOWED_ACCURACY) {
+          var radius = event.accuracy / 2;
+          if (!preciseLocationPointer || !radiusPointer) {
+            preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon});
+            map.addLayer(preciseLocationPointer);
 
-          radiusPointer = L.circle(event.latlng, radius, accuracyCircleStyle);
-          map.addLayer(radiusPointer);
+            radiusPointer = L.circle(event.latlng, radius, accuracyCircleStyle);
+            map.addLayer(radiusPointer);
 
-          showInterestingViewport();
-        } else {
-          preciseLocationPointer.setLatLng(event.latlng);
-          preciseLocationPointer.update();
-          radiusPointer.setLatLng(event.latlng);
-          radiusPointer.setRadius(radius);
-          radiusPointer.redraw();
+            showInterestingViewport();
+          } else {
+            preciseLocationPointer.setLatLng(event.latlng);
+            preciseLocationPointer.update();
+            radiusPointer.setLatLng(event.latlng);
+            radiusPointer.setRadius(radius);
+            radiusPointer.setStyle(accuracyCircleStyle);
+            radiusPointer.redraw();
+          }
         }
         scheduleLocationPolling(POLL_LOCATION_INTERVAL);
       } else {
@@ -327,7 +336,10 @@ angular.module('hoGidsApp')
 
     function onAccuratePositionError (e) {
       $log.warn('Position not found', e);
-      //clearCurrentLocation();
+      if(radiusPointer) {
+        radiusPointer.setStyle(accuracyCircleStyleInvalid);
+      }
+      scheduleLocationPolling(POLL_LOCATION_INTERVAL);
     }
 
     function clearCurrentLocation() {
