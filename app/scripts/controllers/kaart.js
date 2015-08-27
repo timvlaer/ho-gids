@@ -191,8 +191,8 @@ angular.module('hoGidsApp')
 
     var isLocationEnabled = localStorageService.get('locationEnabled') !== false;
 
-	  function style(feature) {
-		  return styles[feature.properties.style] || styles.default;
+    function style(feature) {
+        return styles[feature.properties.style] || styles.default;
     }
 
     function markerIcon(feature, latlng) {
@@ -308,7 +308,7 @@ angular.module('hoGidsApp')
       console.log(event);
 
       if (hogeRielenBounds.contains(event.latlng)) {
-        //if(event.accuracy < POSITION_MAX_ALLOWED_ACCURACY) {
+        if(event.accuracy < POSITION_MAX_ALLOWED_ACCURACY) {
           var radius = event.accuracy / 2;
           if (!preciseLocationPointer || !radiusPointer) {
             preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon});
@@ -326,7 +326,7 @@ angular.module('hoGidsApp')
             radiusPointer.setStyle(accuracyCircleStyle);
             radiusPointer.redraw();
           }
-        //}
+        }
         scheduleLocationPolling(POLL_LOCATION_INTERVAL);
       } else {
         clearCurrentLocation();
@@ -366,7 +366,7 @@ angular.module('hoGidsApp')
     function findAccuratePosition() {
       $log.info('Request position.');
       map.findAccuratePosition({
-        maxWait: POLL_LOCATION_TIMEOUT,
+        maxWait: POLL_LOCATION_TIMEOUT * 1000,
         desiredAccuracy: POSITION_DESIRED_ACCURACY
       });
     }
