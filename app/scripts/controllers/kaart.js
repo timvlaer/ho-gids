@@ -372,11 +372,11 @@ angular.module('hoGidsApp')
     }
 
     function scheduleLocationPolling(seconds) {
-      clearInterval();
+      stopInterval();
       locationPollInterval = setInterval(findAccuratePosition, seconds * 1000);
     }
 
-    function clearInterval() {
+    function stopInterval() {
         if(locationPollInterval) {
             clearInterval(locationPollInterval);
         }
@@ -415,7 +415,7 @@ angular.module('hoGidsApp')
             showInterestingViewport();
         });
 
-    document.addEventListener("pause", clearInterval, false);
+    document.addEventListener("pause", stopInterval, false);
     document.addEventListener("resume", findAccuratePosition, false);
 
   });
