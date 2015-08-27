@@ -9,10 +9,10 @@ var hogeRielenBounds = L.latLngBounds(L.latLng(51.2300, 4.90900), L.latLng(51.25
 
 var DEFAULT_ZOOM = 14;
 
-var POLL_LOCATION_INTERVAL = 10; //seconds
-var POLL_LOCATION_TIMEOUT = 5; //seconds
+var POLL_LOCATION_INTERVAL = 12; //seconds
+var POLL_LOCATION_TIMEOUT = 6; //seconds
 var POLL_LOCATION_INTERVAL_OUTSIDE_AREA = 10 * 60; //seconds
-var POSITION_DESIRED_ACCURACY = 60; //meter
+var POSITION_DESIRED_ACCURACY = 30; //meter
 var POSITION_MAX_ALLOWED_ACCURACY = 350; //meter
 
 var styles = {
@@ -327,7 +327,6 @@ angular.module('hoGidsApp')
             radiusPointer.redraw();
           }
         //}
-        //scheduleLocationPolling(POLL_LOCATION_INTERVAL);
       } else {
         clearCurrentLocation();
         scheduleLocationPolling(POLL_LOCATION_INTERVAL_OUTSIDE_AREA); // recheck in 10 minutes
@@ -369,6 +368,7 @@ angular.module('hoGidsApp')
         maxWait: POLL_LOCATION_TIMEOUT * 1000,
         desiredAccuracy: POSITION_DESIRED_ACCURACY
       });
+      scheduleLocationPolling(POLL_LOCATION_INTERVAL);
     }
 
     function scheduleLocationPolling(seconds) {
