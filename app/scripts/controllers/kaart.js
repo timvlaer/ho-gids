@@ -308,7 +308,7 @@ angular.module('hoGidsApp')
       console.log(event);
 
       if (hogeRielenBounds.contains(event.latlng)) {
-        if(event.accuracy < POSITION_MAX_ALLOWED_ACCURACY) {
+        //if(event.accuracy < POSITION_MAX_ALLOWED_ACCURACY) {
           var radius = event.accuracy / 2;
           if (!preciseLocationPointer || !radiusPointer) {
             preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon});
@@ -326,7 +326,7 @@ angular.module('hoGidsApp')
             radiusPointer.setStyle(accuracyCircleStyle);
             radiusPointer.redraw();
           }
-        }
+        //}
         scheduleLocationPolling(POLL_LOCATION_INTERVAL);
       } else {
         clearCurrentLocation();
@@ -372,10 +372,14 @@ angular.module('hoGidsApp')
     }
 
     function scheduleLocationPolling(seconds) {
-      if(locationPollInterval) {
-        clearInterval(locationPollInterval);
-      }
+      clearInterval();
       locationPollInterval = setInterval(findAccuratePosition, seconds * 1000);
+    }
+
+    function clearInterval() {
+        if(locationPollInterval) {
+            clearInterval(locationPollInterval);
+        }
     }
 
     //TODO create map as global object: keep state + fix bug 'Map container is already initialized.'
@@ -410,5 +414,8 @@ angular.module('hoGidsApp')
 
             showInterestingViewport();
         });
+
+    document.addEventListener("pause", clearInterval, false);
+    document.addEventListener("resume", findAccuratePosition, false);
 
   });
