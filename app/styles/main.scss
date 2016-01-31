@@ -24,6 +24,7 @@ $dark-border: #D7DF43;
   padding: 0.2em 0;
 }
 
+@import "fonts.scss";
 @import "start.scss";
 @import "programma.scss";
 @import "kaart.scss";
@@ -31,7 +32,6 @@ $dark-border: #D7DF43;
 @import "instellingen.scss";
 @import "over.scss";
 
-/* Space out content a bit */
 body {
   padding-bottom: 20px;
   background-color: $menu-color;

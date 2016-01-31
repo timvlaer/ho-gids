@@ -2,92 +2,91 @@ $item-border-color: #d5dd59;
 
 #programma {
   background-color: $main-bg-color;
-	padding-bottom: 80px;
+  padding-bottom: 80px;
 
-	h2 {
-		padding: 10px 35px;
-	}
+  h2 {
+    padding: 10px 35px;
+  }
 
-	h3 {
-		padding-left: 40px;
-		padding-bottom: 10px;
-		margin-top: 45px;
-		margin-bottom: 0;
-		border-bottom: 1px dashed $item-border-color;
-		color: $secondary-color;
-	}
+  h3 {
+    padding-left: 40px;
+    padding-bottom: 10px;
+    margin-top: 45px;
+    margin-bottom: 0;
+    border-bottom: 1px dashed $item-border-color;
+    color: $secondary-color;
+  }
 
-	h5 {
-		margin-top: 0;
-		margin-bottom: 5px;
-	}
+  h5 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
 
-	.programmaItem {
-		background-color: $main-bg-color;
-		border-bottom: 1px dashed $item-border-color;
+  .programmaItem {
+    background-color: $main-bg-color;
+    border-bottom: 1px dashed $item-border-color;
 
-		a.row {
-			padding-top: 15px;
-			display: block;
-			color: inherit;
-		}
+    a.row {
+      padding-top: 15px;
+      display: block;
+      color: inherit;
+    }
 
-		.clickable {
-			cursor: pointer;
-		}
-		.clickable:active {
-			background-color: $secondary-color !IMPORTANT;
+    .clickable {
+      cursor: pointer;
+    }
+    .clickable:active {
+      background-color: $secondary-color !IMPORTANT;
       border-color: $secondary-color !IMPORTANT;
-			color: white !IMPORTANT;
+      color: white !IMPORTANT;
 
-			.tijd {
-				color: white;
-			}
-			.omschrijving {
-				.beschrijving {
-					color: #000000;
-				}
-			}
-			.plaats {
-				color: #000000;
-			}
-		}
+      .tijd {
+        color: white;
+      }
+      .omschrijving {
+        .beschrijving {
+          color: #000000;
+        }
+      }
+      .plaats {
+        color: #000000;
+      }
+    }
 
     .plaats {
       color: $dark-text;
     }
 
-		.tijd {
-			color: #000000;
-			text-align: right;
-			font-style: italic;
-			font-size: 95%;
-		}
+    .tijd {
+      color: #000000;
+      text-align: right;
+      font-style: italic;
+      font-size: 95%;
+    }
 
-		.omschrijving {
-			.beschrijving {
-				font-size: 85%;
-				color: $dark-text;
-			}
-		}
-	}
+    .omschrijving {
+      .beschrijving {
+        font-size: 85%;
+        color: $dark-text;
+      }
+    }
+  }
 
-	.subitems-container {
-		.programmaSubitem {
-			overflow: hidden;
-			padding: 5px 12px;
-			width: 31%;
-			margin-bottom: 10px;
-			background-color: $main-bg-color-em;
+  .subitems-container {
+    .programmaSubitem {
+      overflow: hidden;
+      padding: 5px 12px;
+      width: 31%;
+      margin-bottom: 10px;
+      background-color: $main-bg-color-em;
       border: 1px solid $main-color;
-			font-size: 12px;
+      font-size: 12px;
       color: #000000;
 
-			.plaats {
-				font-size: 10px;
-			}
-		}
-	}
-
+      .plaats {
+        font-size: 10px;
+      }
+    }
+  }
 
 }
