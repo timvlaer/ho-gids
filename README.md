@@ -8,6 +8,8 @@ Build with [AngularJS](https://angularjs.org/), [Leaflet](http://www.leafletjs.c
 * [node](https://nodejs.org/)
 * [grunt](http://gruntjs.com/getting-started)
 * [bower](http://bower.io/)
+* [ruby](https://www.ruby-lang.org/en/)
+* [compass](http://compass-style.org/install/)
 
 ### Run this application locally ###
 
@@ -16,7 +18,7 @@ Build with [AngularJS](https://angularjs.org/), [Leaflet](http://www.leafletjs.c
     grunt serve
 
 Your browser should open at http://localhost:9000.
-To test it on a smartphone, you can surf to this url with your smartphone or use the [ripple emulator](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc) to emulate your mobile phone in the browser. 
+To test it on a smartphone, you can surf to this url with your smartphone or use the [chrome device mode](https://developer.chrome.com/devtools/docs/device-mode) to simulate your mobile phone in the browser. 
 
 ### Cordova packages ###
 
