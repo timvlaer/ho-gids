@@ -141,8 +141,8 @@ angular.module('hoGidsApp')
 	      	items: [
 		        { 'start': '19:00', 'titel': 'Aankomst',
 		          'beschrijving': 'Aankomst en inschrijving' },
-		        { 'start': '20:00', 'titel': 'Onthaal',
-		          'beschrijving': 'Installeren op de gouwgrond', 'plaats': 'Gouwgrond' },
+		        { 'start': '20:00', 'titel': 'Installeren',
+		          'beschrijving': 'Tentje opzetten, matje uitrollen', 'plaats': 'Gouwgrond' },
 		        { 'start': '20:00', 'stop': '22:45', 'titel': 'Gouwfoor',
 		          'beschrijving': 'Gouwfoor op de grote grond', 'plaats': 'KKG' },
                 { 'start': '22:45', 'stop': '23:15', 'titel': 'Opwarmer',
