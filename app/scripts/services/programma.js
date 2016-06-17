@@ -49,17 +49,22 @@ angular.module('hoGidsApp')
           {
               'titel': 'Actie en Spel',
               'plaats': 'KKG',
-              'beschrijving': ''
+              'beschrijving': 'Scouting da’s proeven. Op de actie en spelgrond kan je vooral zelf heel wat spelen ontdekken. Van zwerkbal tot bosspel. We nemen je mee op een ontdekkingstocht.'
           },
           {
               'titel': 'Safety First',
               'plaats': 'KKG',
-              'beschrijving': ''
+              'beschrijving': 'Eerste Hulp Bij Ongevallen kunnen toedienen, het blijft een handige vaardigheid voor leiding. Het Jeugd Rode Kruis komt het ons nog eens allemaal haarfijn uitleggen.'
           },
           {
               'titel': 'Technieken, Materiaal',
               'plaats': 'KKG',
-              'beschrijving': ''
+              'beschrijving': 'Een markt vol met technieken en experimenten. Van knopen leggen tot vuur maken, van hout klieven tot… , wij voorzien techniekenweetjes voor ervaren en minder ervaren techneuten'
+          },
+          {
+              'titel': 'Zit je scoutscarrière erop...',
+              'plaats': 'Infopunt',
+              'beschrijving': 'maar kriebelt het om nog iets meer te doen? Inspiratie nodig over een goede stam- of oudleidingswerking? Heb je expertise waar we bij Scouts en Gidsen Vlaanderen nog iets mee kunnen doen? (enkel tijdens sessie 1)'
           }
       ];
 
