@@ -220,11 +220,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "style": "vijver"
       },
       "geometry": {
@@ -571,7 +566,7 @@
       "type": "Feature",
       "properties": {
         "name": "P13",
-        "style": "pavilioen"
+        "style": "aanbod"
       },
       "geometry": {
         "type": "Polygon",
@@ -716,7 +711,7 @@
       "type": "Feature",
       "properties": {
         "name": "LK10",
-        "style": "loods"
+        "style": "aanbod"
       },
       "geometry": {
         "type": "Polygon",
@@ -749,11 +744,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "name": "KKK",
         "style": "aanbod"
       },
@@ -792,11 +782,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "name": "KP14",
         "style": "aanbod"
       },
@@ -851,11 +836,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "name": "K12",
         "style": "aanbod"
       },
@@ -1027,13 +1007,8 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "name": "K9",
-        "style": "aanbod"
+        "style": "kampeergrond"
       },
       "geometry": {
         "type": "Polygon",
@@ -1439,7 +1414,7 @@
       "type": "Feature",
       "properties": {
         "name": "K11",
-        "style": "kampeergrond"
+        "style": "aanbod"
       },
       "geometry": {
         "type": "Polygon",
@@ -1748,11 +1723,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5,
         "name": "K10",
         "style": "aanbod"
       },
@@ -2523,9 +2493,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
         "style": "weg-hard-2"
       },
       "geometry": {
@@ -3544,9 +3511,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
         "style": "weg-hard-2"
       },
       "geometry": {
@@ -3582,9 +3546,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
         "style": "weg-halfhard"
       },
       "geometry": {
@@ -3612,9 +3573,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
         "style": "weg-zand"
       },
       "geometry": {
@@ -3638,9 +3596,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
         "style": "weg-hard-2"
       },
       "geometry": {
@@ -3660,9 +3615,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
         "style": "weg-hard-2"
       },
       "geometry": {
@@ -3686,9 +3638,6 @@
     {
       "type": "Feature",
       "properties": {
-        "stroke": "#555555",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
         "style": "weg-hard-2"
       },
       "geometry": {
@@ -3708,7 +3657,7 @@
     {
       "type": "Feature",
       "properties": {
-"style": "faciliteit",
+        "style": "faciliteit",
         "name": "centrale bar"
       },
       "geometry": {
@@ -3722,7 +3671,7 @@
     {
       "type": "Feature",
       "properties": {
-"style": "afwasbatterij",
+        "style": "afwasbatterij",
         "name": "afwasbatterij"
       },
       "geometry": {
@@ -3736,7 +3685,7 @@
     {
       "type": "Feature",
       "properties": {
-"style": "afwasbatterij",
+        "style": "afwasbatterij",
         "name": "afwasbatterij"
       },
       "geometry": {
@@ -3764,7 +3713,7 @@
     {
       "type": "Feature",
       "properties": {
-"style": "evacuatiepunt",
+        "style": "evacuatiepunt",
         "name": "evacuatiepunt"
       },
       "geometry": {
@@ -3778,7 +3727,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "evacuatiepunt"
+        "name": "evacuatiepunt"
       },
       "geometry": {
         "type": "Point",
@@ -3791,7 +3740,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "evacuatiepunt"
+        "name": "evacuatiepunt"
       },
       "geometry": {
         "type": "Point",
