@@ -9,8 +9,9 @@ $main-color: #003050;
 $title-color: #003050;
 $secondary-color: #41A289;
 $menu-color: #333333;
-$dark-text: #004b73;
-$dark-border: #90EFD6;
+$dark-text: #6F4D43;
+$dark-border: #D59481;
+$item-border-color: #FFC5B3;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -30,6 +31,7 @@ $dark-border: #90EFD6;
 @import "informatie.scss";
 @import "instellingen.scss";
 @import "over.scss";
+@import "leefregels.scss";
 
 body {
   padding-bottom: 20px;
@@ -128,7 +130,7 @@ h1, h2 {
     }
 
     li.active a {
-      color: $main-color;
+      color: $main-bg-color;
     }
   }
 }

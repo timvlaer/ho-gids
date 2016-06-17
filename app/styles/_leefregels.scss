@@ -1,0 +1,18 @@
+#leefregels {
+  background-color: $main-bg-color;
+  padding: 10px 45px 10px 35px;
+
+  p {
+    text-align: justify;
+  }
+
+  ul {
+    padding-left: 0;
+
+    li {
+      list-style-type: circle;
+    }
+
+  }
+
+}
