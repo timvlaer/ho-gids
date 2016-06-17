@@ -19,4 +19,4 @@ after_success:
 - git push origin master
 env:
   global:
-    secure: "X919JMBai8dhopP/DMeq4fxUf2EGtvfR+mxnKAolGlqMcqvRPQcN/5S5XEOZNHQlwEhoXoa//n7ULhSx4vI3S++gCEQjczmrk7g0UUOrK+ENJacRz0Rqj3B5/cxyK+Oz4AKWk/vHE+wdDsrOBmrQj6ajbfgNzg/L5fRNsZyBO6g="
+    secure: VYAsctqe/zElIramGmpJjKMGGr+qPfQFb/NfdQ9otgj8c1022N1ilbmMybNm/JQcQBZEwjjgEcApjsn+WLzBfxg+B7EPih9FYUp1b0n6blfDCEdU9k08NsbALv8KVnKtJQ7buP0Pw0mXByZvrRMBXnHk0m+QO4pvkc5naJa3zAw=
