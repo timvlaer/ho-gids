@@ -59,9 +59,9 @@ angular
         templateUrl: 'views/kaart.html',
         controller: 'KaartCtrl'
       })
-      .when('/nieuwsstroom', {
-        templateUrl: 'views/nieuwsstroom.html',
-        controller: 'NieuwsstroomCtrl'
+      .when('/leefregels', {
+        templateUrl: 'views/leefregels.html',
+        controller: 'LeefregelsCtrl'
       })
       .otherwise({
         redirectTo: '/'
