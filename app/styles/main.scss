@@ -3,15 +3,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
-$main-bg-color: #f9fbed;
-$main-bg-color-em: #f4f6da;
-$main-color: #c7d301;
-$main-color-dark : #95A234;
-$title-color: #006f93;
-$secondary-color: #f07d00;
+$main-bg-color: #efa690;
+$main-bg-color-em: #FFC5B3;
+$main-color: #003050;
+$title-color: #003050;
+$secondary-color: #41A289;
 $menu-color: #333333;
-$dark-text: #505319;
-$dark-border: #D7DF43;
+$dark-text: #004b73;
+$dark-border: #90EFD6;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
