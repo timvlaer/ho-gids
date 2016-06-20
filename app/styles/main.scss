@@ -197,6 +197,16 @@ h1, h2 {
     color: $dark-text;
   }
 }
+.btn-info {
+  color: #fff;
+  background-color: #41A289;
+  border-color: #2D6F5E;
+
+  &:focus, &:hover, &:active  {
+    background-color: #2D6F5E;
+    border-color: #2D6F5E;
+  }
+}
 
 
 
