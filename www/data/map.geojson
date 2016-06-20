@@ -782,7 +782,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "KP14",
+        "name": "K14",
         "style": "aanbod"
       },
       "geometry": {
@@ -1049,7 +1049,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "KP1",
+        "name": "K13",
         "style": "kampeergrond"
       },
       "geometry": {
