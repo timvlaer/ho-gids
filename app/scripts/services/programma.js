@@ -85,7 +85,7 @@ angular.module('hoGidsApp')
               'beschrijving': ''
           },
           {
-              'titel': 'Hopper café',
+              'titel': 'Hopper café met karaoke',
               'plaats': 'K10',
               'beschrijving': ''
           },
@@ -123,7 +123,7 @@ angular.module('hoGidsApp')
               'beschrijving': ''
           },
           {
-              'titel': 'Hopper café',
+              'titel': 'Hopper café met karaoke',
               'plaats': 'LK10',
               'beschrijving': ''
           },
@@ -146,13 +146,13 @@ angular.module('hoGidsApp')
 		        { 'start': '20:00', 'stop': '22:45', 'titel': 'Gouwfoor',
 		          'beschrijving': 'Gouwfoor op de grote grond', 'plaats': 'KKG' },
                 { 'start': '22:45', 'stop': '23:15', 'titel': 'Opwarmer',
-		          'plaats': 'KKG' },
-                { 'start': '23:15', 'stop': '00:00', 'titel': 'Openingshow',
-		          'beschrijving': 'Onthaalshow op het grote podium', 'plaats': 'KKG' },
+                  'beschrijving': 'Opwarmer op het grote podium', 'plaats': 'KKG' },
+                { 'start': '23:15', 'stop': '00:00', 'titel': 'Openingsshow',
+		          'beschrijving': 'Openingsshow op het grote podium', 'plaats': 'KKG' },
 		        { 'start': '00:00', 'stop': '02:30', 'titel': 'Scouteske avond',
 		          'beschrijving': 'Scouteske avond met animo, kampvuur en café', 'plaats': '', 'subitems': vrijdagavond },
 		        { 'start': '03:00', 'titel': 'Slaapwel',
-		          'beschrijving': 'Tijd om je slaapzak te kruipen', 'plaats': 'Gouwgrond' }
+		          'beschrijving': 'Tijd om in je slaapzak te kruipen', 'plaats': 'Gouwgrond' }
 		    ]
 	    },
 	    {
