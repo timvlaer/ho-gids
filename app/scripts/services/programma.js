@@ -12,59 +12,64 @@ angular.module('hoGidsApp')
 
       var themas = [
           {
-              'titel': 'Kapoenen, Zeehondjes',
+              'titel': 'Kapoenen',
               'plaats': 'K10',
               'beschrijving': 'Kom op ontdekking en leer waar jij en je kapoenen goed in zijn! \nNieuwe spelen, moeilijke kapoenen, voorlezen, spelen in elkaar boksen, gescheiden ouders,... dit en méér kan je vinden in het kapoenenaanbod!'
           },
           {
-              'titel': 'Kabouters, Welpen',
+              'titel': 'Welpen, kabouters',
               'plaats': 'K14',
               'beschrijving': 'Of je nu nieuw bent in de horde, al wat lessen van Baloe onder de knie hebt, of een ervaren Akela bent, doet er niet zo toe. Bij ons vind je workshops om ervaringen uit te wisselen, om nieuwe spellen te leren, om je danskunsten bij te schaven,... Kortom, in onze jungle is er voor elk wat wils.'
           },
           {
-              'titel': 'Jonggidsen, Jongverkenner, Scheepsmakker',
+              'titel': 'Jongverkenners, jonggidsen',
               'plaats': 'K12',
               'beschrijving': 'Alle leiding zijn helden maar alleen als team zijn ze ontoombaar. Als leiding ben je een held voor je leden omdat je ze vanalles kan leren, maar een held blijf je pas als je zelf steeds bijleert.'
           },
           {
-              'titel': 'Gidsen, Verkenners, SOLL',
+              'titel': 'Verkenners, gidsen',
               'plaats': 'Vijver 1',
               'beschrijving': 'Klaar om een fantastisch jaar als giverleiding tegemoet te gaan? Na het volgen van een van onze werkwinkels zeker wel! Aan de vijver bieden wij jullie inspiratie om in het kader van het jaarthema met je givers van het buitenleven te genieten, tips en tricks om originele en uitdagende projecten op te bouwen, een kans om even stil te staan bij totemisatie en nog veel meer.'
           },
           {
-              'titel': 'Jins, Loodsen',
+              'titel': 'Jins',
               'plaats': 'K11',
               'beschrijving': 'Zin om je jinjaar zonder kleerscheuren te overleven? Op zoek naar een originele jinvergadering? Ideeën nodig voor het eerste jinweekend? Zin in een leuk project, maar weet je niet goed hoe eraan te beginnen? Inspiratie nodig? Meer weten over kampen, leefweek en kleurentotems? \nPrima, wees dan welkom op onze Jingrond. We bewijzen dat vorming allesbehalve saai hoeft te zijn door zowel inhoudelijke als praktische werkwinkels aan te bieden. Dit alles is natuurlijk, zoals het de jins betaamt, overgoten met een zotte en speelse saus.'
           },
           {
-              'titel': 'Groepsleiding, Lokalen, Financiën en Administratie',
+              'titel': 'Groepsleiding',
               'plaats': 'KKK',
               'beschrijving': 'Net groepsleiding geworden? Al veel ervaring, maar de groepsadministratie vlot niet? Waar en hoe vind ik nieuwe leiding? Hoe start ik een oudercomité op? Talloze vragen waar je hier een antwoord op vindt!'
           },
           {
-              'titel': 'Akabeleiding',
+              'titel': 'Zeescouting',
+              'plaats': 'Vijver 1',
+              'beschrijving': ''
+          },
+          {
+              'titel': 'Akabe',
               'plaats': 'P13',
               'beschrijving': 'Scouting... zonder beperking! \nEen handicap hoeft geen beperking te zijn. Ontdek hoe je het maximum kan halen uit je groep en echt iedereen meekrijgt bij scouting, of je nu een lid hebt met ADHD, autisme of downsyndroom. Rolstoelspelen, klauteren in de bossen, zwaardgevechten... we doen het gewoon bij Akabe!'
           },
           {
-              'titel': 'Actie en Spel',
+              'titel': 'Actie en spel',
               'plaats': 'KKG',
               'beschrijving': 'Scouting da’s proeven. Op de actie en spelgrond kan je vooral zelf heel wat spelen ontdekken. Van zwerkbal tot bosspel. We nemen je mee op een ontdekkingstocht.'
           },
           {
-              'titel': 'Safety First',
+              'titel': 'EHBO',
               'plaats': 'KKG',
               'beschrijving': 'Eerste Hulp Bij Ongevallen kunnen toedienen, het blijft een handige vaardigheid voor leiding. Het Jeugd Rode Kruis komt het ons nog eens allemaal haarfijn uitleggen.'
           },
           {
-              'titel': 'Technieken, Materiaal',
+              'titel': 'Techniekenmarkt',
               'plaats': 'KKG',
               'beschrijving': 'Een markt vol met technieken en experimenten. Van knopen leggen tot vuur maken, van hout klieven tot… , wij voorzien techniekenweetjes voor ervaren en minder ervaren techneuten'
           },
           {
-              'titel': 'Zit je scoutscarrière erop...',
+              'titel': 'Zit je scoutscarrière erop',
               'plaats': 'Infopunt',
-              'beschrijving': 'maar kriebelt het om nog iets meer te doen? Inspiratie nodig over een goede stam- of oudleidingswerking? Heb je expertise waar we bij Scouts en Gidsen Vlaanderen nog iets mee kunnen doen? (enkel tijdens sessie 1)'
+              'beschrijving': '...maar kriebelt het om nog iets meer te doen? Inspiratie nodig over een goede stam- of oudleidingswerking? Heb je expertise waar we bij Scouts en Gidsen Vlaanderen nog iets mee kunnen doen? (enkel tijdens sessie 1)'
           }
       ];
 
@@ -209,7 +214,7 @@ angular.module('hoGidsApp')
         {naam: 'Noordzee', grond: 'K4', grondDetail: 'noord'},
         {naam: 'Oost-Brabant', grond: 'K6', grondDetail: 'oost'},
         {naam: 'Opsinjoor', grond: 'K7'},
-        {naam: 'Waas', grond: 'K1', grondDetail: 'west'}, 
+        {naam: 'Waas', grond: 'K1', grondDetail: 'west'},
         {naam: 'Webra', grond: 'K1', grondDetail: 'noord'},
         {naam: 'Zuid-West-Vlaanderen', grond: 'K1', grondDetail: 'zuid'}
       ]
