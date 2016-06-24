@@ -168,7 +168,7 @@ angular.module('hoGidsApp')
                 { 'start': '09:00', 'stop': '11:00', 'titel': 'Gouw- en districtsmoment',
                     'plaats': 'Gouwgrond' },
                 { 'start': '11:15', 'stop': '11:45', 'titel': 'Opening van de dag',
-                    'plaats': 'Gouwgrond' },
+                    'plaats': 'KKG' },
                 { 'start': '11:45', 'stop': '12:30', 'titel': 'Gouwbattle',
                     'plaats': 'Gouwgrond' },
                 { 'start': '12:30', 'stop': '13:30', 'titel': 'Picknick',
