@@ -98,4 +98,14 @@ angular
       snapRemote.close();
     });
 
+    $rootScope.$on("$routeChangeStart", function (e) {
+      //hide content
+      $(".content-view").hide();
+    });
+
+    $rootScope.$on("$viewContentLoaded", function (e) {
+      //show content
+      $(".content-view").show();
+    });
+
   });
