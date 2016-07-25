@@ -3376,20 +3376,6 @@
     {
       "type": "Feature",
       "properties": {
-        "style": "sanitair",
-        "name": "sanitair"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.938456416130066,
-          51.23899867537666
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "sanitair",
         "style": "sanitair"
       },

@@ -77,9 +77,21 @@ angular
     localStorageServiceProvider
       .setPrefix('hogids')
       .setStorageCookie(0, '/');
+
   })
-  .run(function() {
+  .run(function(localStorageService, Programma) {
     if(navigator.splashscreen) {
       navigator.splashscreen.hide();
     }
+
+    //update local storage with latest Gouw information (issue#27)
+    var gouwFromStorage = localStorageService.get('gouw');
+    if(gouwFromStorage) {
+      Programma.gouwen.forEach(function(gouw) {
+         if(gouw.naam == gouwFromStorage.naam) {
+           localStorageService.set('gouw', gouw);
+         }
+      });
+    }
+
   });
