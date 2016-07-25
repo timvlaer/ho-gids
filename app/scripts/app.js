@@ -79,7 +79,7 @@ angular
       .setStorageCookie(0, '/');
 
   })
-  .run(function(localStorageService, Programma) {
+  .run(function(localStorageService, Programma, $rootScope, snapRemote) {
     if(navigator.splashscreen) {
       navigator.splashscreen.hide();
     }
@@ -93,5 +93,9 @@ angular
          }
       });
     }
+
+    $rootScope.$on("$locationChangeStart", function (e) {
+      snapRemote.close();
+    });
 
   });
