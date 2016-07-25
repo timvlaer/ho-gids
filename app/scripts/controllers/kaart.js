@@ -164,6 +164,11 @@ var icons = {
         iconSize: [24, 24],
         className: iconClassName
     }),
+    'eten': L.icon({
+        iconUrl: 'images/kaart/eten.png',
+        iconSize: [24, 24],
+        className: iconClassName
+    }),
     'tent': L.icon({
         iconUrl: 'images/kaart/tent.png',
         iconSize: [128, 64],
@@ -212,6 +217,8 @@ angular.module('hoGidsApp')
 			    case 'afwasbatterij': return L.marker(latlng, {icon: icons.afwasbatterij});
 			    case 'evacuatiepunt': return L.marker(latlng, {icon: icons.evacuatiepunt});
 			    case 'centrale bar': return L.marker(latlng, {icon: icons.bar});
+			    case 'bar': return L.marker(latlng, {icon: icons.bar});
+			    case 'eten': return L.marker(latlng, {icon: icons.eten});
 			}
     	}
         return L.circle(latlng, 7);
@@ -406,7 +413,7 @@ angular.module('hoGidsApp')
 
     L.Icon.Default.imagePath = 'images/kaart';
 
-    $http.get('data/map.geojson')
+    $http.get('data/map.geo.json')
         .success(function(data) {
             L.geoJson(data, {
                 style: style,

@@ -1731,12 +1731,12 @@
         "coordinates": [
           [
             [
-              4.938772916793823,
-              51.236483076322735
+              4.937957525253296,
+              51.2365620057531
             ],
             [
-              4.938762187957764,
-              51.23610018269622
+              4.9378502368927,
+              51.23608003031185
             ],
             [
               4.9397653341293335,
@@ -1747,8 +1747,8 @@
               51.236345369332774
             ],
             [
-              4.938772916793823,
-              51.236483076322735
+              4.937957525253296,
+              51.2365620057531
             ]
           ]
         ]
@@ -3150,6 +3150,40 @@
     {
       "type": "Feature",
       "properties": {
+        "style": "loods",
+        "name": "L318"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.948734641075134,
+              51.24747815270107
+            ],
+            [
+              4.948922395706177,
+              51.247713205051134
+            ],
+            [
+              4.949067234992981,
+              51.24766619467725
+            ],
+            [
+              4.948874115943909,
+              51.2474344999895
+            ],
+            [
+              4.948734641075134,
+              51.24747815270107
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "name": "EHBO",
         "style": "faciliteit"
       },
@@ -3158,6 +3192,44 @@
         "coordinates": [
           4.938912391662598,
           51.23929422404586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "",
+        "style": "podiumgrond"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.938995540142059,
+              51.23927743155871
+            ],
+            [
+              4.939505159854889,
+              51.239260639065435
+            ],
+            [
+              4.939550757408142,
+              51.23914477069478
+            ],
+            [
+              4.939159154891968,
+              51.239104468584394
+            ],
+            [
+              4.938976764678955,
+              51.239171638748736
+            ],
+            [
+              4.938995540142059,
+              51.23927743155871
+            ]
+          ]
         ]
       }
     },
@@ -3184,15 +3256,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.9384939670562735,
-          51.2385620659137
+          4.9381935596466064,
+          51.23840085521836
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3206,7 +3278,7 @@
     {
       "type": "Feature",
       "properties": {
-"style": "sanitair",
+        "style": "sanitair",
         "name": "sanitair"
       },
       "geometry": {
@@ -3220,7 +3292,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3234,7 +3306,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3248,7 +3320,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3262,7 +3334,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3290,7 +3362,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3304,7 +3376,7 @@
     {
       "type": "Feature",
       "properties": {
-"style": "sanitair",
+        "style": "sanitair",
         "name": "sanitair"
       },
       "geometry": {
@@ -3318,7 +3390,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3332,7 +3404,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3346,7 +3418,21 @@
     {
       "type": "Feature",
       "properties": {
-"name": "afwasbatterij",
+        "style": "sanitair",
+        "name": "sanitair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.937147498130798,
+          51.23849825341434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "afwasbatterij",
         "style": "afwasbatterij"
       },
       "geometry": {
@@ -3360,7 +3446,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3374,7 +3460,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3388,7 +3474,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3440,7 +3526,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3663,8 +3749,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.9381935596466064,
-          51.23840085521836
+          4.9384939670562735,
+          51.2385620659137
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "style": "faciliteit",
+        "name": "eten"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.93836522102356,
+          51.238860975916474
         ]
       }
     },
@@ -3699,7 +3799,7 @@
     {
       "type": "Feature",
       "properties": {
-"name": "sanitair",
+        "name": "sanitair",
         "style": "sanitair"
       },
       "geometry": {
@@ -3761,24 +3861,24 @@
         "coordinates": [
           [
             [
-              4.936407208442688,
-              51.23875686141684
+              4.93661642074585,
+              51.239102789329024
             ],
             [
-              4.936482310295105,
-              51.23902050574105
+              4.9370965361595145,
+              51.23905744941101
             ],
             [
-              4.936629831790924,
-              51.23900035463583
+              4.937072396278381,
+              51.23896341092002
             ],
             [
-              4.936549365520477,
-              51.23874678580758
+              4.936589598655701,
+              51.23900707167188
             ],
             [
-              4.936407208442688,
-              51.23875686141684
+              4.93661642074585,
+              51.239102789329024
             ]
           ]
         ]
@@ -4000,6 +4100,80 @@
           [
             4.935138523578644,
             51.23798103304805
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "style": "weg-zand"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.937978982925414,
+            51.240190933955844
+          ],
+          [
+            4.938708543777466,
+            51.240687979110184
+          ],
+          [
+            4.9399638175964355,
+            51.24184996912458
+          ],
+          [
+            4.940575361251831,
+            51.24228654738196
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "style": "faciliteit",
+        "name": "bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.9395668506622314,
+          51.23633529319537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "style": "faciliteit",
+        "name": "eten"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.93985652923584,
+          51.23633529319537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "style": "weg-zand"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.9381908774375916,
+            51.23728915775191
+          ],
+          [
+            4.938196241855621,
+            51.236656049152906
           ]
         ]
       }
