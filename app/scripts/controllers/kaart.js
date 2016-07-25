@@ -42,6 +42,12 @@ var styles = {
         stroke: false,
         lineJoin: 'round'
     },
+    'kampeergrond-ongebruikt': {
+        fillColor: '#fdf7f4',
+        fillOpacity: 1,
+        stroke: false,
+        lineJoin: 'round'
+    },
     'aanbod': {
         fillColor: '#da0c25',
         fillOpacity: 1,
@@ -81,7 +87,7 @@ var styles = {
     'weg-zand': {
         weight: 1,
         opacity: 1,
-        color: '#c7d301',
+        color: '#f0a68f',
         dashArray: '5'
     },
     'faciliteit': {
@@ -91,9 +97,9 @@ var styles = {
         fillOpacity: 1
     },
     'border': {
-        fillColor: '#f4f6da',
+        fillColor: '#fcefe9',
         weight: 5,
-        color: '#c7d301',
+        color: '#f0a68f',
         fillOpacity: 1,
         opacity: 1
     },
