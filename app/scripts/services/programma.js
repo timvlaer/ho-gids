@@ -128,7 +128,7 @@ angular.module('hoGidsApp')
               'beschrijving': ''
           },
           {
-              'titel': 'Hopper café met karaoke',
+              'titel': 'Hopper café',
               'plaats': 'LK10',
               'beschrijving': ''
           },
