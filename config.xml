@@ -18,13 +18,6 @@
 
   <content src="www/index.html"/>
 
-  <!--
-      If you do not want any permissions to be added to your app, add the
-      following tag to your config.xml; you will still have the INTERNET
-      permission on your app, which PhoneGap requires.
-  -->
-  <preference name="permissions" value="none"/>
-
   <!-- Customize your app and platform with the preference element. -->
   <preference name="phonegap-version" value="cli-6.3.0"/>      <!-- all: current version of PhoneGap -->
   <preference name="orientation" value="default"/>        <!-- all: default means both landscape and portrait are enabled -->
@@ -46,10 +39,9 @@
   <preference name="StatusBarBackgroundColor" value="#003050"/>
   <preference name="StatusBarStyle" value="lightcontent"/>
 
+  <preference name="windows-arch" value="anycpu" />
 
   <!-- Plugins -->
-
-  <!-- Core plugins -->
   <gap:plugin name="org.apache.cordova.inappbrowser"/>
   <gap:plugin name="org.apache.cordova.geolocation"/>
   <gap:plugin name="org.apache.cordova.statusbar"/>
@@ -70,11 +62,6 @@
   <gap:plugin name="org.apache.cordova.network-information" />
   <gap:plugin name="org.apache.cordova.vibration" />-->
 
-  <!-- Third party plugins -->
-  <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
-  <!--
-      <gap:plugin name="com.phonegap.plugins.barcodescanner" />
-  -->
 
   <!-- Define app icon for each platform. -->
   <icon src="res/icon/icon_inv.png"/>
@@ -139,9 +126,13 @@
   </platform>
 
   <platform name="ios">
-    <splash src="res/splash/ios/Default.png" gap:platform="ios" width="320" height="480"/>
-    <splash src="res/splash/ios/Default@2x.png" gap:platform="ios" width="640" height="960"/>
-    <splash src="res/splash/ios/Default-568h@2x.png" gap:platform="ios" width="640" height="1136"/>    <!-- iPhone 5 / iPod Touch (5th Generation) -->
+    <splash src="res/splash/ios/Default.png" width="320" height="480"/>
+    <splash src="res/splash/ios/Default@2x.png" width="640" height="960"/>
+    <splash src="res/splash/ios/Default-568h@2x.png" width="640" height="1136"/>    <!-- iPhone 5 / iPod Touch (5th Generation) -->
+  </platform>
+
+  <platform name="winphone">
+    <splash src="res/splash/splash.png"/>
   </platform>
 
   <!--
