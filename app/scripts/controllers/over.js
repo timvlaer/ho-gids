@@ -5,12 +5,13 @@ angular.module('hoGidsApp')
 
     var GITHUB_URL = 'https://github.com/timvlaer/ho-gids';
 
-    $scope.showGithubPage = function() {
+    $scope.showGithubPage = function(e) {
       if (typeof cordova !== 'undefined') {
-        cordova.InAppBrowser.open(GITHUB_URL, '_system');
+        cordova.InAppBrowser.open(GITHUB_URL, '_system', 'location=yes');
       } else {
-        window.open(GITHUB_URL, '_system');
+        window.open(GITHUB_URL, '_system', 'location=yes');
       }
+      e.preventDefault();
     }
 
   });
