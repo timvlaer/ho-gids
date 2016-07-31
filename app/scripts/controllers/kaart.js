@@ -324,8 +324,8 @@ angular.module('hoGidsApp')
       console.log(event);
       $rootScope.latLng = "[" + event.latlng.lat + ", " + event.latlng.lng + "], " + event.accuracy;
 
-      if (hogeRielenBounds.contains(event.latlng)) {
-        if(event.accuracy < POSITION_MAX_ALLOWED_ACCURACY) {
+      if(event.accuracy < POSITION_MAX_ALLOWED_ACCURACY) {
+        if (hogeRielenBounds.contains(event.latlng)) {
           var radius = event.accuracy / 2;
           if (!preciseLocationPointer || !radiusPointer) {
             preciseLocationPointer = L.marker(event.latlng, {icon: icons.locationIcon});
@@ -343,10 +343,10 @@ angular.module('hoGidsApp')
             radiusPointer.setStyle(accuracyCircleStyle);
             radiusPointer.redraw();
           }
+        } else {
+          clearCurrentLocation();
+          scheduleLocationPolling(POLL_LOCATION_INTERVAL_OUTSIDE_AREA); // recheck in 10 minutes
         }
-      } else {
-        clearCurrentLocation();
-        scheduleLocationPolling(POLL_LOCATION_INTERVAL_OUTSIDE_AREA); // recheck in 10 minutes
       }
     }
 
