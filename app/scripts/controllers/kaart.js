@@ -398,8 +398,8 @@ angular.module('hoGidsApp')
     var map = L.map('map', {
         center: hogeRielenCenter,
         zoom: DEFAULT_ZOOM,
-        minZoom: 14,
-        maxBounds: hogeRielenBounds
+        minZoom: 14/*,
+        maxBounds: hogeRielenBounds*/
     });
 
     map.whenReady(function() {

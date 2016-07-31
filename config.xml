@@ -19,7 +19,7 @@
   <content src="www/index.html"/>
 
   <!-- Customize your app and platform with the preference element. -->
-  <preference name="phonegap-version" value="cli-6.3.0"/>      <!-- all: current version of PhoneGap -->
+  <preference name="phonegap-version" value="cli-5.2.0"/>      <!-- all: current version of PhoneGap -->
   <preference name="orientation" value="default"/>        <!-- all: default means both landscape and portrait are enabled -->
   <preference name="target-device" value="universal"/>      <!-- all: possible values handset, tablet, or universal -->
   <preference name="webviewbounce" value="true"/>           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
