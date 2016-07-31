@@ -366,7 +366,6 @@ angular.module('hoGidsApp')
       }
       preciseLocationPointer = undefined;
       radiusPointer = undefined;
-      $rootScope.latLng = undefined;
     }
 
     function doGeolocation() {
