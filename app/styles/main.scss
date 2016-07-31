@@ -142,7 +142,7 @@ h1, h2 {
 
   h2 {
     padding-left: 10px;
-    font-weight: normal;
+    font-weight: 300;
     color: $main-bg-color;
     margin-bottom: 0px;
     margin-top: 55px;
@@ -161,6 +161,18 @@ h1, h2 {
         border-radius: 2px;
       }
     }
+  }
+
+  .info {
+    font-size: 0.9em;
+    font-weight: 300;
+    padding-bottom: 8px;
+  }
+
+  .debug {
+    color: #888;
+    font-size: 0.9em;
+    font-weight: 300;
   }
 }
 

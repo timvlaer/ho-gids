@@ -9,7 +9,7 @@ var hogeRielenBounds = L.latLngBounds(L.latLng(51.2300, 4.90900), L.latLng(51.25
 
 var DEFAULT_ZOOM = 14;
 
-var POLL_LOCATION_INTERVAL = 10; //seconds
+var POLL_LOCATION_INTERVAL = 7; //seconds
 var POLL_LOCATION_TIMEOUT = 8; //seconds
 var POLL_LOCATION_INTERVAL_OUTSIDE_AREA = 10 * 60; //seconds
 var POSITION_DESIRED_ACCURACY = 50; //meter
@@ -194,13 +194,15 @@ var icons = {
  * Controller of the hoGidsApp
  */
 angular.module('hoGidsApp')
-  .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams, $log, localStorageService) {
+  .controller('KaartCtrl', function ($scope, $http, leafletData, $routeParams, $log, localStorageService, $rootScope) {
 
     var preciseLocationPointer, radiusPointer;
     var featureHighlightPointer;
     var locationPollInterval;
 
     var isLocationEnabled = localStorageService.get('locationEnabled') !== false;
+
+    $rootScope.pollLocationInterval = POLL_LOCATION_INTERVAL;
 
     function style(feature) {
         return styles[feature.properties.style] || styles.default;
@@ -296,9 +298,10 @@ angular.module('hoGidsApp')
     function showInterestingViewport() {
       //FIXME if a feature is highlighted, this method is triggered first and your current location doesn't get in viewport.
       if (preciseLocationPointer && featureHighlightPointer) {
+        map.setZoom(DEFAULT_ZOOM + 2, {'animate': false});
         map.fitBounds(
           L.latLngBounds(featureHighlightPointer.getLatLng(), preciseLocationPointer.getLatLng()),
-          {'animate': true, 'duration': 1, 'maxZoom': DEFAULT_ZOOM}
+          {'animate': true, 'duration': 1, 'maxZoom': DEFAULT_ZOOM+2}
         );
       } else if (preciseLocationPointer || featureHighlightPointer) {
         map.setZoom(DEFAULT_ZOOM + 2, {'animate': false});
@@ -319,6 +322,7 @@ angular.module('hoGidsApp')
 
     function onAccuratePositionFound(event) {
       console.log(event);
+      $rootScope.latLng = "[" + event.latlng.lat + ", " + event.latlng.lng + "], " + event.accuracy;
 
       if (hogeRielenBounds.contains(event.latlng)) {
         if(event.accuracy < POSITION_MAX_ALLOWED_ACCURACY) {
@@ -362,6 +366,7 @@ angular.module('hoGidsApp')
       }
       preciseLocationPointer = undefined;
       radiusPointer = undefined;
+      $rootScope.latLng = undefined;
     }
 
     function doGeolocation() {
@@ -398,8 +403,8 @@ angular.module('hoGidsApp')
     var map = L.map('map', {
         center: hogeRielenCenter,
         zoom: DEFAULT_ZOOM,
-        minZoom: 14/*,
-        maxBounds: hogeRielenBounds*/
+        minZoom: 14,
+        maxBounds: hogeRielenBounds
     });
 
     map.whenReady(function() {
@@ -424,10 +429,15 @@ angular.module('hoGidsApp')
 
             doGeolocation();
 
-            showInterestingViewport();
+            setTimeout(showInterestingViewport, 600);
         });
 
     document.addEventListener("pause", stopInterval, false);
     document.addEventListener("resume", findAccuratePosition, false);
+
+    $scope.$on("$destroy", function handler() {
+      console.log("destroy");
+      stopInterval();
+    });
 
   });
