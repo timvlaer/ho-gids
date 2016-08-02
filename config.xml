@@ -4,7 +4,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap="http://phonegap.com/ns/1.0"
         id="be.scoutsengidsenvlaanderen.hogids"
-        version="1.1.1">
+        version="1.1.2">
 
   <name>HO</name>
 
@@ -19,7 +19,7 @@
   <content src="www/index.html"/>
 
   <!-- Customize your app and platform with the preference element. -->
-  <preference name="phonegap-version" value="cli-5.2.0"/>      <!-- all: current version of PhoneGap -->
+  <preference name="phonegap-version" value="cli-5.4.0"/>      <!-- all: current version of PhoneGap -->
   <preference name="orientation" value="default"/>        <!-- all: default means both landscape and portrait are enabled -->
   <preference name="target-device" value="universal"/>      <!-- all: possible values handset, tablet, or universal -->
   <preference name="webviewbounce" value="true"/>           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
@@ -46,10 +46,11 @@
   <gap:plugin name="org.apache.cordova.geolocation"/>
   <gap:plugin name="org.apache.cordova.statusbar"/>
   <gap:plugin name="org.apache.cordova.splashscreen"/>
+  <gap:plugin name="org.apache.cordova.console" />
+
   <!--<gap:plugin name="org.apache.cordova.battery-status" />
   <gap:plugin name="org.apache.cordova.camera" />
   <gap:plugin name="org.apache.cordova.media-capture" />
-  <gap:plugin name="org.apache.cordova.console" />
   <gap:plugin name="org.apache.cordova.contacts" />
   <gap:plugin name="org.apache.cordova.device" />
   <gap:plugin name="org.apache.cordova.device-motion" />
@@ -66,48 +67,6 @@
   <!-- Define app icon for each platform. -->
   <icon src="res/icon/icon_inv.png"/>
 
-  <!--android-->
-  <icon src="res/icon/android/ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
-  <icon src="res/icon/android/mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
-  <icon src="res/icon/android/hdpi.png" gap:platform="android" gap:qualifier="hdpi"/>
-  <icon src="res/icon/android/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi"/>
-  <icon src="res/icon/android/xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi"/>
-
-  <!-- iPhone 6 / 6+ -->
-  <icon src="res/icon/ios/Icon-60@3x.png" gap:platform="ios" width="180" height="180"/>
-
-  <!-- iPhone / iPod Touch  -->
-  <icon src="res/icon/ios/Icon-60.png" gap:platform="ios" width="60" height="60"/>
-  <icon src="res/icon/ios/Icon-60@2x.png" gap:platform="ios" width="120" height="120"/>
-
-  <!-- iPad -->
-  <icon src="res/icon/ios/Icon-76.png" gap:platform="ios" width="76" height="76"/>
-  <icon src="res/icon/ios/Icon-76@2x.png" gap:platform="ios" width="152" height="152"/>
-
-  <!-- Settings Icon -->
-  <icon src="res/icon/ios/Icon-Small.png" gap:platform="ios" width="29" height="29"/>
-  <icon src="res/icon/ios/Icon-Small@2x.png" gap:platform="ios" width="58" height="58"/>
-
-  <!-- Spotlight Icon -->
-  <icon src="res/icon/ios/Icon-Small-40.png" gap:platform="ios" width="40" height="40"/>
-  <icon src="res/icon/ios/Icon-Small-40@2x.png" gap:platform="ios" width="80" height="80"/>
-
-  <!-- iPhone / iPod Touch -->
-  <icon src="res/icon/ios/Icon.png" gap:platform="ios" width="57" height="57"/>
-  <icon src="res/icon/ios/Icon@2x.png" gap:platform="ios" width="114" height="114"/>
-
-  <!-- iPad -->
-  <icon src="res/icon/ios/Icon-72.png" gap:platform="ios" width="72" height="72"/>
-  <icon src="res/icon/ios/Icon-72@2x.png" gap:platform="ios" width="144" height="144"/>
-
-  <!-- iPhone Spotlight and Settings Icon -->
-  <icon src="res/icon/ios/Icon-small.png" gap:platform="ios" width="29" height="29"/>
-  <icon src="res/icon/ios/Icon-small@2x.png" gap:platform="ios" width="58" height="58"/>
-
-  <!-- iPad Spotlight and Settings Icon -->
-  <icon src="res/icon/ios/Icon-Small-50.png" gap:platform="ios" width="50" height="50"/>
-  <icon src="res/icon/ios/Icon-Small-50@2x.png" gap:platform="ios" width="100" height="100"/>
-
   <!-- <access origin="*" /> - a wildcard access tag allows access to all external resource. -->
   <access origin="*"/>
 
@@ -118,7 +77,14 @@
   <preference name="SplashMaintainAspectRatio" value="true" />
   <preference name="SplashShowOnlyFirstTime" value="true" />
 
+
   <platform name="android">
+    <icon src="res/icon/android/ldpi.png" density="ldpi"/>
+    <icon src="res/icon/android/mdpi.png" density="mdpi"/>
+    <icon src="res/icon/android/hdpi.png" density="hdpi"/>
+    <icon src="res/icon/android/xhdpi.png" density="xhdpi"/>
+    <icon src="res/icon/android/xxhdpi.png" density="xxhdpi"/>
+
     <splash src="res/splash/android/ldpi.png" density="ldpi"/>
     <splash src="res/splash/android/mdpi.png" density="mdpi"/>
     <splash src="res/splash/android/hdpi.png" density="hdpi"/>
@@ -126,12 +92,49 @@
   </platform>
 
   <platform name="ios">
+    <!-- iPhone 6 / 6+ -->
+    <icon src="res/icon/ios/Icon-60@3x.png" width="180" height="180"/>
+
+    <!-- iPhone / iPod Touch  -->
+    <icon src="res/icon/ios/Icon-60.png" width="60" height="60"/>
+    <icon src="res/icon/ios/Icon-60@2x.png" width="120" height="120"/>
+
+    <!-- iPad -->
+    <icon src="res/icon/ios/Icon-76.png" width="76" height="76"/>
+    <icon src="res/icon/ios/Icon-76@2x.png" width="152" height="152"/>
+
+    <!-- Settings Icon -->
+    <icon src="res/icon/ios/Icon-Small.png" width="29" height="29"/>
+    <icon src="res/icon/ios/Icon-Small@2x.png" width="58" height="58"/>
+
+    <!-- Spotlight Icon -->
+    <icon src="res/icon/ios/Icon-Small-40.png" width="40" height="40"/>
+    <icon src="res/icon/ios/Icon-Small-40@2x.png" width="80" height="80"/>
+
+    <!-- iPhone / iPod Touch -->
+    <icon src="res/icon/ios/Icon.png" width="57" height="57"/>
+    <icon src="res/icon/ios/Icon@2x.png" width="114" height="114"/>
+
+    <!-- iPad -->
+    <icon src="res/icon/ios/Icon-72.png" width="72" height="72"/>
+    <icon src="res/icon/ios/Icon-72@2x.png" width="144" height="144"/>
+
+    <!-- iPhone Spotlight and Settings Icon -->
+    <icon src="res/icon/ios/Icon-small.png" width="29" height="29"/>
+    <icon src="res/icon/ios/Icon-small@2x.png" width="58" height="58"/>
+
+    <!-- iPad Spotlight and Settings Icon -->
+    <icon src="res/icon/ios/Icon-Small-50.png" width="50" height="50"/>
+    <icon src="res/icon/ios/Icon-Small-50@2x.png" width="100" height="100"/>
+
     <splash src="res/splash/ios/Default.png" width="320" height="480"/>
     <splash src="res/splash/ios/Default@2x.png" width="640" height="960"/>
     <splash src="res/splash/ios/Default-568h@2x.png" width="640" height="1136"/>    <!-- iPhone 5 / iPod Touch (5th Generation) -->
   </platform>
 
   <platform name="winphone">
+    <icon src="res/icon/icon_inv.png"/>
+
     <splash src="res/splash/splash.png"/>
   </platform>
 
@@ -142,18 +145,28 @@
   -->
   <preference name="permissions" value="none"/>
 
-  <!-- to enable individual permissions use the following examples -->
-  <feature name="http://api.phonegap.com/1.0/geolocation"/>
-  <feature name="http://api.phonegap.com/1.0/network"/>
-  <!--<feature name="http://api.phonegap.com/1.0/battery"/>
-  <feature name="http://api.phonegap.com/1.0/camera"/>
-  <feature name="http://api.phonegap.com/1.0/contacts"/>
-  <feature name="http://api.phonegap.com/1.0/file"/>
-  <feature name="http://api.phonegap.com/1.0/media"/>
-  <feature name="http://api.phonegap.com/1.0/notification"/>-->
+  <feature name="SplashScreen">
+    <param name="android-package" value="org.apache.cordova.SplashScreen" />
+    <param name="ios-package" value="CDVSplashScreen" />
+  </feature>
+
+  <feature name="Geolocation">
+    <param name="android-package" value="org.apache.cordova.GeoBroker" />
+    <param name="ios-package" value="CDVLocation" />
+  </feature>
+
+  <feature name="NetworkStatus">
+    <param name="android-package" value="org.apache.cordova.NetworkManager" />
+    <param name="ios-package" value="CDVConnection" />
+  </feature>
 
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+
+  <feature name="InAppBrowser">
+    <param name="android-package" value="org.apache.cordova.InAppBrowser" />
+    <param name="ios-package" value="CDVInAppBrowser" />
   </feature>
 
 </widget>
