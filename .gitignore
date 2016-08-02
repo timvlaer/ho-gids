@@ -9,6 +9,8 @@ node_modules
 dist
 tmp
 werkbestanden
+platforms/
+plugins/
 *.keystore
 *.certSigningRequest
 *.iml
