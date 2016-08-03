@@ -1,7 +1,13 @@
 #jaarlied {
-  padding-left: 30px;
+  padding: 0 30px 30px;
 
-  h3 {
-    color: $secondary-color;
+  p {
+    font-size: 0.9em;
+
+    &.info {
+      color: $secondary-color;
+      font-size: 1em;
+      font-style: italic;
+    }
   }
 }
