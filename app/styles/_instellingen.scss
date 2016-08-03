@@ -1,11 +1,15 @@
-form {
-  margin-top: 25px;
+#settings {
+  padding: 10px 30px;
 
-  p.help-block {
-    color: $dark-text;
+  form {
+    margin-top: 25px;
+
+    p.help-block {
+      color: $dark-text;
+    }
   }
-}
 
-.new-group {
-  margin-top: 50px;
+  .new-group {
+    margin-top: 50px;
+  }
 }

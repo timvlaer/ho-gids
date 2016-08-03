@@ -33,6 +33,7 @@ $item-border-color: #FFC5B3;
 @import "instellingen.scss";
 @import "over.scss";
 @import "leefregels.scss";
+@import "jaarlied.scss";
 
 body {
   padding-bottom: 20px;
@@ -97,8 +98,8 @@ h1, h2 {
   color: #f0f0f0;
 
   img#logo {
-    padding: 10px 5px 10px 30px;
-    width: 125px;
+    padding: 8px 5px 8px 30px;
+    width: 100px;
     cursor: pointer;
   }
 

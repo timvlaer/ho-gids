@@ -63,6 +63,10 @@ angular
         templateUrl: 'views/leefregels.html',
         controller: 'LeefregelsCtrl'
       })
+      .when('/jaarlied', {
+        templateUrl: 'views/jaarlied.html',
+        controller: 'JaarliedCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
