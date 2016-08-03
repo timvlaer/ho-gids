@@ -11,12 +11,20 @@ img.sfeer {
     h3 {
       margin-top: 45px;
       color: $secondary-color;
+
+      small {
+        color: #457967;
+        font-size: 62%;
+      }
+    }
+
+    .quote {
     }
 
     p {
-      color: #444;
-      font-weight: 100;
+      color: $dark-text;
       text-align: justify;
+      font-style: italic;
     }
   }
 
