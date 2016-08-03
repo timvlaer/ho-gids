@@ -52,7 +52,7 @@
   <icon src="res/icon/icon_inv.png"/>
 
   <!-- <access origin="*" /> - a wildcard access tag allows access to all external resource. -->
-  <!--<access origin="*"/>-->
+  <access origin="*"/>
 
   <!--Splash Screen-->
   <preference name="SplashScreen" value="screen"/>
