@@ -42,11 +42,15 @@
   <preference name="windows-arch" value="anycpu" />
 
   <!-- Plugins -->
-  <gap:plugin name="org.apache.cordova.inappbrowser"/>
+  <!--<gap:plugin name="org.apache.cordova.inappbrowser"/>
   <gap:plugin name="org.apache.cordova.geolocation"/>
   <gap:plugin name="org.apache.cordova.statusbar"/>
-  <gap:plugin name="org.apache.cordova.splashscreen"/>
-  <gap:plugin name="org.apache.cordova.console" />
+  <gap:plugin name="org.apache.cordova.splashscreen"/>-->
+
+  <plugin name="cordova-plugin-inappbrowser"/>
+  <plugin name="cordova-plugin-geolocation"/>
+  <plugin name="cordova-plugin-statusbar"/>
+  <plugin name="cordova-plugin-splashscreen"/>
 
   <!-- Define app icon for each platform. -->
   <icon src="res/icon/icon_inv.png"/>
