@@ -64,6 +64,8 @@
 
   <preference name="SplashMaintainAspectRatio" value="true" />
   <preference name="SplashShowOnlyFirstTime" value="true" />
+  <preference name="AutoHideSplashScreen" value="true" />
+  <preference name="FadeSplashScreenDuration" value="0"/>
 
 
   <platform name="android">
@@ -152,9 +154,9 @@
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
 
-  <feature name="InAppBrowser">
+  <!--<feature name="InAppBrowser">
     <param name="android-package" value="org.apache.cordova.InAppBrowser" />
     <param name="ios-package" value="CDVInAppBrowser" />
-  </feature>
+  </feature>-->
 
 </widget>
