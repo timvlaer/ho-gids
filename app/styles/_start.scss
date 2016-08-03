@@ -5,4 +5,21 @@ img.sfeer {
 .startpagina {
   min-height: 100%;
   padding: 30px 30px 100px;
+
+  #vc {
+
+    h3 {
+      margin-top: 45px;
+      color: $secondary-color;
+    }
+
+    p {
+      color: #444;
+      font-weight: 100;
+      text-align: justify;
+    }
+  }
+
+
+
 }
