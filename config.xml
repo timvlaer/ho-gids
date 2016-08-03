@@ -39,7 +39,13 @@
   <preference name="StatusBarBackgroundColor" value="#003050"/>
   <preference name="StatusBarStyle" value="lightcontent"/>
 
-  <preference name="windows-arch" value="anycpu" />
+  <preference name="SplashScreen" value="screen"/>
+  <preference name="SplashMaintainAspectRatio" value="true"/>
+  <preference name="SplashShowOnlyFirstTime" value="true"/>
+  <preference name="AutoHideSplashScreen" value="true"/>
+  <preference name="FadeSplashScreenDuration" value="0"/>
+
+  <preference name="windows-arch" value="anycpu"/>
 
   <!-- Plugins -->
   <!--<gap:plugin name="org.apache.cordova.inappbrowser"/>
@@ -52,21 +58,27 @@
   <plugin name="cordova-plugin-statusbar"/>
   <plugin name="cordova-plugin-splashscreen"/>
 
-  <!-- Define app icon for each platform. -->
-  <icon src="res/icon/icon_inv.png"/>
-
-  <!-- <access origin="*" /> - a wildcard access tag allows access to all external resource. -->
   <access origin="*"/>
+  <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
+  <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
+  <plugin name="cordova-plugin-whitelist"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+  <allow-intent href="tel:*"/>
+  <allow-intent href="sms:*"/>
+  <allow-intent href="mailto:*"/>
+  <allow-intent href="geo:*"/>
+  <platform name="android">
+    <allow-intent href="market:*"/>
+  </platform>
+  <platform name="ios">
+    <allow-intent href="itms:*"/>
+    <allow-intent href="itms-apps:*"/>
+  </platform>
 
-  <!--Splash Screen-->
-  <preference name="SplashScreen" value="screen"/>
+
+  <icon src="res/icon/icon_inv.png"/>
   <splash src="res/splash/splash.png"/>
-
-  <preference name="SplashMaintainAspectRatio" value="true" />
-  <preference name="SplashShowOnlyFirstTime" value="true" />
-  <preference name="AutoHideSplashScreen" value="true" />
-  <preference name="FadeSplashScreenDuration" value="0"/>
-
 
   <platform name="android">
     <icon src="res/icon/android/ldpi.png" density="ldpi"/>
@@ -136,18 +148,18 @@
   <preference name="permissions" value="none"/>
 
   <feature name="SplashScreen">
-    <param name="android-package" value="org.apache.cordova.SplashScreen" />
-    <param name="ios-package" value="CDVSplashScreen" />
+    <param name="android-package" value="org.apache.cordova.SplashScreen"/>
+    <param name="ios-package" value="CDVSplashScreen"/>
   </feature>
 
   <feature name="Geolocation">
-    <param name="android-package" value="org.apache.cordova.GeoBroker" />
-    <param name="ios-package" value="CDVLocation" />
+    <param name="android-package" value="org.apache.cordova.GeoBroker"/>
+    <param name="ios-package" value="CDVLocation"/>
   </feature>
 
   <feature name="NetworkStatus">
-    <param name="android-package" value="org.apache.cordova.NetworkManager" />
-    <param name="ios-package" value="CDVConnection" />
+    <param name="android-package" value="org.apache.cordova.NetworkManager"/>
+    <param name="ios-package" value="CDVConnection"/>
   </feature>
 
   <feature name="StatusBar">
