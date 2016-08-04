@@ -45,15 +45,16 @@
       <a ng-click="go('/')" snap-close="left">
         <img src="images/menu/logo.png" alt="logo HO" id="logo"/>
       </a>
+
       <ul>
-        <li ng-class="{active:isActive('/informatie')}">
-          <a ng-click="go('/informatie')" snap-close="left">Informatie</a>
-        </li>
         <li ng-class="{active:isActive('/programma')}">
           <a ng-click="go('/programma')" snap-close="left">Programma</a>
         </li>
         <li ng-class="{active:isActive('/kaart')}">
           <a ng-click="go('/kaart')" snap-close="left">Kaart</a>
+        </li>
+        <li ng-class="{active:isActive('/informatie')}">
+          <a ng-click="go('/informatie')" snap-close="left">Praktische Info</a>
         </li>
         <li ng-class="{active:isActive('/leefregels')}">
           <a ng-click="go('/leefregels')" snap-close="left">Leefregels</a>
@@ -69,6 +70,7 @@
         </li>
       </ul>
       <div class="socialmedia">
+        <h4>#HO16</h4>
         <a ng-click="openFacebookPage()"><img src="images/menu/facebook.png" /></a>
         <a ng-click="openInstagramPage()"><img src="images/menu/instagram.png" /></a>
         <a ng-click="openTwitterPage()"><img src="images/menu/twitter.png" /></a>

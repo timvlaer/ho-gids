@@ -74,36 +74,41 @@ angular.module('hoGidsApp')
       ];
 
       var vrijdagavond = [
-          {
-              'titel': 'Volksdansen (0u)',
-              'plaats': 'Hoofdpodium',
-              'beschrijving': ''
-          },
-          {
-              'titel': 'Scouteske zangavond (1u)',
-              'plaats': 'Hoofdpodium',
-              'beschrijving': ''
-          },
-          {
-              'titel': 'Labyrjinth',
-              'plaats': 'L341',
-              'beschrijving': ''
-          },
-          {
-              'titel': 'Hopper café met karaoke',
-              'plaats': 'K10',
-              'beschrijving': ''
-          },
-          {
-              'titel': 'Pijl en boog',
-              'plaats': 'LK10',
-              'beschrijving': ''
-          },
-          {
-              'titel': 'Kampvuur',
-              'plaats': 'KKG',
-              'beschrijving': ''
-          }
+        {
+          'titel': 'Lindy Hop (0u)',
+          'plaats': 'Hoofdpodium',
+          'beschrijving': ''
+        },
+        {
+          'titel': 'Scouteske zangavond (1u)',
+          'plaats': 'Hoofdpodium',
+          'beschrijving': ''
+        },
+        {
+          'titel': 'Labyrjinth',
+          'plaats': 'L341',
+          'beschrijving': ''
+        },
+        {
+          'titel': 'Kampvuur',
+          'plaats': 'KKG',
+          'beschrijving': ''
+        },
+        {
+          'titel': 'Hoppercafé met karaoke (0u)',
+          'plaats': 'K10',
+          'beschrijving': ''
+        },
+        {
+          'titel': 'Hoppercafé met volksdans (1u)',
+          'plaats': 'K10',
+          'beschrijving': ''
+        },
+        {
+          'titel': 'Pijl en boog',
+          'plaats': 'LK10',
+          'beschrijving': ''
+        }
       ];
 
       var zaterdagavond = [
@@ -128,7 +133,7 @@ angular.module('hoGidsApp')
               'beschrijving': ''
           },
           {
-              'titel': 'Hopper café',
+              'titel': 'Hoppercafé',
               'plaats': 'LK10',
               'beschrijving': ''
           },
