@@ -103,9 +103,9 @@ angular
     });
 
     $rootScope.$on("$routeChangeStart", function (e) {
+      snapRemote.close();
       //hide content
       $(".content-view").hide();
-      snapRemote.close();
     });
 
     $rootScope.$on("$viewContentLoaded", function (e) {

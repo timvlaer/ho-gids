@@ -8,11 +8,11 @@
  * Controller of the hoGidsApp
  */
 angular.module('hoGidsApp')
-  .controller('MenuCtrl', function ($scope, $location, localStorageService) {
+  .controller('MenuCtrl', function ($scope, $location, localStorageService, snapRemote) {
 
-    var TWITTER_URL = "https://twitter.com/ScoutsGidsenVL",
-      FB_URL = "https://www.facebook.com/scoutsengidsenvlaanderen/",
-      INSTAGRAM_URL = "https://www.instagram.com/scoutsgidsenvl/";
+    var TWITTER_URL = "https://twitter.com/hashtag/HO16",
+      FB_URL = "https://www.facebook.com/hashtag/HO16",
+      INSTAGRAM_URL = "https://www.instagram.com/explore/tags/HO16/";
 
     $scope.gouw = localStorageService.get('gouw');
 
@@ -21,6 +21,7 @@ angular.module('hoGidsApp')
     };
 
     $scope.go = function(location) {
+      snapRemote.close();
       $location.path(location);
     };
 

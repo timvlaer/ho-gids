@@ -97,14 +97,7 @@ h1, h2 {
   background-color: $menu-color;
   color: #f0f0f0;
 
-  img#logo {
-    padding: 4px 5px 4px 30px;
-    width: 120px;
-    cursor: pointer;
-  }
-
   ul {
-    margin-top: 15px;
     padding-left: 0;
 
     li {
@@ -117,7 +110,7 @@ h1, h2 {
       a {
         color: white;
         display: block;
-        padding: 10px 10px 10px 30px;
+        padding: 9px 10px 9px 30px;
         cursor: pointer;
 
         &:focus, &:hover {
@@ -148,7 +141,7 @@ h1, h2 {
       font-size: 22px;
     }
     a {
-      padding: 0 6px
+      padding: 0 5px
     }
     img {
       width: 44px;
