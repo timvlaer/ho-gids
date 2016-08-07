@@ -87,4 +87,20 @@
     }
   }
 
+  ul.afbraakplan {
+    font-size: 0.9em;
+    padding-left: 25px;
+
+    li {
+      list-style-type: none;
+      padding-left: 1.5em;
+      text-indent:-1.5em;
+      color: $dark-text;
+
+      em {
+        color: #333;
+      }
+    }
+  }
+
 }

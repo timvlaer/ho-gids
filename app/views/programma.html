@@ -27,6 +27,10 @@
 			</div>
 		</div>
 
+    <ul ng-if="item.opruim === true && gouwAfbraakPlan" class="afbraakplan">
+     <li ng-repeat="line in gouwAfbraakPlan">District {{line.district}}: <em>{{line.locatie}}</em></li>
+    </ul>
+
 	</div>
 </div>
 </div>
