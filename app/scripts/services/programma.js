@@ -175,7 +175,7 @@ angular.module('hoGidsApp')
                 { 'start': '11:15', 'stop': '11:45', 'titel': 'Opening van de dag',
                     'plaats': 'KKG' },
                 { 'start': '11:45', 'stop': '12:30', 'titel': 'Gouwbattle',
-                    'plaats': 'Gouwgrond' },
+                    'plaats': 'KKG' },
                 { 'start': '12:30', 'stop': '13:30', 'titel': 'Picknick',
                     'beschrijving': 'Massa-picknick op de grote grond met animo', 'plaats': 'KKG' },
                 { 'start': '13:40', 'stop': '15:40', 'titel': 'Tak- en themamoment',
