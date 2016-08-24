@@ -133,7 +133,7 @@ angular.module('hoGidsApp')
               'beschrijving': ''
           },
           {
-              'titel': 'Hoppercafé',
+              'titel': 'Zeescoutscafé',
               'plaats': 'LK10',
               'beschrijving': ''
           },
