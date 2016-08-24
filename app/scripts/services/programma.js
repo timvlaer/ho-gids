@@ -113,27 +113,27 @@ angular.module('hoGidsApp')
 
       var zaterdagavond = [
           {
-              'titel': 'Optreden 1a (23u)',
+              'titel': 'Optreden \'Grøeielöss Grénzen\' (23u)',
               'plaats': 'Hoofdpodium',
               'beschrijving': ''
           },
           {
-              'titel': 'Optreden 1b (23u)',
+              'titel': 'Zeescoutscafé: I need a boat (23u)',
               'plaats': 'K10',
               'beschrijving': ''
           },
           {
-              'titel': 'Optreden 2a (0u45)',
+              'titel': 'Boy Scout Radio (0u45)',
               'plaats': 'Hoofdpodium',
               'beschrijving': ''
           },
           {
-              'titel': 'Optreden 2b (0u30)',
+              'titel': 'Zeescoutscafé: Moodcollector (0u30)',
               'plaats': 'K10',
               'beschrijving': ''
           },
           {
-              'titel': 'Zeescoutscafé',
+              'titel': 'Hoppercafé',
               'plaats': 'LK10',
               'beschrijving': ''
           },
